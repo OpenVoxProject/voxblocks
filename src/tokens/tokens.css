@@ -1,0 +1,107 @@
+/**
+ * VoxBlocks design tokens.
+ *
+ * Load this stylesheet once at the document level; the custom properties
+ * inherit into every component's shadow DOM.
+ *
+ * The palette mirrors docs.openvoxproject.org (VitePress default theme)
+ * so VoxBlocks components drop into the OpenVox docs ecosystem unchanged.
+ *
+ * Dark mode activates on `.dark` (VitePress convention) or
+ * `[data-vox-theme="dark"]` on any ancestor (usually <html>).
+ */
+
+:root {
+  /* Brand (indigo) — 1: text/links, 2: hover, 3: solid fills */
+  --vox-color-brand-1: #3451b2;
+  --vox-color-brand-2: #3a5ccc;
+  --vox-color-brand-3: #3e63dd;
+  --vox-color-brand-soft: rgba(100, 108, 255, 0.14);
+
+  /* Semantic */
+  --vox-color-tip-1: #18794e;
+  --vox-color-tip-soft: rgba(16, 185, 129, 0.14);
+  --vox-color-warning-1: #915930;
+  --vox-color-warning-soft: rgba(234, 179, 8, 0.14);
+  --vox-color-danger-1: #b8272c;
+  --vox-color-danger-2: #d5393e;
+  --vox-color-danger-3: #e0575b;
+  --vox-color-danger-soft: rgba(244, 63, 94, 0.14);
+
+  /* Surfaces */
+  --vox-color-bg: #ffffff;
+  --vox-color-bg-alt: #f6f6f7;
+  --vox-color-bg-soft: #f6f6f7;
+  --vox-color-bg-elv: #ffffff;
+
+  /* Text */
+  --vox-color-text-1: rgba(60, 60, 67, 1);
+  --vox-color-text-2: rgba(60, 60, 67, 0.78);
+  --vox-color-text-3: rgba(60, 60, 67, 0.56);
+  --vox-color-text-inverse: #ffffff;
+
+  /* Lines */
+  --vox-color-divider: rgba(60, 60, 67, 0.12);
+  --vox-color-border: rgba(60, 60, 67, 0.29);
+
+  /* Typography */
+  --vox-font-family-base: 'Inter', ui-sans-serif, system-ui, -apple-system,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --vox-font-family-mono: ui-monospace, 'SF Mono', 'Menlo', 'Monaco',
+    'Consolas', 'Liberation Mono', 'Courier New', monospace;
+
+  /* Shape */
+  --vox-radius-sm: 4px;
+  --vox-radius-md: 8px;
+  --vox-radius-lg: 12px;
+  --vox-radius-full: 9999px;
+
+  /* Spacing */
+  --vox-space-1: 0.25rem;
+  --vox-space-2: 0.5rem;
+  --vox-space-3: 0.75rem;
+  --vox-space-4: 1rem;
+  --vox-space-6: 1.5rem;
+  --vox-space-8: 2rem;
+
+  /* Elevation */
+  --vox-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --vox-shadow-2: 0 3px 12px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.07);
+
+  /* Motion */
+  --vox-transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --vox-transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark,
+[data-vox-theme='dark'] {
+  --vox-color-brand-1: #a8b1ff;
+  --vox-color-brand-2: #5c73e7;
+  --vox-color-brand-3: #5672cd;
+  --vox-color-brand-soft: rgba(100, 108, 255, 0.16);
+
+  --vox-color-tip-1: #3dd68c;
+  --vox-color-tip-soft: rgba(16, 185, 129, 0.16);
+  --vox-color-warning-1: #f9b44e;
+  --vox-color-warning-soft: rgba(234, 179, 8, 0.16);
+  --vox-color-danger-1: #f66f81;
+  --vox-color-danger-2: #f14158;
+  --vox-color-danger-3: #b62a3c;
+  --vox-color-danger-soft: rgba(244, 63, 94, 0.16);
+
+  --vox-color-bg: #1b1b1f;
+  --vox-color-bg-alt: #161618;
+  --vox-color-bg-soft: #202127;
+  --vox-color-bg-elv: #202127;
+
+  --vox-color-text-1: rgba(255, 255, 245, 0.86);
+  --vox-color-text-2: rgba(235, 235, 245, 0.6);
+  --vox-color-text-3: rgba(235, 235, 245, 0.38);
+  --vox-color-text-inverse: #ffffff;
+
+  --vox-color-divider: rgba(82, 82, 89, 0.32);
+  --vox-color-border: rgba(82, 82, 89, 0.68);
+
+  --vox-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --vox-shadow-2: 0 3px 12px rgba(0, 0, 0, 0.26), 0 1px 4px rgba(0, 0, 0, 0.26);
+}

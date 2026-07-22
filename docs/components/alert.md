@@ -1,0 +1,27 @@
+# Alert
+
+`<vox-alert>` is a page-level notification, optionally dismissible. For static advisory text within prose, use [Callout](./callout).
+
+<div style="display: grid; gap: 0.75rem; margin: 1rem 0;">
+  <vox-alert variant="info" heading="Heads up"><p>OpenVox 8.2 is now the default.</p></vox-alert>
+  <vox-alert variant="success" heading="Published"><p>Your module is live on the Forge.</p></vox-alert>
+  <vox-alert variant="warning" heading="Maintenance window"><p>The Forge API will be read-only on Saturday.</p></vox-alert>
+  <vox-alert variant="danger" heading="Build failed" dismissible><p>Check the CI logs for details. This one is dismissible.</p></vox-alert>
+</div>
+
+```html
+<vox-alert variant="warning" heading="Maintenance window" dismissible>
+  <p>The Forge API will be read-only on Saturday.</p>
+</vox-alert>
+```
+
+## API
+
+| Attribute | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `info \| success \| warning \| danger` | `info` | Semantic style |
+| `heading` | `string` | — | Bold first line |
+| `dismissible` | `boolean` | `false` | Show a close button |
+| `open` | `boolean` | `true` | Visibility; cleared on dismiss |
+
+Fires `vox-dismiss` when closed.

@@ -1,0 +1,76 @@
+/**
+ * Light-DOM utility classes for content that can't live in shadow DOM —
+ * tables and lists are styled via classes on native elements, the same
+ * approach Rivet takes.
+ */
+
+/* Table ------------------------------------------------------------- */
+
+.vox-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--vox-font-family-base);
+  font-size: 14px;
+  color: var(--vox-color-text-1);
+}
+
+.vox-table caption {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-align: left;
+  color: var(--vox-color-text-1);
+}
+
+.vox-table th {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 2px solid var(--vox-color-divider);
+  font-weight: 600;
+  text-align: left;
+  color: var(--vox-color-text-1);
+}
+
+.vox-table td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--vox-color-divider);
+  color: var(--vox-color-text-2);
+}
+
+.vox-table--striped tbody tr:nth-child(odd) {
+  background-color: var(--vox-color-bg-soft);
+}
+
+.vox-table--compact th,
+.vox-table--compact td {
+  padding: 0.35rem 0.6rem;
+}
+
+/* List -------------------------------------------------------------- */
+
+.vox-list {
+  font-family: var(--vox-font-family-base);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--vox-color-text-2);
+  padding-left: 1.25rem;
+}
+
+.vox-list li + li {
+  margin-top: 0.25rem;
+}
+
+.vox-list--plain {
+  list-style: none;
+  padding-left: 0;
+}
+
+.vox-list--inline {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+.vox-list--inline li + li {
+  margin-top: 0;
+}
