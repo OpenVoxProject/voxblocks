@@ -1,6 +1,6 @@
 # List
 
-Lists are styled with light-DOM utility classes (shadow DOM can't reach into slotted list items), the same approach Rivet takes. Included in `voxblocks.css`.
+Lists are styled with light-DOM utility classes (shadow DOM can't reach into slotted list items). Included in `voxblocks.css`.
 
 <ul class="vox-list" style="margin: 1rem 0;">
   <li>Default styled list</li>

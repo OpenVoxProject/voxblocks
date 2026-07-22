@@ -1,6 +1,6 @@
 # Table
 
-Tables are styled with light-DOM utility classes on native `<table>` elements (shadow DOM can't style slotted table cells), the same approach Rivet takes. Included in `voxblocks.css`.
+Tables are styled with light-DOM utility classes on native `<table>` elements (shadow DOM can't style slotted table cells). Included in `voxblocks.css`.
 
 <table class="vox-table vox-table--striped" style="margin: 1rem 0;">
   <thead>

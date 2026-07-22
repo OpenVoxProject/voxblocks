@@ -18,6 +18,7 @@ export default defineConfig({
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'Components', link: '/components/button' },
+      { text: 'Utilities', link: '/guide/utilities' },
     ],
     sidebar: [
       {
@@ -25,6 +26,7 @@ export default defineConfig({
         items: [
           { text: 'Getting Started', link: '/guide/getting-started' },
           { text: 'Design Tokens', link: '/guide/design-tokens' },
+          { text: 'Utilities', link: '/guide/utilities' },
         ],
       },
       {

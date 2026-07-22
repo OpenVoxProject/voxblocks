@@ -1,12 +1,12 @@
 # VoxBlocks
 
-Web components for [Vox Pupuli](https://voxpupuli.org) and [OpenVox](https://voxpupuli.org/openvox/) community web sites — a general-purpose design system in the spirit of [Rivet](https://rivet.iu.edu/), built on web standards. The default theme starts from the look of [docs.openvoxproject.org](https://docs.openvoxproject.org/) and is fully retunable via CSS custom properties.
+Web components for [Vox Pupuli](https://voxpupuli.org) and [OpenVox](https://voxpupuli.org/openvox/) community web sites — a general-purpose design system built on web standards, to keep branding consistent across all community offerings. The default theme starts from the look of [docs.openvoxproject.org](https://docs.openvoxproject.org/) and is fully retunable via CSS custom properties.
 
 Because they are standard custom elements (built with [Lit](https://lit.dev)), the components work in plain HTML, Jekyll, VitePress, Vue, React — anywhere.
 
 ## Components
 
-The full Rivet-equivalent component set, organized the same way:
+The component catalog, by category:
 
 | Category | Components |
 | --- | --- |
@@ -16,7 +16,7 @@ The full Rivet-equivalent component set, organized the same way:
 | Navigation | `vox-breadcrumbs`, `vox-header`, `vox-pagination`, `vox-series-nav`, `vox-sidenav`, `vox-subnav`, `vox-tabs` |
 | Overlays | `vox-dialog`, `vox-disclosure`, `vox-dropdown` |
 | Page content | `vox-accordion`, `vox-alert`, `vox-badge`, `vox-calendar-tile`, `vox-callout`, `vox-card`, `vox-empty-state`, `vox-footer`, `vox-grid`, `vox-hero`, `vox-link-hub`, `vox-loader`, `vox-quote`, `vox-stat`, `vox-step-indicator`, `vox-timeline` |
-| Utilities | `.vox-table`, `.vox-list` CSS classes (light-DOM content) |
+| Utilities | Utility classes: spacing (`vox-m-*`/`vox-p-*`), typography (`vox-ts-*`, `vox-text-*`), color (`vox-color-*`, `vox-bg-*`), border, display, flex, gap, shadow, visibility (incl. `vox-sr-only` and responsive hiding), width, z-index — plus `.vox-table` and `.vox-list` |
 
 Form controls are form-associated custom elements (ElementInternals): they submit values, files, and validity with a plain `<form>` like native inputs.
 
