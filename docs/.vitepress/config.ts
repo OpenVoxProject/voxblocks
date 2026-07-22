@@ -105,11 +105,11 @@ export default defineConfig({
       },
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/voxpupuli/voxblocks' },
+      { icon: 'github', link: 'https://github.com/avitacco/voxblocks' },
     ],
     footer: {
       message: 'Released under the Apache-2.0 License.',
-      copyright: 'A Vox Pupuli community project',
+      copyright: 'A Vox Pupuli community project (perhaps!)',
     },
   },
 });
