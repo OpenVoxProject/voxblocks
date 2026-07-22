@@ -1,6 +1,9 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
+  // Project pages are served under https://<org>.github.io/voxblocks/.
+  // Remove this (or set to '/') if the site moves to a custom domain.
+  base: '/voxblocks/',
   title: 'VoxBlocks',
   description:
     'Web components for Vox Pupuli and OpenVox community web sites',
