@@ -6,7 +6,9 @@ import { customElement, property } from 'lit/decorators.js';
  * Becomes a single large link when `href` is set.
  *
  * @slot icon - Optional icon or emoji shown above the heading.
+ * @slot badge - Optional badge or label shown in the top-right corner.
  * @slot - Card body text.
+ * @slot footer - Optional content pinned to the bottom of the card, e.g. stats.
  */
 @customElement('vox-card')
 export class VoxCard extends LitElement {
@@ -20,7 +22,9 @@ export class VoxCard extends LitElement {
     }
 
     .card {
-      display: block;
+      position: relative;
+      display: flex;
+      flex-direction: column;
       height: 100%;
       box-sizing: border-box;
       background-color: var(--vox-color-bg-soft);
@@ -30,6 +34,16 @@ export class VoxCard extends LitElement {
       font-family: var(--vox-font-family-base);
       text-decoration: none;
       transition: border-color var(--vox-transition-base);
+    }
+
+    .badge {
+      position: absolute;
+      top: var(--vox-space-6);
+      right: var(--vox-space-6);
+    }
+
+    .badge:not(.has-badge) {
+      display: none;
     }
 
     a.card:hover,
@@ -72,9 +86,20 @@ export class VoxCard extends LitElement {
       line-height: 1.6;
       color: var(--vox-color-text-2);
     }
+
+    .footer {
+      margin-top: auto;
+      padding-top: var(--vox-space-4);
+    }
+
+    .footer:not(.has-footer) {
+      display: none;
+    }
   `;
 
   private hasIcon = false;
+  private hasBadge = false;
+  private hasFooter = false;
 
   private handleIconSlotChange(event: Event) {
     const slot = event.target as HTMLSlotElement;
@@ -82,13 +107,31 @@ export class VoxCard extends LitElement {
     this.requestUpdate();
   }
 
+  private handleBadgeSlotChange(event: Event) {
+    const slot = event.target as HTMLSlotElement;
+    this.hasBadge = slot.assignedNodes({ flatten: true }).length > 0;
+    this.requestUpdate();
+  }
+
+  private handleFooterSlotChange(event: Event) {
+    const slot = event.target as HTMLSlotElement;
+    this.hasFooter = slot.assignedNodes({ flatten: true }).length > 0;
+    this.requestUpdate();
+  }
+
   render() {
     const inner = html`
+      <div class="badge ${this.hasBadge ? 'has-badge' : ''}">
+        <slot name="badge" @slotchange=${this.handleBadgeSlotChange}></slot>
+      </div>
       <div class="icon ${this.hasIcon ? 'has-icon' : ''}">
         <slot name="icon" @slotchange=${this.handleIconSlotChange}></slot>
       </div>
       <h3 class="heading">${this.heading}</h3>
       <div class="body"><slot></slot></div>
+      <div class="footer ${this.hasFooter ? 'has-footer' : ''}">
+        <slot name="footer" @slotchange=${this.handleFooterSlotChange}></slot>
+      </div>
     `;
 
     return this.href !== undefined

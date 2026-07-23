@@ -25,6 +25,57 @@
 </vox-card>
 ```
 
+## Badge
+
+Use the `badge` slot to place a badge or label in the top-right corner of the card.
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin: 1rem 0;">
+  <vox-card heading="Design Patterns">
+    <span slot="icon">🧱</span>
+    <vox-badge slot="badge" variant="danger">Pro</vox-badge>
+    Grab-and-go patterns for common site, app, and online product workflows.
+  </vox-card>
+  <vox-card heading="puppetdb">
+    <span slot="badge">8.1.0</span>
+    Installs PostgreSQL and PuppetDB, sets up the connection to Puppet master.
+  </vox-card>
+</div>
+
+```html
+<vox-card heading="Design Patterns">
+  <span slot="icon">🧱</span>
+  <vox-badge slot="badge" variant="danger">Pro</vox-badge>
+  Grab-and-go patterns for common site, app, and online product workflows.
+</vox-card>
+```
+
+## Footer
+
+Use the `footer` slot for content that should stay pinned to the bottom of the
+card, e.g. stats, regardless of how much body text precedes it. Cards in the
+same row line up their footers even when body length varies.
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin: 1rem 0;">
+  <vox-card heading="puppetdb">
+    <span slot="badge">8.1.0</span>
+    Installs PostgreSQL and PuppetDB, sets up the connection to Puppet master.
+    <span slot="footer">313,347,865 downloads</span>
+  </vox-card>
+  <vox-card heading="apache">
+    <span slot="badge">12.0.1</span>
+    Installs and configures Apache HTTP Server, including virtual hosts, modules, and SSL/TLS settings for websites.
+    <span slot="footer">204,981,112 downloads</span>
+  </vox-card>
+</div>
+
+```html
+<vox-card heading="puppetdb">
+  <span slot="badge">8.1.0</span>
+  Installs PostgreSQL and PuppetDB, sets up the connection to Puppet master.
+  <span slot="footer">313,347,865 downloads</span>
+</vox-card>
+```
+
 ## API
 
 | Attribute | Type | Default | Description |
@@ -37,3 +88,5 @@
 | --- | --- |
 | *(default)* | Body text |
 | `icon` | Icon or emoji above the heading |
+| `badge` | Badge or label in the top-right corner |
+| `footer` | Content pinned to the bottom of the card |
