@@ -49,6 +49,15 @@ export class VoxHero extends LitElement {
       color: var(--vox-color-text-2);
     }
 
+    .body ::slotted(a) {
+      color: var(--vox-color-brand-1);
+      text-decoration: underline;
+    }
+
+    .body ::slotted(a:hover) {
+      color: var(--vox-color-brand-2);
+    }
+
     .actions {
       display: flex;
       gap: var(--vox-space-3);
