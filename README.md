@@ -25,19 +25,19 @@ Form controls are form-associated custom elements (ElementInternals): they submi
 With a bundler:
 
 ```sh
-npm install @voxpupuli/voxblocks
+npm install @avitacco/voxblocks
 ```
 
 ```js
-import '@voxpupuli/voxblocks';
-import '@voxpupuli/voxblocks/voxblocks.css';
+import '@avitacco/voxblocks';
+import '@avitacco/voxblocks/voxblocks.css';
 ```
 
 Without a build step (Lit bundled in):
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@voxpupuli/voxblocks/dist/cdn/voxblocks.css">
-<script type="module" src="https://unpkg.com/@voxpupuli/voxblocks/dist/cdn/voxblocks.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@avitacco/voxblocks/dist/cdn/voxblocks.css">
+<script type="module" src="https://unpkg.com/@avitacco/voxblocks/dist/cdn/voxblocks.js"></script>
 ```
 
 Then:
