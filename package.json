@@ -1,6 +1,6 @@
 {
   "name": "@avitacco/voxblocks",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Web components for Vox Pupuli and OpenVox community web sites",
   "type": "module",
   "license": "Apache-2.0",
