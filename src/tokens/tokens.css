@@ -105,3 +105,29 @@
   --vox-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.24);
   --vox-shadow-2: 0 3px 12px rgba(0, 0, 0, 0.26), 0 1px 4px rgba(0, 0, 0, 0.26);
 }
+
+/**
+ * Links nested inside slotted prose (e.g. an <a> inside a <p> passed into
+ * vox-hero's default slot) can't be reached by a component's own
+ * `::slotted()` rules — that selector only matches nodes assigned directly
+ * to the slot, not their descendants. Left unstyled, such links fall back
+ * to the browser's default :link/:visited colors, which don't track the
+ * dark theme and can fail contrast. These light-DOM rules style them from
+ * the outside instead.
+ */
+vox-hero a,
+vox-alert a,
+vox-callout a,
+vox-dialog a,
+vox-accordion-item a {
+  color: var(--vox-color-brand-1);
+  text-decoration: underline;
+}
+
+vox-hero a:hover,
+vox-alert a:hover,
+vox-callout a:hover,
+vox-dialog a:hover,
+vox-accordion-item a:hover {
+  color: var(--vox-color-brand-2);
+}
