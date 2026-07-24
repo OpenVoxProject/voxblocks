@@ -15,7 +15,7 @@ The component catalog, by category:
 | Images | `vox-avatar`, `vox-billboard` |
 | Navigation | `vox-breadcrumbs`, `vox-header`, `vox-pagination`, `vox-series-nav`, `vox-sidenav`, `vox-subnav`, `vox-tabs` |
 | Overlays | `vox-dialog`, `vox-disclosure`, `vox-dropdown` |
-| Page content | `vox-accordion`, `vox-alert`, `vox-badge`, `vox-calendar-tile`, `vox-callout`, `vox-card`, `vox-empty-state`, `vox-footer`, `vox-grid`, `vox-hero`, `vox-link-hub`, `vox-loader`, `vox-quote`, `vox-stat`, `vox-step-indicator`, `vox-timeline` |
+| Page content | `vox-accordion`, `vox-alert`, `vox-badge`, `vox-calendar-tile`, `vox-callout`, `vox-card`, `vox-empty-state`, `vox-footer`, `vox-grid`, `vox-hero`, `vox-link-hub`, `vox-loader`, `vox-quote`, `vox-sponsor-tier`/`vox-sponsor`, `vox-stat`, `vox-step-indicator`, `vox-timeline` |
 | Utilities | Utility classes: spacing (`vox-m-*`/`vox-p-*`), typography (`vox-ts-*`, `vox-text-*`), color (`vox-color-*`, `vox-bg-*`), border, display, flex, gap, shadow, visibility (incl. `vox-sr-only` and responsive hiding), width, z-index — plus `.vox-table` and `.vox-list` |
 
 Form controls are form-associated custom elements (ElementInternals): they submit values, files, and validity with a plain `<form>` like native inputs.

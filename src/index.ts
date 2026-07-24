@@ -48,6 +48,7 @@ export { VoxLinkHub, VoxLinkHubItem } from './components/link-hub/vox-link-hub.j
 export { VoxLoader } from './components/loader/vox-loader.js';
 export { VoxPagination } from './components/pagination/vox-pagination.js';
 export { VoxQuote } from './components/quote/vox-quote.js';
+export { VoxSponsor, VoxSponsorTier } from './components/sponsor/vox-sponsor.js';
 export { VoxStat } from './components/stat/vox-stat.js';
 export { VoxStepIndicator, VoxStep } from './components/step-indicator/vox-step-indicator.js';
 export { VoxTimeline, VoxTimelineItem } from './components/timeline/vox-timeline.js';

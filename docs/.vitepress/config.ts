@@ -99,6 +99,7 @@ export default defineConfig({
           { text: 'List', link: '/components/list' },
           { text: 'Loading Indicator', link: '/components/loader' },
           { text: 'Quote', link: '/components/quote' },
+          { text: 'Sponsor', link: '/components/sponsor' },
           { text: 'Stat', link: '/components/stat' },
           { text: 'Step Indicator', link: '/components/step-indicator' },
           { text: 'Table', link: '/components/table' },
