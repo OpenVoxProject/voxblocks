@@ -115,6 +115,15 @@
   margin-top: var(--vox-space-4);
 }
 
+.vox-prose a {
+  color: var(--vox-color-brand-1);
+  text-decoration: underline;
+}
+
+.vox-prose a:hover {
+  color: var(--vox-color-brand-2);
+}
+
 /* Spacing: margin ---------------------------------------------------- */
 
 .vox-m-all-none { margin: 0 !important; }

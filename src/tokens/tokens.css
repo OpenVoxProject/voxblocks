@@ -127,24 +127,35 @@ body {
 }
 
 /**
- * Base link color for the whole document. tokens.css is loaded once at
- * the document level (see the file header), so this reaches every plain
- * <a> a consuming site writes itself — prose in a .prose block, links
- * inside slotted content passed into vox-hero/vox-alert/vox-callout/
- * vox-dialog/vox-accordion-item, anywhere. Left unset, such links fall
- * back to the browser's default :link/:visited colors, which don't track
- * the dark theme and can fail contrast.
+ * Links nested inside slotted prose (e.g. an <a> inside a <p> passed into
+ * vox-hero's default slot) can't be reached by a component's own
+ * `::slotted()` rules — that selector only matches nodes assigned directly
+ * to the slot, not their descendants. Left unstyled, such links fall back
+ * to the browser's default :link/:visited colors, which don't track the
+ * dark theme and can fail contrast. These light-DOM rules style them from
+ * the outside instead.
  *
- * Components with their own slotted nav-style links (vox-header,
- * vox-footer, vox-breadcrumbs) override this with a more specific
- * `::slotted(a)` rule in their own shadow styles, so this rule only ever
- * reaches links a site places itself.
+ * Deliberately NOT a bare `a` selector: tokens.css is loaded once at the
+ * document level, which in a site like the VitePress docs also includes
+ * that site's own pre-existing chrome (nav bar, sidebar, home hero) — a
+ * blanket `a` rule reaches those too and forces an underline onto
+ * navigation that was never supposed to have one. Scoping to these five
+ * components (plus the opt-in `.vox-prose` utility, see utilities.css)
+ * keeps this to content a site actually handed to VoxBlocks.
  */
-a {
+vox-hero a,
+vox-alert a,
+vox-callout a,
+vox-dialog a,
+vox-accordion-item a {
   color: var(--vox-color-brand-1);
   text-decoration: underline;
 }
 
-a:hover {
+vox-hero a:hover,
+vox-alert a:hover,
+vox-callout a:hover,
+vox-dialog a:hover,
+vox-accordion-item a:hover {
   color: var(--vox-color-brand-2);
 }
