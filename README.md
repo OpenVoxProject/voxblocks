@@ -10,13 +10,13 @@ The component catalog, by category:
 
 | Category | Components |
 | --- | --- |
-| Actions | `vox-button`, `vox-cta` |
+| Actions | `vox-button`, `vox-cta`, `vox-theme-toggle` |
 | Forms | `vox-checkbox`, `vox-file-input`, `vox-input`, `vox-input-group`, `vox-radio-group`/`vox-radio`, `vox-select`, `vox-switch`, `vox-textarea` |
 | Images | `vox-avatar`, `vox-billboard` |
 | Navigation | `vox-breadcrumbs`, `vox-header`, `vox-pagination`, `vox-series-nav`, `vox-sidenav`, `vox-subnav`, `vox-tabs` |
 | Overlays | `vox-dialog`, `vox-disclosure`, `vox-dropdown` |
-| Page content | `vox-accordion`, `vox-alert`, `vox-badge`, `vox-calendar-tile`, `vox-callout`, `vox-card`, `vox-empty-state`, `vox-footer`, `vox-grid`, `vox-hero`, `vox-link-hub`, `vox-loader`, `vox-quote`, `vox-sponsor-tier`/`vox-sponsor`, `vox-stat`, `vox-step-indicator`, `vox-timeline` |
-| Utilities | Utility classes: spacing (`vox-m-*`/`vox-p-*`), typography (`vox-ts-*`, `vox-text-*`), color (`vox-color-*`, `vox-bg-*`), border, display, flex, gap, shadow, visibility (incl. `vox-sr-only` and responsive hiding), width, z-index — plus `.vox-table` and `.vox-list` |
+| Page content | `vox-accordion`, `vox-alert`, `vox-badge`, `vox-calendar-tile`, `vox-callout`, `vox-card`, `vox-cta-band`, `vox-empty-state`, `vox-footer`, `vox-grid`, `vox-hero`, `vox-link-hub`, `vox-loader`, `vox-quote`, `vox-sponsor-tier`/`vox-sponsor`, `vox-stat`, `vox-step-indicator`, `vox-timeline` |
+| Utilities | Utility classes: spacing (`vox-m-*`/`vox-p-*`), typography (`vox-ts-*`, `vox-text-*`), color (`vox-color-*`, `vox-bg-*`), border, display, flex, gap, shadow, visibility (incl. `vox-sr-only` and responsive hiding), width, z-index — plus `.vox-table`/`.vox-table-wrap`, `.vox-list`, and `.vox-prose` |
 
 Form controls are form-associated custom elements (ElementInternals): they submit values, files, and validity with a plain `<form>` like native inputs.
 

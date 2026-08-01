@@ -53,6 +53,7 @@ export default defineConfig({
         items: [
           { text: 'Button', link: '/components/button' },
           { text: 'Call to Action', link: '/components/cta' },
+          { text: 'Theme Toggle', link: '/components/theme-toggle' },
         ],
       },
       {
@@ -109,6 +110,7 @@ export default defineConfig({
           { text: 'Calendar Tile', link: '/components/calendar-tile' },
           { text: 'Callout', link: '/components/callout' },
           { text: 'Card', link: '/components/card' },
+          { text: 'CTA Band', link: '/components/cta-band' },
           { text: 'Empty State', link: '/components/empty-state' },
           { text: 'Footer', link: '/components/footer' },
           { text: 'Grid', link: '/components/grid' },
@@ -116,6 +118,7 @@ export default defineConfig({
           { text: 'Link Hub', link: '/components/link-hub' },
           { text: 'List', link: '/components/list' },
           { text: 'Loading Indicator', link: '/components/loader' },
+          { text: 'Prose', link: '/components/prose' },
           { text: 'Quote', link: '/components/quote' },
           { text: 'Sponsor', link: '/components/sponsor' },
           { text: 'Stat', link: '/components/stat' },

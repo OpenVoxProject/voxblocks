@@ -18,3 +18,34 @@ Tables are styled with light-DOM utility classes on native `<table>` elements (s
 <table class="vox-table vox-table--striped">…</table>
 <table class="vox-table vox-table--compact">…</table>
 ```
+
+## Comparison tables
+
+Wrap a wide table in `.vox-table-wrap` for a bordered, rounded, horizontally
+scrollable container. `<th scope="row">` row headers get the same tinted
+background as column headers automatically.
+
+<div class="vox-table-wrap" style="margin: 1rem 0;">
+  <table class="vox-table">
+    <thead>
+      <tr><th scope="col">Dimension</th><th scope="col">OpenVox</th><th scope="col">Ansible</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Model</th><td>Declarative</td><td>Procedural</td></tr>
+      <tr><th scope="row">Execution</th><td>Pull-based agent</td><td>Push-based over SSH</td></tr>
+    </tbody>
+  </table>
+</div>
+
+```html
+<div class="vox-table-wrap">
+  <table class="vox-table">
+    <thead>
+      <tr><th scope="col">Dimension</th><th scope="col">OpenVox</th><th scope="col">Ansible</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Model</th><td>Declarative</td><td>Procedural</td></tr>
+    </tbody>
+  </table>
+</div>
+```

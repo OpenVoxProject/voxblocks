@@ -114,27 +114,37 @@
 }
 
 /**
- * Links nested inside slotted prose (e.g. an <a> inside a <p> passed into
- * vox-hero's default slot) can't be reached by a component's own
- * `::slotted()` rules — that selector only matches nodes assigned directly
- * to the slot, not their descendants. Left unstyled, such links fall back
- * to the browser's default :link/:visited colors, which don't track the
- * dark theme and can fail contrast. These light-DOM rules style them from
- * the outside instead.
+ * Base document reset. Every consuming site was writing this exact rule
+ * itself (margin reset, base font, page background/text color) — since
+ * tokens.css already loads once at the document level, it belongs here
+ * instead of being copy-pasted per site.
  */
-vox-hero a,
-vox-alert a,
-vox-callout a,
-vox-dialog a,
-vox-accordion-item a {
+body {
+  margin: 0;
+  font-family: var(--vox-font-family-base);
+  background-color: var(--vox-color-bg);
+  color: var(--vox-color-text-1);
+}
+
+/**
+ * Base link color for the whole document. tokens.css is loaded once at
+ * the document level (see the file header), so this reaches every plain
+ * <a> a consuming site writes itself — prose in a .prose block, links
+ * inside slotted content passed into vox-hero/vox-alert/vox-callout/
+ * vox-dialog/vox-accordion-item, anywhere. Left unset, such links fall
+ * back to the browser's default :link/:visited colors, which don't track
+ * the dark theme and can fail contrast.
+ *
+ * Components with their own slotted nav-style links (vox-header,
+ * vox-footer, vox-breadcrumbs) override this with a more specific
+ * `::slotted(a)` rule in their own shadow styles, so this rule only ever
+ * reaches links a site places itself.
+ */
+a {
   color: var(--vox-color-brand-1);
   text-decoration: underline;
 }
 
-vox-hero a:hover,
-vox-alert a:hover,
-vox-callout a:hover,
-vox-dialog a:hover,
-vox-accordion-item a:hover {
+a:hover {
   color: var(--vox-color-brand-2);
 }

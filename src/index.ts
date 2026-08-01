@@ -4,6 +4,7 @@ import './styles/utilities.css';
 // Actions
 export { VoxButton } from './components/button/vox-button.js';
 export { VoxCta } from './components/cta/vox-cta.js';
+export { VoxThemeToggle } from './components/theme-toggle/vox-theme-toggle.js';
 
 // Forms
 export { VoxCheckbox } from './components/checkbox/vox-checkbox.js';
@@ -40,6 +41,7 @@ export { VoxBadge } from './components/badge/vox-badge.js';
 export { VoxCalendarTile } from './components/calendar-tile/vox-calendar-tile.js';
 export { VoxCallout } from './components/callout/vox-callout.js';
 export { VoxCard } from './components/card/vox-card.js';
+export { VoxCtaBand } from './components/cta-band/vox-cta-band.js';
 export { VoxEmptyState } from './components/empty-state/vox-empty-state.js';
 export { VoxFooter, VoxFooterColumn } from './components/footer/vox-footer.js';
 export { VoxGrid } from './components/grid/vox-grid.js';

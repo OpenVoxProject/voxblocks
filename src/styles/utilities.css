@@ -32,7 +32,9 @@
   border-bottom: 2px solid var(--vox-color-divider);
   font-weight: 600;
   text-align: left;
+  white-space: nowrap;
   color: var(--vox-color-text-1);
+  background-color: var(--vox-color-bg-soft);
 }
 
 .vox-table td {
@@ -48,6 +50,21 @@
 .vox-table--compact th,
 .vox-table--compact td {
   padding: 0.35rem 0.6rem;
+}
+
+/* Wrap a .vox-table in this for a bordered, rounded, horizontally
+   scrollable container — the pattern any wide comparison table needs.
+   The last row's own border is dropped since the wrapper's border
+   already closes off the bottom edge. */
+.vox-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--vox-color-divider);
+  border-radius: var(--vox-radius-lg);
+}
+
+.vox-table-wrap .vox-table tbody tr:last-child th,
+.vox-table-wrap .vox-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /* List --------------------------------------------------------------- */
@@ -79,6 +96,23 @@
 
 .vox-list--inline li + li {
   margin-top: 0;
+}
+
+/* Prose ---------------------------------------------------------------- */
+
+/* A block of readable body copy: a comfortable measure (44rem, ~75-80
+   characters at 16px) plus the font size/line-height/color for long-form
+   text. Stack multiple blocks and they space themselves apart. */
+.vox-prose {
+  max-width: 44rem;
+  font-family: var(--vox-font-family-base);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--vox-color-text-2);
+}
+
+.vox-prose + .vox-prose {
+  margin-top: var(--vox-space-4);
 }
 
 /* Spacing: margin ---------------------------------------------------- */
