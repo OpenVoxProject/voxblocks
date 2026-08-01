@@ -29,7 +29,7 @@ export class VoxCtaBand extends LitElement {
       margin: 0;
       font-family: var(--vox-font-family-display);
       font-size: 28px;
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1.3;
       color: var(--vox-color-text-1);
     }

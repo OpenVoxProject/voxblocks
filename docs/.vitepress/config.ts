@@ -21,7 +21,7 @@ export default defineConfig({
       'link',
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,700;1,500&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,600;1,500&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap',
       },
     ],
   ],

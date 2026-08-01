@@ -24,7 +24,7 @@ The default palette, "Deep Teal," is an OpenVox-specific identity rather than a 
 | Token | Value |
 | --- | --- |
 | `--vox-font-family-base` | Inter / system sans stack |
-| `--vox-font-family-display` | Alegreya / serif stack — headings only (`vox-hero`, `vox-billboard`, `vox-quote`) |
+| `--vox-font-family-display` | Source Serif 4 / serif stack — headings only (`vox-hero`, `vox-billboard`, `vox-quote`) |
 | `--vox-font-family-mono` | JetBrains Mono / system mono stack |
 | `--vox-radius-sm/md/lg/full` | 4px / 8px / 12px / pill |
 | `--vox-space-1…8` | 0.25rem – 2rem |
