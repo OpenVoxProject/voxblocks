@@ -1,6 +1,6 @@
 # VoxBlocks
 
-Web components for [Vox Pupuli](https://voxpupuli.org) and [OpenVox](https://voxpupuli.org/openvox/) community web sites — a general-purpose design system built on web standards, to keep branding consistent across all community offerings. The default theme starts from the look of [docs.openvoxproject.org](https://docs.openvoxproject.org/) and is fully retunable via CSS custom properties.
+Web components for [Vox Pupuli](https://voxpupuli.org) and [OpenVox](https://voxpupuli.org/openvox/) community web sites — a general-purpose design system built on web standards, to keep branding consistent across all community offerings. The default theme, "Deep Teal," is a distinct OpenVox identity rather than a copy of any one site's look, and is fully retunable via CSS custom properties.
 
 Because they are standard custom elements (built with [Lit](https://lit.dev)), the components work in plain HTML, Jekyll, VitePress, Vue, React — anywhere.
 
@@ -52,9 +52,11 @@ Then:
 
 ```sh
 npm install
-npm run docs:dev    # component docs & live playground
-npm run build       # build npm + CDN bundles and type declarations
-npm run docs:build  # build the docs site
+npm run docs:dev         # component docs & live playground
+npm run storybook        # per-component Storybook, one story per documented example
+npm run build            # build npm + CDN bundles and type declarations
+npm run docs:build       # build the docs site
+npm run build-storybook  # build the static Storybook
 ```
 
 Design tokens live in `src/tokens/tokens.css` (`--vox-*` custom properties, light + dark). Components live in `src/components/<name>/vox-<name>.ts`.

@@ -35,6 +35,7 @@ export class VoxHero extends LitElement {
 
     .heading {
       margin: 0;
+      font-family: var(--vox-font-family-display);
       font-size: 36px;
       font-weight: 700;
       line-height: 1.25;

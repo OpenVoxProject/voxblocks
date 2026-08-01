@@ -53,6 +53,7 @@ export class VoxBillboard extends LitElement {
 
     .heading {
       margin: 0 0 var(--vox-space-3);
+      font-family: var(--vox-font-family-display);
       font-size: 28px;
       font-weight: 700;
       line-height: 1.3;

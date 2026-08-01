@@ -26,7 +26,9 @@ export class VoxQuote extends LitElement {
     }
 
     .text {
-      font-size: 18px;
+      font-family: var(--vox-font-family-display);
+      font-style: italic;
+      font-size: 20px;
       line-height: 1.6;
       color: var(--vox-color-text-1);
     }

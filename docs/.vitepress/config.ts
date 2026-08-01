@@ -7,6 +7,24 @@ export default defineConfig({
   title: 'VoxBlocks',
   description:
     'Web components for Vox Pupuli and OpenVox community web sites',
+  head: [
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    [
+      'link',
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: '',
+      },
+    ],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,700;1,500&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap',
+      },
+    ],
+  ],
   vue: {
     template: {
       compilerOptions: {

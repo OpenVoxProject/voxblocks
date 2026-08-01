@@ -2,7 +2,7 @@
 
 All colors, fonts, spacing, and radii are CSS custom properties defined in `voxblocks.css`, prefixed `--vox-`. They are set on `:root` and inherit into every component's shadow DOM, so a site can re-theme VoxBlocks by overriding variables — no component changes needed.
 
-The default palette mirrors [docs.openvoxproject.org](https://docs.openvoxproject.org/).
+The default palette, "Deep Teal," is an OpenVox-specific identity rather than a copy of any one site's theme — an analogous blue-green family chosen because it holds up well under red-green colorblindness, the most common form.
 
 ## Color
 
@@ -24,7 +24,8 @@ The default palette mirrors [docs.openvoxproject.org](https://docs.openvoxprojec
 | Token | Value |
 | --- | --- |
 | `--vox-font-family-base` | Inter / system sans stack |
-| `--vox-font-family-mono` | System mono stack |
+| `--vox-font-family-display` | Alegreya / serif stack — headings only (`vox-hero`, `vox-billboard`, `vox-quote`) |
+| `--vox-font-family-mono` | JetBrains Mono / system mono stack |
 | `--vox-radius-sm/md/lg/full` | 4px / 8px / 12px / pill |
 | `--vox-space-1…8` | 0.25rem – 2rem |
 | `--vox-shadow-1/2` | Elevation |

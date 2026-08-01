@@ -41,3 +41,15 @@ Tokens switch automatically when an ancestor element (usually `<html>`) has the 
 ```html
 <html data-vox-theme="dark">
 ```
+
+## Fonts
+
+VoxBlocks doesn't bundle font files — it names Inter (body), Alegreya (headings), and JetBrains Mono (code) in its font stacks and falls back to system fonts if they aren't loaded, the same way it's always handled Inter. Load them yourself for the intended look, e.g.:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,700;1,500&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+```
+
+All three are open licensed (Alegreya and JetBrains Mono included) and safe to self-host instead if a site doesn't want the Google Fonts request.
