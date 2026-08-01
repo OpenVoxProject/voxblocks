@@ -19,7 +19,7 @@ features:
     details: Built on Lit and web standards. No framework lock-in — works in static HTML, Jekyll, VitePress, Vue, React, anywhere.
   - icon: 🎨
     title: OpenVox look and feel
-    details: Design tokens mirror docs.openvoxproject.org, including automatic light and dark mode.
+    details: Custom designed branding and color scheme, including automatic light and dark mode.
   - icon: ♿
     title: Accessible by default
     details: Keyboard navigation, focus styles, and sensible ARIA roles out of the box.
