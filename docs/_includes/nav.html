@@ -1,0 +1,15 @@
+<vox-header site-title="{{ site.title }}" href="{{ '/' | relative_url }}">
+  {% for item in site.data.nav %}
+  {% assign is_current = false %}
+  {% if item.section %}
+    {% if item.section == page.section %}{% assign is_current = true %}{% endif %}
+  {% else %}
+    {% if page.url == item.link %}{% assign is_current = true %}{% endif %}
+  {% endif %}
+  <a href="{{ item.link | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ item.text }}</a>
+  {% endfor %}
+  <vox-theme-toggle slot="actions"></vox-theme-toggle>
+  <a slot="actions" href="https://github.com/OpenVoxProject/voxblocks" target="_blank" rel="noopener" aria-label="GitHub">
+    <vox-icon name="github" size="sm"></vox-icon>
+  </a>
+</vox-header>

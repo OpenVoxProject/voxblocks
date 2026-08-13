@@ -124,6 +124,19 @@
   color: var(--vox-color-brand-2);
 }
 
+/* Container ------------------------------------------------------------ */
+
+/* Centers content at the same 1280px measure and horizontal padding that
+   vox-header and vox-footer already use internally, so page sections built
+   from other components (vox-hero, vox-grid, etc.) line up with them
+   instead of running edge-to-edge. */
+.vox-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: var(--vox-space-6);
+  padding-right: var(--vox-space-6);
+}
+
 /* Spacing: margin ---------------------------------------------------- */
 
 .vox-m-all-none { margin: 0 !important; }
@@ -288,6 +301,151 @@
 .vox-bg-tip-soft { background-color: var(--vox-color-tip-soft) !important; }
 .vox-bg-warning-soft { background-color: var(--vox-color-warning-soft) !important; }
 .vox-bg-danger-soft { background-color: var(--vox-color-danger-soft) !important; }
+
+/* Color: extended palette --------------------------------------------
+   Fixed swatches (see src/tokens/palette.css), not theme-adaptive.
+   Pair a light step's text with the same hue's 900 step, or use a
+   600+ step as a solid fill with white text (vox-color-text-inverse). */
+
+/* gray */
+.vox-color-gray-100 { color: var(--vox-palette-gray-100) !important; }
+.vox-color-gray-200 { color: var(--vox-palette-gray-200) !important; }
+.vox-color-gray-300 { color: var(--vox-palette-gray-300) !important; }
+.vox-color-gray-400 { color: var(--vox-palette-gray-400) !important; }
+.vox-color-gray-500 { color: var(--vox-palette-gray-500) !important; }
+.vox-color-gray-600 { color: var(--vox-palette-gray-600) !important; }
+.vox-color-gray-700 { color: var(--vox-palette-gray-700) !important; }
+.vox-color-gray-800 { color: var(--vox-palette-gray-800) !important; }
+.vox-color-gray-900 { color: var(--vox-palette-gray-900) !important; }
+.vox-bg-gray-100 { background-color: var(--vox-palette-gray-100) !important; }
+.vox-bg-gray-200 { background-color: var(--vox-palette-gray-200) !important; }
+.vox-bg-gray-300 { background-color: var(--vox-palette-gray-300) !important; }
+.vox-bg-gray-400 { background-color: var(--vox-palette-gray-400) !important; }
+.vox-bg-gray-500 { background-color: var(--vox-palette-gray-500) !important; }
+.vox-bg-gray-600 { background-color: var(--vox-palette-gray-600) !important; }
+.vox-bg-gray-700 { background-color: var(--vox-palette-gray-700) !important; }
+.vox-bg-gray-800 { background-color: var(--vox-palette-gray-800) !important; }
+.vox-bg-gray-900 { background-color: var(--vox-palette-gray-900) !important; }
+
+/* teal */
+.vox-color-teal-100 { color: var(--vox-palette-teal-100) !important; }
+.vox-color-teal-200 { color: var(--vox-palette-teal-200) !important; }
+.vox-color-teal-300 { color: var(--vox-palette-teal-300) !important; }
+.vox-color-teal-400 { color: var(--vox-palette-teal-400) !important; }
+.vox-color-teal-500 { color: var(--vox-palette-teal-500) !important; }
+.vox-color-teal-600 { color: var(--vox-palette-teal-600) !important; }
+.vox-color-teal-700 { color: var(--vox-palette-teal-700) !important; }
+.vox-color-teal-800 { color: var(--vox-palette-teal-800) !important; }
+.vox-color-teal-900 { color: var(--vox-palette-teal-900) !important; }
+.vox-bg-teal-100 { background-color: var(--vox-palette-teal-100) !important; }
+.vox-bg-teal-200 { background-color: var(--vox-palette-teal-200) !important; }
+.vox-bg-teal-300 { background-color: var(--vox-palette-teal-300) !important; }
+.vox-bg-teal-400 { background-color: var(--vox-palette-teal-400) !important; }
+.vox-bg-teal-500 { background-color: var(--vox-palette-teal-500) !important; }
+.vox-bg-teal-600 { background-color: var(--vox-palette-teal-600) !important; }
+.vox-bg-teal-700 { background-color: var(--vox-palette-teal-700) !important; }
+.vox-bg-teal-800 { background-color: var(--vox-palette-teal-800) !important; }
+.vox-bg-teal-900 { background-color: var(--vox-palette-teal-900) !important; }
+
+/* blue */
+.vox-color-blue-100 { color: var(--vox-palette-blue-100) !important; }
+.vox-color-blue-200 { color: var(--vox-palette-blue-200) !important; }
+.vox-color-blue-300 { color: var(--vox-palette-blue-300) !important; }
+.vox-color-blue-400 { color: var(--vox-palette-blue-400) !important; }
+.vox-color-blue-500 { color: var(--vox-palette-blue-500) !important; }
+.vox-color-blue-600 { color: var(--vox-palette-blue-600) !important; }
+.vox-color-blue-700 { color: var(--vox-palette-blue-700) !important; }
+.vox-color-blue-800 { color: var(--vox-palette-blue-800) !important; }
+.vox-color-blue-900 { color: var(--vox-palette-blue-900) !important; }
+.vox-bg-blue-100 { background-color: var(--vox-palette-blue-100) !important; }
+.vox-bg-blue-200 { background-color: var(--vox-palette-blue-200) !important; }
+.vox-bg-blue-300 { background-color: var(--vox-palette-blue-300) !important; }
+.vox-bg-blue-400 { background-color: var(--vox-palette-blue-400) !important; }
+.vox-bg-blue-500 { background-color: var(--vox-palette-blue-500) !important; }
+.vox-bg-blue-600 { background-color: var(--vox-palette-blue-600) !important; }
+.vox-bg-blue-700 { background-color: var(--vox-palette-blue-700) !important; }
+.vox-bg-blue-800 { background-color: var(--vox-palette-blue-800) !important; }
+.vox-bg-blue-900 { background-color: var(--vox-palette-blue-900) !important; }
+
+/* green */
+.vox-color-green-100 { color: var(--vox-palette-green-100) !important; }
+.vox-color-green-200 { color: var(--vox-palette-green-200) !important; }
+.vox-color-green-300 { color: var(--vox-palette-green-300) !important; }
+.vox-color-green-400 { color: var(--vox-palette-green-400) !important; }
+.vox-color-green-500 { color: var(--vox-palette-green-500) !important; }
+.vox-color-green-600 { color: var(--vox-palette-green-600) !important; }
+.vox-color-green-700 { color: var(--vox-palette-green-700) !important; }
+.vox-color-green-800 { color: var(--vox-palette-green-800) !important; }
+.vox-color-green-900 { color: var(--vox-palette-green-900) !important; }
+.vox-bg-green-100 { background-color: var(--vox-palette-green-100) !important; }
+.vox-bg-green-200 { background-color: var(--vox-palette-green-200) !important; }
+.vox-bg-green-300 { background-color: var(--vox-palette-green-300) !important; }
+.vox-bg-green-400 { background-color: var(--vox-palette-green-400) !important; }
+.vox-bg-green-500 { background-color: var(--vox-palette-green-500) !important; }
+.vox-bg-green-600 { background-color: var(--vox-palette-green-600) !important; }
+.vox-bg-green-700 { background-color: var(--vox-palette-green-700) !important; }
+.vox-bg-green-800 { background-color: var(--vox-palette-green-800) !important; }
+.vox-bg-green-900 { background-color: var(--vox-palette-green-900) !important; }
+
+/* gold */
+.vox-color-gold-100 { color: var(--vox-palette-gold-100) !important; }
+.vox-color-gold-200 { color: var(--vox-palette-gold-200) !important; }
+.vox-color-gold-300 { color: var(--vox-palette-gold-300) !important; }
+.vox-color-gold-400 { color: var(--vox-palette-gold-400) !important; }
+.vox-color-gold-500 { color: var(--vox-palette-gold-500) !important; }
+.vox-color-gold-600 { color: var(--vox-palette-gold-600) !important; }
+.vox-color-gold-700 { color: var(--vox-palette-gold-700) !important; }
+.vox-color-gold-800 { color: var(--vox-palette-gold-800) !important; }
+.vox-color-gold-900 { color: var(--vox-palette-gold-900) !important; }
+.vox-bg-gold-100 { background-color: var(--vox-palette-gold-100) !important; }
+.vox-bg-gold-200 { background-color: var(--vox-palette-gold-200) !important; }
+.vox-bg-gold-300 { background-color: var(--vox-palette-gold-300) !important; }
+.vox-bg-gold-400 { background-color: var(--vox-palette-gold-400) !important; }
+.vox-bg-gold-500 { background-color: var(--vox-palette-gold-500) !important; }
+.vox-bg-gold-600 { background-color: var(--vox-palette-gold-600) !important; }
+.vox-bg-gold-700 { background-color: var(--vox-palette-gold-700) !important; }
+.vox-bg-gold-800 { background-color: var(--vox-palette-gold-800) !important; }
+.vox-bg-gold-900 { background-color: var(--vox-palette-gold-900) !important; }
+
+/* red */
+.vox-color-red-100 { color: var(--vox-palette-red-100) !important; }
+.vox-color-red-200 { color: var(--vox-palette-red-200) !important; }
+.vox-color-red-300 { color: var(--vox-palette-red-300) !important; }
+.vox-color-red-400 { color: var(--vox-palette-red-400) !important; }
+.vox-color-red-500 { color: var(--vox-palette-red-500) !important; }
+.vox-color-red-600 { color: var(--vox-palette-red-600) !important; }
+.vox-color-red-700 { color: var(--vox-palette-red-700) !important; }
+.vox-color-red-800 { color: var(--vox-palette-red-800) !important; }
+.vox-color-red-900 { color: var(--vox-palette-red-900) !important; }
+.vox-bg-red-100 { background-color: var(--vox-palette-red-100) !important; }
+.vox-bg-red-200 { background-color: var(--vox-palette-red-200) !important; }
+.vox-bg-red-300 { background-color: var(--vox-palette-red-300) !important; }
+.vox-bg-red-400 { background-color: var(--vox-palette-red-400) !important; }
+.vox-bg-red-500 { background-color: var(--vox-palette-red-500) !important; }
+.vox-bg-red-600 { background-color: var(--vox-palette-red-600) !important; }
+.vox-bg-red-700 { background-color: var(--vox-palette-red-700) !important; }
+.vox-bg-red-800 { background-color: var(--vox-palette-red-800) !important; }
+.vox-bg-red-900 { background-color: var(--vox-palette-red-900) !important; }
+
+/* purple */
+.vox-color-purple-100 { color: var(--vox-palette-purple-100) !important; }
+.vox-color-purple-200 { color: var(--vox-palette-purple-200) !important; }
+.vox-color-purple-300 { color: var(--vox-palette-purple-300) !important; }
+.vox-color-purple-400 { color: var(--vox-palette-purple-400) !important; }
+.vox-color-purple-500 { color: var(--vox-palette-purple-500) !important; }
+.vox-color-purple-600 { color: var(--vox-palette-purple-600) !important; }
+.vox-color-purple-700 { color: var(--vox-palette-purple-700) !important; }
+.vox-color-purple-800 { color: var(--vox-palette-purple-800) !important; }
+.vox-color-purple-900 { color: var(--vox-palette-purple-900) !important; }
+.vox-bg-purple-100 { background-color: var(--vox-palette-purple-100) !important; }
+.vox-bg-purple-200 { background-color: var(--vox-palette-purple-200) !important; }
+.vox-bg-purple-300 { background-color: var(--vox-palette-purple-300) !important; }
+.vox-bg-purple-400 { background-color: var(--vox-palette-purple-400) !important; }
+.vox-bg-purple-500 { background-color: var(--vox-palette-purple-500) !important; }
+.vox-bg-purple-600 { background-color: var(--vox-palette-purple-600) !important; }
+.vox-bg-purple-700 { background-color: var(--vox-palette-purple-700) !important; }
+.vox-bg-purple-800 { background-color: var(--vox-palette-purple-800) !important; }
+.vox-bg-purple-900 { background-color: var(--vox-palette-purple-900) !important; }
 
 /* Border ------------------------------------------------------------- */
 

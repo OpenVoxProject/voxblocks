@@ -1,0 +1,7 @@
+# Layered on top of _config.yml only for the real deploy build (see the
+# `docs:build` script in package.json and .github/workflows/docs.yml) —
+# local dev (`docs:dev`/`docs:jekyll`) uses the base config's empty
+# baseurl, so the site serves at http://localhost:4000/ instead of
+# needing /voxblocks/ on every URL. GitHub Pages actually serves this repo
+# under /voxblocks/, so only the deployed build needs the prefix.
+baseurl: "/voxblocks"

@@ -1,7 +1,11 @@
 node_modules/
 dist/
-docs/.vitepress/dist/
-docs/.vitepress/cache/
+docs/_site/
+docs/assets/
+docs/_data/manifest.json
+docs/.bundle/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
 storybook-static/
 *.log
 .DS_Store

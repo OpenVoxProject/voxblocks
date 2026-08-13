@@ -35,7 +35,7 @@ export const Sizes: Story = {
 
 export const AsALink: Story = {
   render: () => html`<div style="margin: 1rem 0;">
-  <vox-button href="https://voxpupuli.org" target="_blank">Visit Vox Pupuli</vox-button>
+  <vox-button href="https://voxpupuli.org/openvox/" target="_blank">Visit OpenVox</vox-button>
 </div>`,
 };
 

@@ -1,10 +1,14 @@
 import './tokens/tokens.css';
+import './tokens/palette.css';
 import './styles/utilities.css';
 
 // Actions
 export { VoxButton } from './components/button/vox-button.js';
 export { VoxCta } from './components/cta/vox-cta.js';
 export { VoxThemeToggle } from './components/theme-toggle/vox-theme-toggle.js';
+
+// Icon
+export { VoxIcon } from './components/icon/vox-icon.js';
 
 // Forms
 export { VoxCheckbox } from './components/checkbox/vox-checkbox.js';
@@ -28,6 +32,7 @@ export { VoxSeriesNav } from './components/series-nav/vox-series-nav.js';
 export { VoxSidenav, VoxSidenavGroup, VoxSidenavItem } from './components/sidenav/vox-sidenav.js';
 export { VoxSubnav } from './components/subnav/vox-subnav.js';
 export { VoxTabs, VoxTab, VoxTabPanel } from './components/tabs/vox-tabs.js';
+export { VoxToc, VoxTocItem } from './components/toc/vox-toc.js';
 
 // Overlays
 export { VoxDialog } from './components/dialog/vox-dialog.js';
@@ -56,6 +61,7 @@ export { VoxStepIndicator, VoxStep } from './components/step-indicator/vox-step-
 export { VoxTimeline, VoxTimelineItem } from './components/timeline/vox-timeline.js';
 
 // Types
+export type { IconName, IconSize } from './components/icon/vox-icon.js';
 export type { ButtonVariant, ButtonSize } from './components/button/vox-button.js';
 export type { CalloutVariant } from './components/callout/vox-callout.js';
 export type { BadgeVariant } from './components/badge/vox-badge.js';

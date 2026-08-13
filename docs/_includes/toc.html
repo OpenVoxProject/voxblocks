@@ -1,0 +1,8 @@
+{% assign toc_items = include.content | toc_headings %}
+{% if toc_items.size > 0 %}
+<vox-toc heading="On this page">
+  {% for h in toc_items %}
+  <vox-toc-item href="#{{ h.id }}" data-toc-id="{{ h.id }}">{{ h.text }}</vox-toc-item>
+  {% endfor %}
+</vox-toc>
+{% endif %}

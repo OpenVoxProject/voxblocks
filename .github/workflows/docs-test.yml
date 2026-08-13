@@ -1,0 +1,29 @@
+name: Test docs
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  internal_links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+          working-directory: docs
+      - run: npm ci
+      - run: npm run docs:build
+      - name: Check internal links and assets
+        run: |
+          BUNDLE_GEMFILE=docs/Gemfile bundle exec htmlproofer docs/_site \
+            --disable-external --no-enforce-https --ignore-empty-alt \
+            --swap-urls "^/voxblocks/:/" \
+            --checks Links,Images,Scripts

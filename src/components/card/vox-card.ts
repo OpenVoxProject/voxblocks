@@ -32,6 +32,11 @@ export class VoxCard extends LitElement {
       border-radius: var(--vox-radius-lg);
       padding: var(--vox-space-6);
       font-family: var(--vox-font-family-base);
+      /* Slotted content (e.g. an icon using stroke="currentColor")
+         inherits from this element's position in the flat tree — when
+         rendered as an <a>, that means the browser's default link color
+         without this, since nothing else in .card sets one. */
+      color: var(--vox-color-text-1);
       text-decoration: none;
       transition: border-color var(--vox-transition-base);
     }

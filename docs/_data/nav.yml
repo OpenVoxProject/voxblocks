@@ -1,0 +1,23 @@
+# Top nav. Links are baseurl-free with a trailing slash; only ever pass
+# through the `relative_url` filter at the point an href is emitted.
+#
+# `section:` ties an item to the same section key used in _data/sidebar.yml
+# (stamped onto each page as page.section by _plugins/sidebar_pager.rb) —
+# an item is "current" when page.section matches, not by guessing from the
+# URL. Icons has no `section:` since it's a single standalone page with no
+# sidebar of its own; it falls back to an exact link match instead (see
+# _includes/nav.html).
+- text: Guide
+  link: /guide/getting-started/
+  section: guide
+- text: Components
+  link: /components/button/
+  section: components
+- text: Icons
+  link: /icons/
+- text: Utilities
+  link: /guide/utilities/
+  section: utilities
+- text: Layouts
+  link: /layouts/
+  section: layouts

@@ -18,7 +18,7 @@ type Story = StoryObj;
 
 export const Default: Story = {
   render: () => html`<div style="margin: 1rem 0; border: 1px solid var(--vp-c-divider); border-radius: 8px; overflow: hidden;">
-  <vox-header site-title="Vox Pupuli" href="#">
+  <vox-header site-title="OpenVox" href="#">
     <a href="#" aria-current="page">Modules</a>
     <a href="#">Docs</a>
     <a href="#">Blog</a>

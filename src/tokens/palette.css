@@ -1,0 +1,95 @@
+/**
+ * VoxBlocks extended color palette.
+ *
+ * Seven hues (gray, teal, blue, green, gold, red, purple), each a fixed
+ * 100-900 tint/shade scale. Unlike the semantic --vox-color-* tokens in
+ * tokens.css, these are raw swatches: constant across light and dark mode,
+ * the same way a can of paint doesn't change color when the lights dim.
+ * Reach for these when a component needs a specific hue rather than a
+ * themed role — data viz series, tags/badges, status chips.
+ *
+ * Every step passes WCAG AA (>=4.5:1) as text against its own scale's
+ * 100 step when paired at least 800 steps apart — e.g. teal-900 text on a
+ * teal-100 background — see docs/guide/colors.md for the full pairing
+ * guidance. Steps 600-900 are dark enough to pair with white text
+ * (--vox-color-text-inverse) as a solid fill.
+ */
+
+:root {
+  /* gray */
+  --vox-palette-gray-100: #f1f3f4;
+  --vox-palette-gray-200: #dde1e3;
+  --vox-palette-gray-300: #c1c9cd;
+  --vox-palette-gray-400: #a0abb1;
+  --vox-palette-gray-500: #7e8e95;
+  --vox-palette-gray-600: #67777e;
+  --vox-palette-gray-700: #535f65;
+  --vox-palette-gray-800: #404a4f;
+  --vox-palette-gray-900: #2c3235;
+
+  /* teal */
+  --vox-palette-teal-100: #eafaf9;
+  --vox-palette-teal-200: #cdf3f1;
+  --vox-palette-teal-300: #a4eae5;
+  --vox-palette-teal-400: #73ded7;
+  --vox-palette-teal-500: #41d2c9;
+  --vox-palette-teal-600: #2cbab0;
+  --vox-palette-teal-700: #23958d;
+  --vox-palette-teal-800: #1b746e;
+  --vox-palette-teal-900: #124e4a;
+
+  /* blue */
+  --vox-palette-blue-100: #e9f2fb;
+  --vox-palette-blue-200: #cadff6;
+  --vox-palette-blue-300: #9fc4ef;
+  --vox-palette-blue-400: #6aa4e7;
+  --vox-palette-blue-500: #3584de;
+  --vox-palette-blue-600: #206dc5;
+  --vox-palette-blue-700: #1a579e;
+  --vox-palette-blue-800: #14447b;
+  --vox-palette-blue-900: #0e2e53;
+
+  /* green */
+  --vox-palette-green-100: #ecf9f1;
+  --vox-palette-green-200: #d1f0dc;
+  --vox-palette-green-300: #abe3bf;
+  --vox-palette-green-400: #7dd49d;
+  --vox-palette-green-500: #4fc47a;
+  --vox-palette-green-600: #39ac63;
+  --vox-palette-green-700: #2e8a50;
+  --vox-palette-green-800: #246b3e;
+  --vox-palette-green-900: #18492a;
+
+  /* gold */
+  --vox-palette-gold-100: #fdf6e8;
+  --vox-palette-gold-200: #f9e9c7;
+  --vox-palette-gold-300: #f5d699;
+  --vox-palette-gold-400: #efc061;
+  --vox-palette-gold-500: #eaaa2a;
+  --vox-palette-gold-600: #d19215;
+  --vox-palette-gold-700: #a77511;
+  --vox-palette-gold-800: #825b0d;
+  --vox-palette-gold-900: #583e09;
+
+  /* red */
+  --vox-palette-red-100: #fbeaeb;
+  --vox-palette-red-200: #f5cccf;
+  --vox-palette-red-300: #eda1a7;
+  --vox-palette-red-400: #e36d77;
+  --vox-palette-red-500: #d93a47;
+  --vox-palette-red-600: #c12532;
+  --vox-palette-red-700: #9a1d28;
+  --vox-palette-red-800: #78171f;
+  --vox-palette-red-900: #511015;
+
+  /* purple */
+  --vox-palette-purple-100: #f1ecf9;
+  --vox-palette-purple-200: #ded1f0;
+  --vox-palette-purple-300: #c2abe3;
+  --vox-palette-purple-400: #a17dd4;
+  --vox-palette-purple-500: #804fc4;
+  --vox-palette-purple-600: #6939ac;
+  --vox-palette-purple-700: #542e8a;
+  --vox-palette-purple-800: #41246b;
+  --vox-palette-purple-900: #2c1849;
+}

@@ -33,7 +33,7 @@ export const Default: Story = {
       <a href="#">Privacy policy</a>
       <a href="#">Code of conduct</a>
     </vox-footer-column>
-    <span slot="bottom">© Vox Pupuli. Apache-2.0 licensed.</span>
+    <span slot="bottom">© OpenVox. Apache-2.0 licensed.</span>
   </vox-footer>
 </div>`,
 };

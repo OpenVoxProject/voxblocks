@@ -1,0 +1,95 @@
+# Left sidebar, keyed by section. This is the single source of truth for
+# "which section does this page belong to" — _plugins/sidebar_pager.rb
+# walks every entry here once and stamps the owning section's key onto
+# each matching page as page.section, which both this sidebar
+# (_layouts/default.html) and the header nav (_includes/nav.html, via
+# nav.yml's own `section:` field) key off of. Sections are NOT simply the
+# URL's first path segment — e.g. utilities/colors both live under
+# /guide/ on disk but belong to the "utilities" section, not "guide",
+# because that's how they're grouped here. Links are baseurl-free with a
+# trailing slash — see nav.yml for the rule this file follows. A page not
+# listed under any section here (e.g. /icons/) simply renders without a
+# sidebar — see _layouts/default.html.
+
+guide:
+  - text: Guide
+    items:
+      - { text: Getting Started, link: /guide/getting-started/ }
+      - { text: Design Tokens, link: /guide/design-tokens/ }
+
+utilities:
+  - text: Utilities
+    items:
+      - { text: Colors, link: /guide/colors/ }
+      - { text: Utilities, link: /guide/utilities/ }
+
+components:
+  - text: Actions
+    items:
+      - { text: Button, link: /components/button/ }
+      - { text: Call to Action, link: /components/cta/ }
+      - { text: Theme Toggle, link: /components/theme-toggle/ }
+  - text: Forms
+    items:
+      - { text: Checkbox, link: /components/checkbox/ }
+      - { text: File Input, link: /components/file-input/ }
+      - { text: Input Group, link: /components/input-group/ }
+      - { text: Radio Input, link: /components/radio/ }
+      - { text: Select Input, link: /components/select/ }
+      - { text: Switch, link: /components/switch/ }
+      - { text: Text Input, link: /components/text-input/ }
+      - { text: Textarea, link: /components/textarea/ }
+  - text: Images
+    items:
+      - { text: Avatar, link: /components/avatar/ }
+      - { text: Billboard, link: /components/billboard/ }
+      - { text: Icon, link: /components/icon/ }
+  - text: Navigation
+    items:
+      - { text: Breadcrumbs, link: /components/breadcrumbs/ }
+      - { text: Header, link: /components/header/ }
+      - { text: Pagination, link: /components/pagination/ }
+      - { text: Series Nav, link: /components/series-nav/ }
+      - { text: Sidenav, link: /components/sidenav/ }
+      - { text: Subnav, link: /components/subnav/ }
+      - { text: Tabs, link: /components/tabs/ }
+      - { text: Table of Contents, link: /components/toc/ }
+  - text: Overlays
+    items:
+      - { text: Dialog, link: /components/dialog/ }
+      - { text: Disclosure, link: /components/disclosure/ }
+      - { text: Dropdown, link: /components/dropdown/ }
+  - text: Page Content
+    items:
+      - { text: Accordion, link: /components/accordion/ }
+      - { text: Alert, link: /components/alert/ }
+      - { text: Badge, link: /components/badge/ }
+      - { text: Calendar Tile, link: /components/calendar-tile/ }
+      - { text: Callout, link: /components/callout/ }
+      - { text: Card, link: /components/card/ }
+      - { text: CTA Band, link: /components/cta-band/ }
+      - { text: Empty State, link: /components/empty-state/ }
+      - { text: Footer, link: /components/footer/ }
+      - { text: Grid, link: /components/grid/ }
+      - { text: Hero, link: /components/hero/ }
+      - { text: Link Hub, link: /components/link-hub/ }
+      - { text: List, link: /components/list/ }
+      - { text: Loading Indicator, link: /components/loader/ }
+      - { text: Prose, link: /components/prose/ }
+      - { text: Quote, link: /components/quote/ }
+      - { text: Sponsor, link: /components/sponsor/ }
+      - { text: Stat, link: /components/stat/ }
+      - { text: Step Indicator, link: /components/step-indicator/ }
+      - { text: Table, link: /components/table/ }
+      - { text: Timeline, link: /components/timeline/ }
+
+layouts:
+  - text: Layouts
+    items:
+      - { text: Overview, link: /layouts/ }
+      - { text: Basic Content Page, link: /layouts/basic/ }
+      - { text: Marketing Page, link: /layouts/marketing/ }
+      - { text: Docs with Sidenav, link: /layouts/docs-sidenav/ }
+      - { text: Blog Article, link: /layouts/article/ }
+      - { text: Sidebar App Shell, link: /layouts/app-shell/ }
+      - { text: Dashboard, link: /layouts/dashboard/ }

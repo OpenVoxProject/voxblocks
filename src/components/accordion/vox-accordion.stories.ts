@@ -26,7 +26,7 @@ export const Default: Story = {
       <p>Swap the package repositories and upgrade; agents and server interoperate during transition.</p>
     </vox-accordion-item>
     <vox-accordion-item heading="Who maintains it?">
-      <p>The Vox Pupuli community, under open governance.</p>
+      <p>The OpenVox community, under open governance.</p>
     </vox-accordion-item>
   </vox-accordion>
 </div>`,
