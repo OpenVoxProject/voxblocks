@@ -25,6 +25,7 @@ export class VoxLinkHub extends LitElement {
  * One link in a `<vox-link-hub>`.
  *
  * @slot - Short description under the link title.
+ * @slot icon - Optional icon before the heading, e.g. `<vox-icon>`.
  */
 @customElement('vox-link-hub-item')
 export class VoxLinkHubItem extends LitElement {
@@ -35,6 +36,15 @@ export class VoxLinkHubItem extends LitElement {
     :host {
       display: block;
       font-family: var(--vox-font-family-base);
+    }
+
+    .icon {
+      display: flex;
+      flex: none;
+    }
+
+    .icon:not(.has-icon) {
+      display: none;
     }
 
     a {
@@ -84,10 +94,21 @@ export class VoxLinkHubItem extends LitElement {
     }
   `;
 
+  private hasIcon = false;
+
+  private handleIconSlotChange(event: Event) {
+    const slot = event.target as HTMLSlotElement;
+    this.hasIcon = slot.assignedNodes({ flatten: true }).length > 0;
+    this.requestUpdate();
+  }
+
   render() {
     return html`
       <a href=${this.href}>
         <span class="heading">
+          <span class="icon ${this.hasIcon ? 'has-icon' : ''}">
+            <slot name="icon" @slotchange=${this.handleIconSlotChange}></slot>
+          </span>
           ${this.heading}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M5 12h14" />

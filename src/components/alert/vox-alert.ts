@@ -1,10 +1,19 @@
 import { LitElement, html, css, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { ICON_PATHS, type IconName } from '../icon/icon-paths.js';
 
 export type AlertVariant = 'info' | 'success' | 'warning' | 'danger';
 
+const VARIANT_ICON: Record<AlertVariant, IconName> = {
+  info: 'info',
+  success: 'check-circle',
+  warning: 'warning',
+  danger: 'x-circle',
+};
+
 /**
- * A page-level notification message, optionally dismissible.
+ * A page-level notification message, optionally dismissible. Shows an
+ * icon matching `variant` automatically — no icon slot to fill in.
  * For static advisory text inside prose, see `<vox-callout>`.
  *
  * @slot - Alert message.
@@ -43,6 +52,13 @@ export class VoxAlert extends LitElement {
       flex: 1 1 auto;
     }
 
+    .icon {
+      flex: none;
+      width: 20px;
+      height: 20px;
+      margin-top: 1px;
+    }
+
     .heading {
       margin: 0 0 var(--vox-space-1);
       font-size: 14px;
@@ -56,12 +72,18 @@ export class VoxAlert extends LitElement {
     .info .heading {
       color: var(--vox-color-brand-1);
     }
+    .info .icon {
+      color: var(--vox-color-brand-1);
+    }
 
     .success {
       background-color: var(--vox-color-tip-soft);
       border-color: var(--vox-color-tip-1);
     }
     .success .heading {
+      color: var(--vox-color-tip-1);
+    }
+    .success .icon {
       color: var(--vox-color-tip-1);
     }
 
@@ -72,12 +94,18 @@ export class VoxAlert extends LitElement {
     .warning .heading {
       color: var(--vox-color-warning-1);
     }
+    .warning .icon {
+      color: var(--vox-color-warning-1);
+    }
 
     .danger {
       background-color: var(--vox-color-danger-soft);
       border-color: var(--vox-color-danger-1);
     }
     .danger .heading {
+      color: var(--vox-color-danger-1);
+    }
+    .danger .icon {
       color: var(--vox-color-danger-1);
     }
 
@@ -128,6 +156,18 @@ export class VoxAlert extends LitElement {
   render() {
     return html`
       <div class="alert ${this.variant}" role="alert">
+        <svg
+          class="icon"
+          viewBox="0 0 48 48"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          ${ICON_PATHS[VARIANT_ICON[this.variant]]}
+        </svg>
         <div class="body">
           ${this.heading
             ? html`<p class="heading">${this.heading}</p>`

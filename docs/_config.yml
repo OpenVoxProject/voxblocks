@@ -1,0 +1,25 @@
+title: VoxBlocks
+description: Web components for OpenVox community web sites and apps
+url: "https://openvoxproject.github.io"
+baseurl: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - _config_production.yml
+  - vite.config.js
+  - src
+  - assets/.vite
+  - node_modules
+  - README.md

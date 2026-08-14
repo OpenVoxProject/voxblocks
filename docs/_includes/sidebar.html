@@ -1,0 +1,9 @@
+<vox-sidenav label="Docs navigation">
+  {% for group in include.groups %}
+  <vox-sidenav-group heading="{{ group.text }}" open>
+    {% for item in group.items %}
+    <vox-sidenav-item href="{{ item.link | relative_url }}"{% if page.url == item.link %} current{% endif %}>{{ item.text }}</vox-sidenav-item>
+    {% endfor %}
+  </vox-sidenav-group>
+  {% endfor %}
+</vox-sidenav>

@@ -1,0 +1,6 @@
+{% if page.prev_url or page.next_url %}
+<vox-series-nav
+  {% if page.prev_url %}previous-href="{{ page.prev_url | relative_url }}" previous-label="{{ page.prev_title }}"{% endif %}
+  {% if page.next_url %}next-href="{{ page.next_url | relative_url }}" next-label="{{ page.next_title }}"{% endif %}
+></vox-series-nav>
+{% endif %}

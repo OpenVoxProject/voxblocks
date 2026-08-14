@@ -20,6 +20,6 @@ export const Default: Story = {
   render: () => html`<vox-grid min="160px" style="margin: 1rem 0;">
   <vox-stat value="450+" label="Modules">Community-maintained</vox-stat>
   <vox-stat value="140" label="Contributors">Active this year</vox-stat>
-  <vox-stat value="12" label="Years">Of Vox Pupuli</vox-stat>
+  <vox-stat value="2" label="Years">Since the OpenVox fork</vox-stat>
 </vox-grid>`,
 };

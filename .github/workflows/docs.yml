@@ -23,12 +23,17 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+          working-directory: docs
+      - uses: actions/configure-pages@v5
       - run: npm ci
       - run: npm run docs:build
-      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist
+          path: docs/_site
 
   deploy:
     needs: build

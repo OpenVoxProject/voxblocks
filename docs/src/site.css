@@ -1,0 +1,259 @@
+/**
+ * Doc-site chrome and typography that has no VitePress predecessor to
+ * carry over: .vox-prose only styles paragraph font/color/measure (see
+ * ../../../src/styles/utilities.css), not headings/code/tables/blockquotes,
+ * and .vox-table is opt-in-by-class, which no markdown-generated table
+ * carries. Everything here is docs-site-only — none of it touches the
+ * published library.
+ */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--vox-color-bg);
+  color: var(--vox-color-text-1);
+  font-family: var(--vox-font-family-base);
+}
+
+/* Pages that render a real <vox-footer> (currently just the home page) get
+   it pinned to the viewport bottom instead of trailing short content. */
+vox-footer {
+  margin-top: auto;
+}
+
+/* Doc page shell: sidebar | content | toc ------------------------------ */
+
+.vox-doc-shell {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 220px;
+  gap: var(--vox-space-8);
+  align-items: start;
+  padding-top: var(--vox-space-8);
+  padding-bottom: var(--vox-space-8);
+}
+
+/* A section with no entry in _data/sidebar.yml (e.g. /icons/) renders no
+   sidebar column at all, per _layouts/default.html — give its content the
+   width back instead of leaving an empty 240px gap. */
+.vox-doc-shell.no-sidebar {
+  grid-template-columns: minmax(0, 1fr) 220px;
+}
+
+.vox-doc-sidebar {
+  position: sticky;
+  top: var(--vox-space-6);
+  max-height: calc(100vh - var(--vox-space-8) * 2);
+  overflow-y: auto;
+}
+
+.vox-doc-content {
+  min-width: 0;
+}
+
+.vox-doc-toc {
+  position: sticky;
+  top: var(--vox-space-6);
+  max-height: calc(100vh - var(--vox-space-8) * 2);
+  overflow-y: auto;
+}
+
+@media (max-width: 1100px) {
+  .vox-doc-shell {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+
+  .vox-doc-shell.no-sidebar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .vox-doc-toc {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .vox-doc-shell {
+    display: block;
+  }
+
+  .vox-doc-sidebar {
+    position: static;
+    max-height: none;
+    margin-bottom: var(--vox-space-6);
+  }
+}
+
+/* Doc-body typography ---------------------------------------------------- */
+
+.vox-doc-content .vox-prose h1,
+.vox-doc-content .vox-prose h2,
+.vox-doc-content .vox-prose h3,
+.vox-doc-content .vox-prose h4 {
+  color: var(--vox-color-text-1);
+  font-family: var(--vox-font-family-display);
+  font-weight: 600;
+  line-height: 1.25;
+  scroll-margin-top: var(--vox-space-8);
+}
+
+.vox-doc-content .vox-prose h1 {
+  margin: 0 0 var(--vox-space-4);
+  font-size: 36px;
+}
+
+.vox-doc-content .vox-prose h2 {
+  margin: var(--vox-space-8) 0 var(--vox-space-4);
+  padding-top: var(--vox-space-6);
+  border-top: 1px solid var(--vox-color-divider);
+  font-size: 26px;
+}
+
+.vox-doc-content .vox-prose h2:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.vox-doc-content .vox-prose h3 {
+  margin: var(--vox-space-6) 0 var(--vox-space-3);
+  font-size: 20px;
+}
+
+.vox-doc-content .vox-prose h4 {
+  margin: var(--vox-space-4) 0 var(--vox-space-2);
+  font-size: 16px;
+}
+
+.vox-doc-content .vox-prose p {
+  margin: 0 0 var(--vox-space-4);
+}
+
+.vox-doc-content .vox-prose ul,
+.vox-doc-content .vox-prose ol {
+  margin: 0 0 var(--vox-space-4);
+  padding-left: var(--vox-space-6);
+  color: var(--vox-color-text-2);
+  line-height: 1.75;
+}
+
+.vox-doc-content .vox-prose li + li {
+  margin-top: var(--vox-space-1);
+}
+
+.vox-doc-content .vox-prose blockquote {
+  margin: 0 0 var(--vox-space-4);
+  padding: var(--vox-space-1) var(--vox-space-4);
+  border-left: 3px solid var(--vox-color-divider);
+  color: var(--vox-color-text-2);
+}
+
+.vox-doc-content .vox-prose hr {
+  margin: var(--vox-space-6) 0;
+  border: none;
+  border-top: 1px solid var(--vox-color-divider);
+}
+
+.vox-doc-content .vox-prose code {
+  padding: 0.15em 0.4em;
+  border-radius: var(--vox-radius-sm);
+  background-color: var(--vox-color-bg-soft);
+  color: var(--vox-color-text-1);
+  font-family: var(--vox-font-family-mono);
+  font-size: 0.875em;
+}
+
+.vox-doc-content .vox-prose pre {
+  margin: 0 0 var(--vox-space-4);
+  padding: var(--vox-space-4);
+  border-radius: var(--vox-radius-md);
+  background-color: var(--vox-color-bg-soft);
+  overflow-x: auto;
+}
+
+.vox-doc-content .vox-prose pre code {
+  padding: 0;
+  background: none;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Bare GFM tables (every component's API table) -------------------------- */
+
+.vox-doc-content .vox-prose table {
+  width: 100%;
+  margin: 0 0 var(--vox-space-4);
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.vox-doc-content .vox-prose th,
+.vox-doc-content .vox-prose td {
+  padding: var(--vox-space-2) var(--vox-space-3);
+  border-bottom: 1px solid var(--vox-color-divider);
+  text-align: left;
+  vertical-align: top;
+}
+
+.vox-doc-content .vox-prose th {
+  color: var(--vox-color-text-1);
+  font-weight: 600;
+}
+
+.vox-doc-content .vox-prose td {
+  color: var(--vox-color-text-2);
+}
+
+/* Rouge syntax highlighting ---------------------------------------------- */
+
+.highlight {
+  color: var(--vox-color-text-1);
+}
+
+.highlight .c,
+.highlight .c1,
+.highlight .cm {
+  color: var(--vox-color-text-3);
+  font-style: italic;
+}
+
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kt {
+  color: var(--vox-color-brand-1);
+}
+
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb {
+  color: #0e7267;
+}
+
+.highlight .n,
+.highlight .nx {
+  color: var(--vox-color-text-1);
+}
+
+.highlight .na,
+.highlight .nt {
+  color: var(--vox-color-brand-1);
+}
+
+.highlight .nb,
+.highlight .nc,
+.highlight .nf {
+  color: #7c5cbf;
+}
+
+.highlight .m,
+.highlight .mi,
+.highlight .mf {
+  color: #b45309;
+}
+
+.highlight .o,
+.highlight .p {
+  color: var(--vox-color-text-2);
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+    {% include nav.html %}
+    {% assign sidebar_groups = site.data.sidebar[page.section] %}
+    <div class="vox-doc-shell{% unless sidebar_groups %} no-sidebar{% endunless %} vox-container">
+      {% if sidebar_groups %}
+      <div class="vox-doc-sidebar">
+        {% include sidebar.html groups=sidebar_groups %}
+      </div>
+      {% endif %}
+      <main class="vox-doc-content">
+        <div class="vox-prose">
+          {{ content }}
+        </div>
+        {% include pager.html %}
+      </main>
+      <aside class="vox-doc-toc">
+        {% include toc.html content=content %}
+      </aside>
+    </div>
+  </body>
+</html>

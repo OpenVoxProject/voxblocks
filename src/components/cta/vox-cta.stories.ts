@@ -18,6 +18,6 @@ type Story = StoryObj;
 
 export const Default: Story = {
   render: () => html`<div style="margin: 1rem 0;">
-  <vox-cta href="https://voxpupuli.org">Explore the module catalog</vox-cta>
+  <vox-cta href="https://voxpupuli.org/openvox/">Explore the module catalog</vox-cta>
 </div>`,
 };
