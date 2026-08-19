@@ -16,8 +16,8 @@ Lower numbers are lighter tints, higher numbers are darker shades. `500` is each
 
 ### Gray
 
-<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1rem 0;">
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
+<vox-grid cols="9">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
     <span class="vox-bg-gray-100 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">gray-100</code>
   </div>
@@ -53,11 +53,12 @@ Lower numbers are lighter tints, higher numbers are darker shades. `500` is each
     <span class="vox-bg-gray-900 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">gray-900</code>
   </div>
-</div>
+</vox-grid>
+
 
 ### Teal
 
-<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1rem 0;">
+<vox-grid cols="9">
   <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
     <span class="vox-bg-teal-100 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">teal-100</code>
@@ -94,11 +95,11 @@ Lower numbers are lighter tints, higher numbers are darker shades. `500` is each
     <span class="vox-bg-teal-900 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">teal-900</code>
   </div>
-</div>
+</vox-grid>
 
 ### Blue
 
-<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1rem 0;">
+<vox-grid cols="9">
   <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
     <span class="vox-bg-blue-100 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">blue-100</code>
@@ -135,11 +136,11 @@ Lower numbers are lighter tints, higher numbers are darker shades. `500` is each
     <span class="vox-bg-blue-900 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">blue-900</code>
   </div>
-</div>
+</vox-grid>
 
 ### Green
 
-<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1rem 0;">
+<vox-grid cols="9">
   <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
     <span class="vox-bg-green-100 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">green-100</code>
@@ -176,11 +177,11 @@ Lower numbers are lighter tints, higher numbers are darker shades. `500` is each
     <span class="vox-bg-green-900 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">green-900</code>
   </div>
-</div>
+</vox-grid>
 
 ### Gold
 
-<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1rem 0;">
+<vox-grid cols="9">
   <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
     <span class="vox-bg-gold-100 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">gold-100</code>
@@ -217,11 +218,11 @@ Lower numbers are lighter tints, higher numbers are darker shades. `500` is each
     <span class="vox-bg-gold-900 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">gold-900</code>
   </div>
-</div>
+</vox-grid>
 
 ### Red
 
-<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1rem 0;">
+<vox-grid cols="9">
   <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
     <span class="vox-bg-red-100 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">red-100</code>
@@ -258,11 +259,11 @@ Lower numbers are lighter tints, higher numbers are darker shades. `500` is each
     <span class="vox-bg-red-900 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">red-900</code>
   </div>
-</div>
+</vox-grid>
 
 ### Purple
 
-<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1rem 0;">
+<vox-grid cols="9">
   <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
     <span class="vox-bg-purple-100 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">purple-100</code>
@@ -299,7 +300,7 @@ Lower numbers are lighter tints, higher numbers are darker shades. `500` is each
     <span class="vox-bg-purple-900 vox-radius-md" style="display: block; width: 56px; height: 56px;"></span>
     <code style="font-size: 12px;">purple-900</code>
   </div>
-</div>
+</vox-grid>
 
 ## Tokens
 
