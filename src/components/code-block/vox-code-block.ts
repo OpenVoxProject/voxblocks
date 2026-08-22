@@ -46,6 +46,12 @@ export class VoxCodeBlock extends LitElement {
 
   @property({ type: Boolean, attribute: 'no-copy' }) noCopy = false;
 
+  /** Hides the whole header bar (filename, language label, and copy button) — for dense contexts like a table cell. */
+  @property({ type: Boolean, attribute: 'no-header' }) noHeader = false;
+
+  /** Drops the outer border — for dropping into a surface (e.g. a table cell) that already has its own edge. */
+  @property({ type: Boolean, attribute: 'no-border', reflect: true }) noBorder = false;
+
   @state() private _code = '';
   @state() private _copied = false;
 
@@ -62,6 +68,10 @@ export class VoxCodeBlock extends LitElement {
       border-radius: var(--vox-radius-md);
       background-color: var(--vox-color-bg-alt);
       overflow: hidden;
+    }
+
+    :host([no-border]) .block {
+      border: none;
     }
 
     .header {
@@ -249,26 +259,30 @@ export class VoxCodeBlock extends LitElement {
 
     return html`
       <div class="block">
-        <div class="header">
-          <span class="meta">
-            ${this.filename ? html`<span class="filename">${this.filename}</span>` : nothing}
-            ${label ? html`<span class="lang">${label}</span>` : nothing}
-          </span>
-          ${this.noCopy
-            ? nothing
-            : html`
-                <button
-                  class="copy"
-                  type="button"
-                  @click=${this._copy}
-                  aria-label=${this._copied ? 'Copied' : 'Copy code'}
-                >
-                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    ${ICON_PATHS[this._copied ? 'check' : 'copy']}
-                  </svg>
-                </button>
-              `}
-        </div>
+        ${this.noHeader
+          ? nothing
+          : html`
+              <div class="header">
+                <span class="meta">
+                  ${this.filename ? html`<span class="filename">${this.filename}</span>` : nothing}
+                  ${label ? html`<span class="lang">${label}</span>` : nothing}
+                </span>
+                ${this.noCopy
+                  ? nothing
+                  : html`
+                      <button
+                        class="copy"
+                        type="button"
+                        @click=${this._copy}
+                        aria-label=${this._copied ? 'Copied' : 'Copy code'}
+                      >
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          ${ICON_PATHS[this._copied ? 'check' : 'copy']}
+                        </svg>
+                      </button>
+                    `}
+              </div>
+            `}
         <pre tabindex="0"><code>${lines.map(
           (line) => html`<span class="line">${line.map((token) =>
             token.type === 'plain' ? token.text : html`<span class="tok-${token.type}">${token.text}</span>`,

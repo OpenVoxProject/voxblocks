@@ -77,6 +77,46 @@ Add `line-numbers` for a numbered gutter — useful when prose elsewhere on the 
 &lt;/vox-code-block&gt;
 </vox-code-block>
 
+## Without a header or border
+
+Add `no-header` to drop the whole header bar — filename, language label, and copy button — and `no-border` to drop the outer edge too, for dense contexts like a table cell, where a full header and border per row would take up more space than the code itself.
+
+<div style="max-width: 24rem; margin: 1rem 0;">
+  <vox-code-block language="json" no-header no-border>
+    {
+      "version": "1.14.1"
+    }
+  </vox-code-block>
+</div>
+
+<vox-code-block language="html">
+&lt;vox-code-block language="json" no-header no-border&gt;
+  { "version": "1.14.1" }
+&lt;/vox-code-block&gt;
+</vox-code-block>
+
+<div style="margin: 1rem 0;">
+  <table class="vox-table">
+    <thead>
+      <tr><th scope="col">Fact</th><th scope="col">Value</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">clientversion</th>
+        <td>8.28.1</td>
+      </tr>
+      <tr>
+        <th scope="row">augeas</th>
+        <td>
+          <vox-code-block language="json" no-header no-border>
+            { "version": "1.14.1" }
+          </vox-code-block>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 ## API
 
 | Attribute | Type | Default | Description |
@@ -85,5 +125,7 @@ Add `line-numbers` for a numbered gutter — useful when prose elsewhere on the 
 | `filename` | `string` | `''` | Shown at the start of the header, e.g. `profile/base.pp` |
 | `line-numbers` | `boolean` | `false` | Adds a numbered gutter |
 | `no-copy` | `boolean` | `false` | Hides the copy-to-clipboard button |
+| `no-header` | `boolean` | `false` | Hides the whole header bar, including the copy button |
+| `no-border` | `boolean` | `false` | Drops the outer border (the background surface stays) |
 
 The copy button copies the raw, un-highlighted code via the Clipboard API (falling back to `execCommand` where unavailable) and announces success to screen readers through a live region. The block itself is keyboard-scrollable (`tabindex="0"`) when its content overflows horizontally.

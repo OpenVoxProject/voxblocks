@@ -97,3 +97,56 @@ export const NoCopyButton: Story = {
   </vox-code-block>
 </div>`,
 };
+
+export const NoHeader: Story = {
+  render: () => html`<div style="max-width: 24rem; margin: 1rem 0;">
+  <vox-code-block language="json" no-header>
+    {
+      "version": "1.14.1"
+    }
+  </vox-code-block>
+</div>`,
+};
+
+export const NoBorder: Story = {
+  render: () => html`<div style="max-width: 24rem; margin: 1rem 0;">
+  <vox-code-block language="json" no-header no-border>
+    { "version": "1.14.1" }
+  </vox-code-block>
+</div>`,
+};
+
+export const InADenseTable: Story = {
+  render: () => html`<div style="margin: 1rem 0;">
+  <table class="vox-table">
+    <thead>
+      <tr><th scope="col">Fact</th><th scope="col">Value</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">clientversion</th>
+        <td>8.28.1</td>
+      </tr>
+      <tr>
+        <th scope="row">augeas</th>
+        <td>
+          <vox-code-block language="json" no-header no-border>
+            { "version": "1.14.1" }
+          </vox-code-block>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">disks</th>
+        <td>
+          <vox-code-block language="json" no-header no-border>
+            {
+              "sda": { "size": "0 bytes", "type": "ssd" },
+              "nvme0n1": { "size": "465.76 GiB", "type": "ssd" }
+            }
+          </vox-code-block>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>`,
+};
