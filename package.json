@@ -1,6 +1,6 @@
 {
   "name": "@openvoxproject/voxblocks",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Web components for OpenVox community web sites and apps",
   "type": "module",
   "license": "Apache-2.0",
