@@ -12,9 +12,9 @@ title: "Loading Indicator"
   <vox-loader size="lg" label="Fetching modules"></vox-loader>
 </div>
 
-```html
-<vox-loader size="lg" label="Fetching modules"></vox-loader>
-```
+<vox-code-block language="html">
+&lt;vox-loader size="lg" label="Fetching modules"&gt;&lt;/vox-loader&gt;
+</vox-code-block>
 
 ## API
 

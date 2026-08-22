@@ -46,6 +46,7 @@ export { VoxBadge } from './components/badge/vox-badge.js';
 export { VoxCalendarTile } from './components/calendar-tile/vox-calendar-tile.js';
 export { VoxCallout } from './components/callout/vox-callout.js';
 export { VoxCard } from './components/card/vox-card.js';
+export { VoxCodeBlock } from './components/code-block/vox-code-block.js';
 export { VoxCtaBand } from './components/cta-band/vox-cta-band.js';
 export { VoxEmptyState } from './components/empty-state/vox-empty-state.js';
 export { VoxFooter, VoxFooterColumn } from './components/footer/vox-footer.js';
@@ -64,6 +65,7 @@ export { VoxTimeline, VoxTimelineItem } from './components/timeline/vox-timeline
 export type { IconName, IconSize } from './components/icon/vox-icon.js';
 export type { ButtonVariant, ButtonSize } from './components/button/vox-button.js';
 export type { CalloutVariant } from './components/callout/vox-callout.js';
+export type { CodeBlockLanguage } from './components/code-block/vox-code-block.js';
 export type { BadgeVariant } from './components/badge/vox-badge.js';
 export type { AlertVariant } from './components/alert/vox-alert.js';
 export type { AvatarSize } from './components/avatar/vox-avatar.js';

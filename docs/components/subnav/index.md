@@ -15,12 +15,12 @@ title: "Subnav"
   </vox-subnav>
 </div>
 
-```html
-<vox-subnav label="Server docs">
-  <a href="/server" aria-current="page">Overview</a>
-  <a href="/server/install">Installation</a>
-</vox-subnav>
-```
+<vox-code-block language="html">
+&lt;vox-subnav label="Server docs"&gt;
+  &lt;a href="/server" aria-current="page"&gt;Overview&lt;/a&gt;
+  &lt;a href="/server/install"&gt;Installation&lt;/a&gt;
+&lt;/vox-subnav&gt;
+</vox-code-block>
 
 ## API
 

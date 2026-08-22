@@ -14,9 +14,9 @@ title: "Calendar Tile"
   </div>
 </div>
 
-```html
-<vox-calendar-tile date="2026-09-18"></vox-calendar-tile>
-```
+<vox-code-block language="html">
+&lt;vox-calendar-tile date="2026-09-18"&gt;&lt;/vox-calendar-tile&gt;
+</vox-code-block>
 
 ## API
 

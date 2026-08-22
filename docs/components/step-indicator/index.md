@@ -15,13 +15,13 @@ title: "Step Indicator"
   </vox-step-indicator>
 </div>
 
-```html
-<vox-step-indicator>
-  <vox-step label="Choose plan" state="complete"></vox-step>
-  <vox-step label="Configure" state="current"></vox-step>
-  <vox-step label="Review"></vox-step>
-</vox-step-indicator>
-```
+<vox-code-block language="html">
+&lt;vox-step-indicator&gt;
+  &lt;vox-step label="Choose plan" state="complete"&gt;&lt;/vox-step&gt;
+  &lt;vox-step label="Configure" state="current"&gt;&lt;/vox-step&gt;
+  &lt;vox-step label="Review"&gt;&lt;/vox-step&gt;
+&lt;/vox-step-indicator&gt;
+</vox-code-block>
 
 ## API
 

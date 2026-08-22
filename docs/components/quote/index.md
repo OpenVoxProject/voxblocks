@@ -12,11 +12,11 @@ title: "Quote"
   </vox-quote>
 </div>
 
-```html
-<vox-quote attribution="A happy operator" detail="Somewhere in production">
+<vox-code-block language="html">
+&lt;vox-quote attribution="A happy operator" detail="Somewhere in production"&gt;
   Migrating to OpenVox was the least dramatic change we made all year.
-</vox-quote>
-```
+&lt;/vox-quote&gt;
+</vox-code-block>
 
 ## API
 

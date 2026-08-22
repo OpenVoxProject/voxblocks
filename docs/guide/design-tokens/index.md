@@ -22,6 +22,7 @@ The default palette, "Deep Teal," is an OpenVox-specific identity rather than a 
 | `--vox-color-bg`, `-alt`, `-soft`, `-elv` | Surfaces |
 | `--vox-color-text-1/2/3` | Text emphasis levels |
 | `--vox-color-divider`, `--vox-color-border` | Lines |
+| `--vox-code-comment/keyword/string/number/function/property/tag` | [`<vox-code-block>`](../../components/code-block/) syntax highlighting — one token role per palette hue |
 
 ## Typography, shape, spacing
 
@@ -36,14 +37,14 @@ The default palette, "Deep Teal," is an OpenVox-specific identity rather than a 
 
 ## Overriding
 
-```css
+<vox-code-block language="css">
 :root {
   /* Give buttons and links your site's accent color */
   --vox-color-brand-1: #067f56;
   --vox-color-brand-2: #08976a;
   --vox-color-brand-3: #0aa877;
 }
-```
+</vox-code-block>
 
 ## Dark mode
 

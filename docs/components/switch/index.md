@@ -11,9 +11,9 @@ title: "Switch"
   <vox-switch>Send anonymous usage stats</vox-switch>
 </div>
 
-```html
-<vox-switch name="dark" checked>Enable dark mode</vox-switch>
-```
+<vox-code-block language="html">
+&lt;vox-switch name="dark" checked&gt;Enable dark mode&lt;/vox-switch&gt;
+</vox-code-block>
 
 ## API
 

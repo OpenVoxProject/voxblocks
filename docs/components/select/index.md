@@ -15,13 +15,13 @@ title: "Select Input"
   </vox-select>
 </div>
 
-```html
-<vox-select label="Operating system" name="os">
-  <option value="">Choose one…</option>
-  <option value="deb">Debian / Ubuntu</option>
-  <option value="rpm">RHEL / Fedora</option>
-</vox-select>
-```
+<vox-code-block language="html">
+&lt;vox-select label="Operating system" name="os"&gt;
+  &lt;option value=""&gt;Choose one…&lt;/option&gt;
+  &lt;option value="deb"&gt;Debian / Ubuntu&lt;/option&gt;
+  &lt;option value="rpm"&gt;RHEL / Fedora&lt;/option&gt;
+&lt;/vox-select&gt;
+</vox-code-block>
 
 ## API
 

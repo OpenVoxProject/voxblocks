@@ -22,12 +22,12 @@ title: "Card"
   </vox-card>
 </div>
 
-```html
-<vox-card heading="OpenVox Server" href="https://docs.openvoxproject.org">
-  <span slot="icon"><svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="6" width="22" height="11" rx="2.5"/><line x1="13" y1="11.5" x2="35" y2="11.5" stroke-width="1.4"/><path d="M24 17 L14 34 M24 17 L24 34 M24 17 L34 34"/><circle cx="14" cy="36" r="2.4" fill="currentColor" stroke="none"/><circle cx="24" cy="36" r="2.4" fill="currentColor" stroke="none"/><circle cx="34" cy="36" r="2.4" fill="currentColor" stroke="none"/></svg></span>
+<vox-code-block language="html">
+&lt;vox-card heading="OpenVox Server" href="https://docs.openvoxproject.org"&gt;
+  &lt;span slot="icon"&gt;&lt;svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;rect x="13" y="6" width="22" height="11" rx="2.5"/&gt;&lt;line x1="13" y1="11.5" x2="35" y2="11.5" stroke-width="1.4"/&gt;&lt;path d="M24 17 L14 34 M24 17 L24 34 M24 17 L34 34"/&gt;&lt;circle cx="14" cy="36" r="2.4" fill="currentColor" stroke="none"/&gt;&lt;circle cx="24" cy="36" r="2.4" fill="currentColor" stroke="none"/&gt;&lt;circle cx="34" cy="36" r="2.4" fill="currentColor" stroke="none"/&gt;&lt;/svg&gt;&lt;/span&gt;
   Installation and configuration of the server components.
-</vox-card>
-```
+&lt;/vox-card&gt;
+</vox-code-block>
 
 ## Badge
 
@@ -45,13 +45,13 @@ Use the `badge` slot to place a badge or label in the top-right corner of the ca
   </vox-card>
 </div>
 
-```html
-<vox-card heading="Design Patterns">
-  <span slot="icon"><vox-icon name="blocks" size="lg"></vox-icon></span>
-  <vox-badge slot="badge" variant="danger">Pro</vox-badge>
+<vox-code-block language="html">
+&lt;vox-card heading="Design Patterns"&gt;
+  &lt;span slot="icon"&gt;&lt;vox-icon name="blocks" size="lg"&gt;&lt;/vox-icon&gt;&lt;/span&gt;
+  &lt;vox-badge slot="badge" variant="danger"&gt;Pro&lt;/vox-badge&gt;
   Grab-and-go patterns for common site, app, and online product workflows.
-</vox-card>
-```
+&lt;/vox-card&gt;
+</vox-code-block>
 
 ## Footer
 
@@ -72,13 +72,13 @@ same row line up their footers even when body length varies.
   </vox-card>
 </div>
 
-```html
-<vox-card heading="puppetdb">
-  <span slot="badge">8.1.0</span>
+<vox-code-block language="html">
+&lt;vox-card heading="puppetdb"&gt;
+  &lt;span slot="badge"&gt;8.1.0&lt;/span&gt;
   Installs PostgreSQL and PuppetDB, sets up the connection to Puppet master.
-  <span slot="footer">313,347,865 downloads</span>
-</vox-card>
-```
+  &lt;span slot="footer"&gt;313,347,865 downloads&lt;/span&gt;
+&lt;/vox-card&gt;
+</vox-code-block>
 
 ## API
 

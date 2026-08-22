@@ -14,12 +14,12 @@ title: "Radio Input"
   </vox-radio-group>
 </div>
 
-```html
-<vox-radio-group label="Install method" name="method" value="pkg">
-  <vox-radio value="pkg">System packages</vox-radio>
-  <vox-radio value="gem">Ruby gem</vox-radio>
-</vox-radio-group>
-```
+<vox-code-block language="html">
+&lt;vox-radio-group label="Install method" name="method" value="pkg"&gt;
+  &lt;vox-radio value="pkg"&gt;System packages&lt;/vox-radio&gt;
+  &lt;vox-radio value="gem"&gt;Ruby gem&lt;/vox-radio&gt;
+&lt;/vox-radio-group&gt;
+</vox-code-block>
 
 ## API
 

@@ -15,14 +15,14 @@ title: "Header"
   </vox-header>
 </div>
 
-```html
-<vox-header site-title="OpenVox" href="/">
-  <img slot="logo" src="/img/logo.svg" alt="" />
-  <a href="/modules" aria-current="page">Modules</a>
-  <a href="/docs">Docs</a>
-  <vox-button slot="actions" size="sm" variant="alt">Sponsor</vox-button>
-</vox-header>
-```
+<vox-code-block language="html">
+&lt;vox-header site-title="OpenVox" href="/"&gt;
+  &lt;img slot="logo" src="/img/logo.svg" alt="" /&gt;
+  &lt;a href="/modules" aria-current="page"&gt;Modules&lt;/a&gt;
+  &lt;a href="/docs"&gt;Docs&lt;/a&gt;
+  &lt;vox-button slot="actions" size="sm" variant="alt"&gt;Sponsor&lt;/vox-button&gt;
+&lt;/vox-header&gt;
+</vox-code-block>
 
 ## API
 
