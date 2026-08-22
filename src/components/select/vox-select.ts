@@ -1,5 +1,6 @@
 import { html, css } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { VoxFieldElement, fieldStyles } from '../../internal/field.js';
 
 /**
@@ -73,6 +74,8 @@ export class VoxSelect extends VoxFieldElement {
           class="control"
           ?required=${this.required}
           ?disabled=${this.disabled}
+          aria-describedby=${ifDefined(this.noteId)}
+          aria-invalid=${this.invalid ? 'true' : 'false'}
           @change=${this.handleChange}
         ></select>
         ${this.renderNote()}

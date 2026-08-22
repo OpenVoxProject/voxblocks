@@ -65,11 +65,18 @@ export class VoxTabs extends LitElement {
   }
 
   private handleKeydown(event: KeyboardEvent) {
+    const tabs = this.tabs;
+    if (event.key === 'Home' || event.key === 'End') {
+      event.preventDefault();
+      const target = tabs[event.key === 'Home' ? 0 : tabs.length - 1];
+      target.select();
+      target.focusTab();
+      return;
+    }
     const deltas: Record<string, number> = { ArrowRight: 1, ArrowLeft: -1 };
     const delta = deltas[event.key];
     if (!delta) return;
     event.preventDefault();
-    const tabs = this.tabs;
     const index = tabs.findIndex((t) => t.selected);
     const next = tabs[(index + delta + tabs.length) % tabs.length];
     next.select();
@@ -150,9 +157,11 @@ export class VoxTab extends LitElement {
   render() {
     return html`
       <button
+        id="tab-${this.panel}"
         class="tab"
         role="tab"
         aria-selected=${this.selected ? 'true' : 'false'}
+        aria-controls="panel-${this.panel}"
         tabindex=${this.selected ? '0' : '-1'}
         @click=${this.select}
       >
@@ -185,10 +194,25 @@ export class VoxTabPanel extends LitElement {
     :host([active]) {
       display: block;
     }
+
+    div:focus-visible {
+      outline: 2px solid var(--vox-color-brand-1);
+      outline-offset: 2px;
+      border-radius: var(--vox-radius-sm);
+    }
   `;
 
   render() {
-    return html`<div role="tabpanel"><slot></slot></div>`;
+    return html`
+      <div
+        id="panel-${this.name}"
+        role="tabpanel"
+        aria-labelledby="tab-${this.name}"
+        tabindex="0"
+      >
+        <slot></slot>
+      </div>
+    `;
   }
 }
 

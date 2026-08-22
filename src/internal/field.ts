@@ -1,5 +1,5 @@
 import { LitElement, html, css, nothing } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 
 /**
  * Shared base for form-associated VoxBlocks controls. Uses ElementInternals
@@ -9,6 +9,9 @@ export class VoxFieldElement extends LitElement {
   static formAssociated = true;
 
   protected internals: ElementInternals;
+
+  /** Whether the control currently fails validation; drives `aria-invalid`. */
+  @state() protected invalid = false;
 
   @property() name = '';
   @property() label = '';
@@ -46,6 +49,7 @@ export class VoxFieldElement extends LitElement {
     inner: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement,
   ) {
     this.internals.setValidity(inner.validity, inner.validationMessage, inner);
+    this.invalid = !inner.validity.valid;
   }
 
   protected renderLabel(forId: string) {
@@ -59,8 +63,13 @@ export class VoxFieldElement extends LitElement {
     `;
   }
 
+  /** `note`'s id when present, for `aria-describedby` on the native control. */
+  protected get noteId(): string | undefined {
+    return this.note ? 'note' : undefined;
+  }
+
   protected renderNote() {
-    return this.note ? html`<p class="note">${this.note}</p>` : nothing;
+    return this.note ? html`<p class="note" id="note">${this.note}</p>` : nothing;
   }
 }
 
@@ -117,6 +126,15 @@ export const fieldStyles = css`
     outline: none;
     border-color: var(--vox-color-brand-1);
     box-shadow: 0 0 0 3px var(--vox-color-brand-soft);
+  }
+
+  .control[aria-invalid='true'] {
+    border-color: var(--vox-color-danger-1);
+  }
+
+  .control[aria-invalid='true']:focus {
+    border-color: var(--vox-color-danger-1);
+    box-shadow: 0 0 0 3px var(--vox-color-danger-soft);
   }
 
   /* Corner flattening when placed inside a <vox-input-group>. */

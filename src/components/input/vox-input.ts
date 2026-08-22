@@ -56,6 +56,8 @@ export class VoxInput extends VoxFieldElement {
           ?readonly=${this.readonly}
           ?disabled=${this.disabled}
           aria-label=${this.label ? nothing : 'text input'}
+          aria-describedby=${ifDefined(this.noteId)}
+          aria-invalid=${this.invalid ? 'true' : 'false'}
           @input=${this.handleInput}
           @change=${this.handleChange}
         />

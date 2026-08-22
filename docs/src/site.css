@@ -17,6 +17,34 @@ body {
   font-family: var(--vox-font-family-base);
 }
 
+/* Bypass block (WCAG 2.4.1): every page tabs through the full header nav,
+   and doc pages through the full sidebar nav too, before reaching content —
+   this jumps a keyboard/screen-reader user straight past both. Off-screen
+   positioning (not display/visibility) keeps it in the accessibility tree
+   and focusable; it only becomes visible once it receives focus. */
+.vox-skip-link {
+  position: absolute;
+  top: -3rem;
+  left: var(--vox-space-3);
+  z-index: 100;
+  padding: var(--vox-space-2) var(--vox-space-4);
+  background-color: var(--vox-color-bg-elv);
+  color: var(--vox-color-brand-1);
+  border-radius: var(--vox-radius-md);
+  box-shadow: var(--vox-shadow-2);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top var(--vox-transition-fast);
+}
+
+.vox-skip-link:focus {
+  top: var(--vox-space-3);
+}
+
+main:focus-visible {
+  outline: none;
+}
+
 /* Pages that render a real <vox-footer> (currently just the home page) get
    it pinned to the viewport bottom instead of trailing short content. */
 vox-footer {
@@ -204,10 +232,27 @@ vox-footer {
   color: var(--vox-color-text-2);
 }
 
-/* Rouge syntax highlighting ---------------------------------------------- */
-
+/* Rouge syntax highlighting ----------------------------------------------
+ * These three tokens are docs-only and have no equivalent in tokens.css,
+ * so (unlike everything else on this page) they were hardcoded hex values
+ * with no dark-mode counterpart — meaning the light-mode value was reused
+ * verbatim against the dark `--vox-color-bg-soft` code background, where
+ * two of them measured under 3.5:1 (dark) and the entity/number colors were
+ * already sub-4.5:1 even in light mode. Now real CSS custom properties, so
+ * each theme gets a value that clears 4.5:1 against its own
+ * `--vox-color-bg-soft`.
+ */
 .highlight {
+  --vox-color-code-string: #0e7267;
+  --vox-color-code-entity: #6d4dad;
+  --vox-color-code-number: #a54b08;
   color: var(--vox-color-text-1);
+}
+
+[data-vox-theme='dark'] .highlight {
+  --vox-color-code-string: #3daa9c;
+  --vox-color-code-entity: #9d84d6;
+  --vox-color-code-number: #e08a3d;
 }
 
 .highlight .c,
@@ -228,7 +273,7 @@ vox-footer {
 .highlight .s1,
 .highlight .s2,
 .highlight .sb {
-  color: #0e7267;
+  color: var(--vox-color-code-string);
 }
 
 .highlight .n,
@@ -244,13 +289,13 @@ vox-footer {
 .highlight .nb,
 .highlight .nc,
 .highlight .nf {
-  color: #7c5cbf;
+  color: var(--vox-color-code-entity);
 }
 
 .highlight .m,
 .highlight .mi,
 .highlight .mf {
-  color: #b45309;
+  color: var(--vox-color-code-number);
 }
 
 .highlight .o,

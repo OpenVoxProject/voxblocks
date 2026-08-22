@@ -2,18 +2,20 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 /**
- * Page-number navigation. Children are plain links; mark the current
- * page with `aria-current="page"`:
+ * Page-number navigation. Children are plain links, with the current
+ * page as a non-interactive `<span aria-current="page">` — like
+ * `<vox-breadcrumbs>`, it shouldn't be a link to itself:
  *
  * ```html
  * <vox-pagination>
  *   <a href="?page=1">1</a>
- *   <a href="?page=2" aria-current="page">2</a>
+ *   <span aria-current="page">2</span>
  *   <a href="?page=3">3</a>
  * </vox-pagination>
  * ```
  *
- * @slot - `<a>` elements (including any prev/next links).
+ * @slot - `<a>` elements (including any prev/next links) and the
+ * current-page `<span>`.
  */
 @customElement('vox-pagination')
 export class VoxPagination extends LitElement {
@@ -31,7 +33,8 @@ export class VoxPagination extends LitElement {
       flex-wrap: wrap;
     }
 
-    ::slotted(a) {
+    ::slotted(a),
+    ::slotted(span) {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -53,7 +56,7 @@ export class VoxPagination extends LitElement {
       background-color: var(--vox-color-brand-soft);
     }
 
-    ::slotted(a[aria-current='page']) {
+    ::slotted([aria-current='page']) {
       background-color: var(--vox-color-brand-3);
       color: var(--vox-color-text-inverse);
       font-weight: 600;

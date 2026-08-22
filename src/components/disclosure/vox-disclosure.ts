@@ -9,8 +9,12 @@ import { customElement, property } from 'lit/decorators.js';
  */
 @customElement('vox-disclosure')
 export class VoxDisclosure extends LitElement {
+  private static nextId = 0;
+
   @property() summary = 'Show details';
   @property({ type: Boolean, reflect: true }) open = false;
+
+  private readonly panelId = `vox-disclosure-panel-${VoxDisclosure.nextId++}`;
 
   static styles = css`
     :host {
@@ -77,6 +81,7 @@ export class VoxDisclosure extends LitElement {
       <button
         class="trigger"
         aria-expanded=${this.open ? 'true' : 'false'}
+        aria-controls=${this.panelId}
         @click=${this.toggle}
       >
         <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -84,7 +89,7 @@ export class VoxDisclosure extends LitElement {
         </svg>
         ${this.summary}
       </button>
-      <div class="panel" ?hidden=${!this.open}>
+      <div id=${this.panelId} class="panel" ?hidden=${!this.open}>
         <slot></slot>
       </div>
     `;

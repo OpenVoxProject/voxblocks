@@ -84,8 +84,9 @@ export class VoxFileInput extends VoxFieldElement {
     for (const file of files) data.append(this.name, file);
     this.internals.setFormValue(files.length > 0 ? data : null);
 
+    this.invalid = this.required && files.length === 0;
     this.internals.setValidity(
-      this.required && files.length === 0 ? { valueMissing: true } : {},
+      this.invalid ? { valueMissing: true } : {},
       'Please select a file.',
       this.inputEl,
     );
@@ -103,6 +104,8 @@ export class VoxFileInput extends VoxFieldElement {
             accept=${ifDefined(this.accept)}
             ?multiple=${this.multiple}
             ?disabled=${this.disabled}
+            aria-describedby=${ifDefined(this.noteId)}
+            aria-invalid=${this.invalid ? 'true' : 'false'}
             @change=${this.handleChange}
           />
           <span class="picker">
