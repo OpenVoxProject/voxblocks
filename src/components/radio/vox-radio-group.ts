@@ -1,5 +1,6 @@
-import { html, css } from 'lit';
+import { html, css, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { VoxFieldElement, fieldStyles } from '../../internal/field.js';
 import type { VoxRadio } from './vox-radio.js';
 
@@ -35,8 +36,9 @@ export class VoxRadioGroup extends VoxFieldElement {
 
   updated() {
     this.internals.setFormValue(this.value || null);
+    this.invalid = this.required && !this.value;
     this.internals.setValidity(
-      this.required && !this.value ? { valueMissing: true } : {},
+      this.invalid ? { valueMissing: true } : {},
       'Please select an option.',
       this,
     );
@@ -46,10 +48,12 @@ export class VoxRadioGroup extends VoxFieldElement {
   private syncRadios() {
     const radios = this.radios;
     const anyChecked = radios.some((r) => r.value === this.value && this.value !== '');
-    radios.forEach((radio, index) => {
+    const firstEnabled = radios.find((r) => !r.disabled);
+    radios.forEach((radio) => {
       radio.checked = this.value !== '' && radio.value === this.value;
-      // Roving tabindex: the checked radio is tabbable, else the first one.
-      const tabbable = anyChecked ? radio.checked : index === 0;
+      // Roving tabindex: the checked radio is tabbable, else the first
+      // enabled one (a disabled radio can't receive focus at all).
+      const tabbable = anyChecked ? radio.checked : radio === firstEnabled;
       radio.shadowRoot
         ?.querySelector('.radio')
         ?.setAttribute('tabindex', tabbable ? '0' : '-1');
@@ -89,7 +93,14 @@ export class VoxRadioGroup extends VoxFieldElement {
 
   render() {
     return html`
-      <div class="field" role="radiogroup" aria-label=${this.label}>
+      <div
+        class="field"
+        role="radiogroup"
+        aria-label=${this.label || nothing}
+        aria-describedby=${ifDefined(this.noteId)}
+        aria-invalid=${this.invalid ? 'true' : 'false'}
+        aria-required=${this.required ? 'true' : 'false'}
+      >
         ${this.label
           ? html`<span class="label">
               ${this.label}${this.required

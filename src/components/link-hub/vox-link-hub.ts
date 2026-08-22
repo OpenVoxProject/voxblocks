@@ -106,7 +106,7 @@ export class VoxLinkHubItem extends LitElement {
     return html`
       <a href=${this.href}>
         <span class="heading">
-          <span class="icon ${this.hasIcon ? 'has-icon' : ''}">
+          <span class="icon ${this.hasIcon ? 'has-icon' : ''}" aria-hidden="true">
             <slot name="icon" @slotchange=${this.handleIconSlotChange}></slot>
           </span>
           ${this.heading}

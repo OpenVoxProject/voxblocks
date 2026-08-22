@@ -60,10 +60,9 @@ export class VoxCheckbox extends VoxFieldElement {
 
   updated() {
     this.internals.setFormValue(this.checked ? this.value : null);
+    this.invalid = this.required && !this.checked;
     this.internals.setValidity(
-      this.required && !this.checked
-        ? { valueMissing: true }
-        : {},
+      this.invalid ? { valueMissing: true } : {},
       'Please check this box.',
       this.renderRoot.querySelector('input') ?? undefined,
     );
@@ -81,6 +80,8 @@ export class VoxCheckbox extends VoxFieldElement {
           type="checkbox"
           .checked=${this.checked}
           ?disabled=${this.disabled}
+          ?required=${this.required}
+          aria-invalid=${this.invalid ? 'true' : 'false'}
           @change=${this.handleChange}
         />
         <span class="box" aria-hidden="true">

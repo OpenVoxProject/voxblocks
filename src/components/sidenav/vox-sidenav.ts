@@ -94,16 +94,26 @@ export class VoxSidenav extends LitElement {
     super.connectedCallback();
     document.addEventListener('click', this.handleOutsideClick);
     this.addEventListener('keydown', this.handleKeydown);
+    this.addEventListener('focusout', this.handleFocusOut);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     document.removeEventListener('click', this.handleOutsideClick);
     this.removeEventListener('keydown', this.handleKeydown);
+    this.removeEventListener('focusout', this.handleFocusOut);
   }
 
   private handleOutsideClick = (event: MouseEvent) => {
     if (this.mobileOpen && !event.composedPath().includes(this)) {
+      this.mobileOpen = false;
+    }
+  };
+
+  /** Close the mobile menu once focus tabs past its last item. */
+  private handleFocusOut = (event: FocusEvent) => {
+    const next = event.relatedTarget as Node | null;
+    if (this.mobileOpen && !(next && this.contains(next))) {
       this.mobileOpen = false;
     }
   };
@@ -170,8 +180,12 @@ export class VoxSidenav extends LitElement {
  */
 @customElement('vox-sidenav-group')
 export class VoxSidenavGroup extends LitElement {
+  private static nextId = 0;
+
   @property() heading = '';
   @property({ type: Boolean, reflect: true }) open = false;
+
+  private readonly itemsId = `vox-sidenav-group-items-${VoxSidenavGroup.nextId++}`;
 
   static styles = css`
     :host {
@@ -240,6 +254,7 @@ export class VoxSidenavGroup extends LitElement {
       <button
         class="trigger"
         aria-expanded=${this.open ? 'true' : 'false'}
+        aria-controls=${this.itemsId}
         @click=${this.toggle}
       >
         ${this.heading}
@@ -247,7 +262,7 @@ export class VoxSidenavGroup extends LitElement {
           <path d="m9 6 6 6-6 6" />
         </svg>
       </button>
-      <div class="items"><slot></slot></div>
+      <div id=${this.itemsId} class="items"><slot></slot></div>
     `;
   }
 }

@@ -59,6 +59,8 @@ export class VoxTextarea extends VoxFieldElement {
           ?required=${this.required}
           ?readonly=${this.readonly}
           ?disabled=${this.disabled}
+          aria-describedby=${ifDefined(this.noteId)}
+          aria-invalid=${this.invalid ? 'true' : 'false'}
           @input=${this.handleInput}
           @change=${this.handleChange}
         ></textarea>

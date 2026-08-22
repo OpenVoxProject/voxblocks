@@ -122,12 +122,14 @@ export class VoxDropdown extends LitElement {
     super.connectedCallback();
     document.addEventListener('click', this.handleOutsideClick);
     this.addEventListener('keydown', this.handleKeydown);
+    this.addEventListener('focusout', this.handleFocusOut);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     document.removeEventListener('click', this.handleOutsideClick);
     this.removeEventListener('keydown', this.handleKeydown);
+    this.removeEventListener('focusout', this.handleFocusOut);
   }
 
   private handleOutsideClick = (event: MouseEvent) => {
@@ -136,6 +138,20 @@ export class VoxDropdown extends LitElement {
     }
   };
 
+  /** Close when focus leaves the component entirely (e.g. Tab past the last item). */
+  private handleFocusOut = (event: FocusEvent) => {
+    const next = event.relatedTarget as Node | null;
+    if (this.open && !(next && this.contains(next))) {
+      this.open = false;
+    }
+  };
+
+  private focusItem(index: number) {
+    const items = [...this.querySelectorAll<HTMLElement>('a, button')];
+    if (items.length === 0) return;
+    items[(index + items.length) % items.length].focus();
+  }
+
   private handleKeydown = (event: KeyboardEvent) => {
     if (event.key === 'Escape' && this.open) {
       this.open = false;
@@ -143,20 +159,27 @@ export class VoxDropdown extends LitElement {
       return;
     }
 
-    if ((event.key === 'ArrowDown' || event.key === 'ArrowUp') && this.open) {
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
       event.preventDefault();
-      const items = [...this.querySelectorAll<HTMLElement>('a, button')];
-      if (items.length === 0) return;
-      const active = document.activeElement as HTMLElement;
-      const index = items.indexOf(active);
       const delta = event.key === 'ArrowDown' ? 1 : -1;
-      const next = items[(Math.max(index, 0) + delta + items.length) % items.length];
-      next.focus();
+      if (!this.open) {
+        this.open = true;
+        this.updateComplete.then(() =>
+          this.focusItem(event.key === 'ArrowDown' ? 0 : -1),
+        );
+        return;
+      }
+      const items = [...this.querySelectorAll<HTMLElement>('a, button')];
+      const index = items.indexOf(document.activeElement as HTMLElement);
+      this.focusItem(Math.max(index, 0) + delta);
     }
   };
 
   private toggle() {
     this.open = !this.open;
+    if (this.open) {
+      this.updateComplete.then(() => this.focusItem(0));
+    }
   }
 
   render() {
@@ -165,6 +188,7 @@ export class VoxDropdown extends LitElement {
         class="trigger"
         aria-expanded=${this.open ? 'true' : 'false'}
         aria-haspopup="true"
+        aria-controls="menu"
         @click=${this.toggle}
       >
         ${this.label}
@@ -172,7 +196,7 @@ export class VoxDropdown extends LitElement {
           <path d="m6 9 6 6 6-6" />
         </svg>
       </button>
-      <div class="menu">
+      <div id="menu" class="menu">
         <slot @click=${() => (this.open = false)}></slot>
       </div>
     `;

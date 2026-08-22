@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl';
@@ -63,8 +63,15 @@ export class VoxAvatar extends LitElement {
   `;
 
   render() {
+    // Without `alt`, fall back to letting AT read the initials as plain text
+    // rather than hiding them behind an empty aria-label via role="img".
+    const labelled = !this.src && this.alt;
     return html`
-      <span class="avatar" role=${this.src ? 'presentation' : 'img'} aria-label=${this.alt}>
+      <span
+        class="avatar"
+        role=${labelled ? 'img' : nothing}
+        aria-label=${labelled ? this.alt : nothing}
+      >
         ${this.src
           ? html`<img src=${this.src} alt=${this.alt} />`
           : this.initials}

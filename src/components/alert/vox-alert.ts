@@ -154,8 +154,12 @@ export class VoxAlert extends LitElement {
   }
 
   render() {
+    const isUrgent = this.variant === 'danger' || this.variant === 'warning';
     return html`
-      <div class="alert ${this.variant}" role="alert">
+      <div
+        class="alert ${this.variant}"
+        role=${isUrgent ? 'alert' : 'status'}
+      >
         <svg
           class="icon"
           viewBox="0 0 48 48"
