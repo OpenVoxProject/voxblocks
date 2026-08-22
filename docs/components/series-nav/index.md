@@ -15,14 +15,14 @@ title: "Series Nav"
   ></vox-series-nav>
 </div>
 
-```html
-<vox-series-nav
+<vox-code-block language="html">
+&lt;vox-series-nav
   previous-href="/install"
   previous-label="Installing the server"
   next-href="/agents"
   next-label="Configuring agents"
-></vox-series-nav>
-```
+&gt;&lt;/vox-series-nav&gt;
+</vox-code-block>
 
 ## API
 

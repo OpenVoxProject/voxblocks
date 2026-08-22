@@ -15,11 +15,11 @@ title: "Callout"
   <vox-callout variant="danger"><p>A destructive or breaking consequence.</p></vox-callout>
 </div>
 
-```html
-<vox-callout variant="tip">
-  <p>A helpful suggestion.</p>
-</vox-callout>
-```
+<vox-code-block language="html">
+&lt;vox-callout variant="tip"&gt;
+  &lt;p&gt;A helpful suggestion.&lt;/p&gt;
+&lt;/vox-callout&gt;
+</vox-code-block>
 
 ## Custom heading
 
@@ -29,11 +29,11 @@ title: "Callout"
   </vox-callout>
 </div>
 
-```html
-<vox-callout variant="warning" heading="Deprecated since 8.0">
-  <p>Use <code>openvox-agent</code> instead.</p>
-</vox-callout>
-```
+<vox-code-block language="html">
+&lt;vox-callout variant="warning" heading="Deprecated since 8.0"&gt;
+  &lt;p&gt;Use &lt;code&gt;openvox-agent&lt;/code&gt; instead.&lt;/p&gt;
+&lt;/vox-callout&gt;
+</vox-code-block>
 
 ## API
 

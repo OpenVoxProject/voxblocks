@@ -17,12 +17,12 @@ title: "Input Group"
   </vox-input-group>
 </div>
 
-```html
-<vox-input-group>
-  <vox-input aria-label="Search modules" placeholder="Search modules…"></vox-input>
-  <vox-button>Search</vox-button>
-</vox-input-group>
-```
+<vox-code-block language="html">
+&lt;vox-input-group&gt;
+  &lt;vox-input aria-label="Search modules" placeholder="Search modules…"&gt;&lt;/vox-input&gt;
+  &lt;vox-button&gt;Search&lt;/vox-button&gt;
+&lt;/vox-input-group&gt;
+</vox-code-block>
 
 Inside a group, give inputs an `aria-label` instead of a visible `label` so the row stays aligned.
 

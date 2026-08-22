@@ -15,12 +15,12 @@ title: Button
   <vox-button variant="ghost">Ghost</vox-button>
 </div>
 
-```html
-<vox-button variant="brand">Brand</vox-button>
-<vox-button variant="alt">Alt</vox-button>
-<vox-button variant="danger">Danger</vox-button>
-<vox-button variant="ghost">Ghost</vox-button>
-```
+<vox-code-block language="html">
+&lt;vox-button variant="brand"&gt;Brand&lt;/vox-button&gt;
+&lt;vox-button variant="alt"&gt;Alt&lt;/vox-button&gt;
+&lt;vox-button variant="danger"&gt;Danger&lt;/vox-button&gt;
+&lt;vox-button variant="ghost"&gt;Ghost&lt;/vox-button&gt;
+</vox-code-block>
 
 ## Sizes
 
@@ -30,11 +30,11 @@ title: Button
   <vox-button size="lg">Large</vox-button>
 </div>
 
-```html
-<vox-button size="sm">Small</vox-button>
-<vox-button size="md">Medium</vox-button>
-<vox-button size="lg">Large</vox-button>
-```
+<vox-code-block language="html">
+&lt;vox-button size="sm"&gt;Small&lt;/vox-button&gt;
+&lt;vox-button size="md"&gt;Medium&lt;/vox-button&gt;
+&lt;vox-button size="lg"&gt;Large&lt;/vox-button&gt;
+</vox-code-block>
 
 ## As a link
 
@@ -42,9 +42,9 @@ title: Button
   <vox-button href="https://voxpupuli.org/openvox/" target="_blank">Visit OpenVox</vox-button>
 </div>
 
-```html
-<vox-button href="https://voxpupuli.org/openvox/" target="_blank">Visit OpenVox</vox-button>
-```
+<vox-code-block language="html">
+&lt;vox-button href="https://voxpupuli.org/openvox/" target="_blank"&gt;Visit OpenVox&lt;/vox-button&gt;
+</vox-code-block>
 
 ## Disabled
 
@@ -52,9 +52,9 @@ title: Button
   <vox-button disabled>Disabled</vox-button>
 </div>
 
-```html
-<vox-button disabled>Disabled</vox-button>
-```
+<vox-code-block language="html">
+&lt;vox-button disabled&gt;Disabled&lt;/vox-button&gt;
+</vox-code-block>
 
 ## API
 

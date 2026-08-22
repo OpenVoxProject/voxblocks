@@ -26,12 +26,12 @@ title: "Footer"
   </vox-footer>
 </div>
 
-```html
-<vox-footer>
-  <vox-footer-column heading="Project">
-    <a href="/modules">Modules</a>
-    <a href="/docs">Documentation</a>
-  </vox-footer-column>
-  <span slot="bottom">© OpenVox. Apache-2.0 licensed.</span>
-</vox-footer>
-```
+<vox-code-block language="html">
+&lt;vox-footer&gt;
+  &lt;vox-footer-column heading="Project"&gt;
+    &lt;a href="/modules"&gt;Modules&lt;/a&gt;
+    &lt;a href="/docs"&gt;Documentation&lt;/a&gt;
+  &lt;/vox-footer-column&gt;
+  &lt;span slot="bottom"&gt;© OpenVox. Apache-2.0 licensed.&lt;/span&gt;
+&lt;/vox-footer&gt;
+</vox-code-block>

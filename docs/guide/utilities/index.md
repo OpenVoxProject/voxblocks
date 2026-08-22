@@ -14,20 +14,20 @@ Included in `voxblocks.css`; nothing extra to load.
 
 `vox-container` centers content at 1280px with responsive horizontal padding — the same measure `vox-header` and `vox-footer` already use internally. Wrap other page sections (`vox-hero`, `vox-grid`, prose) in it so they line up with the header and footer instead of running edge-to-edge.
 
-```html
-<div class="vox-container">
-  <vox-hero heading="…">…</vox-hero>
-</div>
-```
+<vox-code-block language="html">
+&lt;div class="vox-container"&gt;
+  &lt;vox-hero heading="…"&gt;…&lt;/vox-hero&gt;
+&lt;/div&gt;
+</vox-code-block>
 
 ## Spacing
 
 Margin and padding: `vox-{m|p}-{side}-{size}` where side is `top`, `right`, `bottom`, `left`, `x`, `y`, or `all`.
 
-```html
-<div class="vox-m-top-lg vox-p-all-md">…</div>
-<div class="vox-m-x-auto vox-max-width-md">centered column</div>
-```
+<vox-code-block language="html">
+&lt;div class="vox-m-top-lg vox-p-all-md"&gt;…&lt;/div&gt;
+&lt;div class="vox-m-x-auto vox-max-width-md"&gt;centered column&lt;/div&gt;
+</vox-code-block>
 
 `vox-m-x-auto` centers block elements horizontally.
 
@@ -39,10 +39,10 @@ Type scale `vox-ts-{xs|sm|md|lg|xl|xxl|3xl}` (12–36px), weight `vox-text-{regu
 <p class="vox-ts-sm vox-text-uppercase vox-color-text-3 vox-m-y-none">Small uppercase label</p>
 <p class="vox-text-mono vox-m-y-none">Monospace text</p>
 
-```html
-<p class="vox-ts-xl vox-text-bold">Extra-large bold text</p>
-<p class="vox-ts-sm vox-text-uppercase vox-color-text-3">Small uppercase label</p>
-```
+<vox-code-block language="html">
+&lt;p class="vox-ts-xl vox-text-bold"&gt;Extra-large bold text&lt;/p&gt;
+&lt;p class="vox-ts-sm vox-text-uppercase vox-color-text-3"&gt;Small uppercase label&lt;/p&gt;
+</vox-code-block>
 
 ## Color
 
@@ -57,9 +57,9 @@ Background: `vox-bg`, `vox-bg-{alt|soft|elv}`, `vox-bg-brand`, `vox-bg-{brand|ti
   <span class="vox-bg-danger-soft vox-color-danger vox-p-x-sm vox-radius-sm">danger-soft</span>
 </div>
 
-```html
-<span class="vox-bg-brand-soft vox-color-brand">brand-soft</span>
-```
+<vox-code-block language="html">
+&lt;span class="vox-bg-brand-soft vox-color-brand"&gt;brand-soft&lt;/span&gt;
+</vox-code-block>
 
 An extended, non-themed palette is also available — `vox-color-{hue}-{100-900}` / `vox-bg-{hue}-{100-900}` across seven hues (gray, teal, blue, green, gold, red, purple). See [Colors](../colors/) for the full swatch reference and contrast pairing guidance.
 
@@ -69,9 +69,9 @@ An extended, non-themed palette is also available — `vox-color-{hue}-{100-900}
 
 <div class="vox-border-all vox-radius-lg vox-p-all-md vox-m-y-md">Bordered, rounded box</div>
 
-```html
-<div class="vox-border-all vox-radius-lg vox-p-all-md">…</div>
-```
+<vox-code-block language="html">
+&lt;div class="vox-border-all vox-radius-lg vox-p-all-md"&gt;…&lt;/div&gt;
+</vox-code-block>
 
 ## Display
 
@@ -87,9 +87,9 @@ Direction `vox-flex-{row|column}`, wrapping `vox-flex-{wrap|nowrap}`, main axis 
   <vox-badge>Right</vox-badge>
 </div>
 
-```html
-<div class="vox-display-flex vox-justify-between vox-items-center">…</div>
-```
+<vox-code-block language="html">
+&lt;div class="vox-display-flex vox-justify-between vox-items-center"&gt;…&lt;/div&gt;
+</vox-code-block>
 
 ## Gap
 
@@ -110,10 +110,10 @@ Direction `vox-flex-{row|column}`, wrapping `vox-flex-{wrap|nowrap}`, main axis 
 - `vox-sr-only` — visually hidden, still announced by screen readers.
 - Responsive: `vox-hide-{sm|md|lg}-down` hides at and below the breakpoint, `vox-hide-{sm|md|lg}-up` at and above. Breakpoints: `sm` 480px, `md` 768px, `lg` 1024px.
 
-```html
-<span class="vox-hide-md-down">Only shown on wider screens</span>
-<span class="vox-sr-only">Screen-reader-only label</span>
-```
+<vox-code-block language="html">
+&lt;span class="vox-hide-md-down"&gt;Only shown on wider screens&lt;/span&gt;
+&lt;span class="vox-sr-only"&gt;Screen-reader-only label&lt;/span&gt;
+</vox-code-block>
 
 ## Width
 

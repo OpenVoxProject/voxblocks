@@ -15,17 +15,17 @@ title: "Dialog"
   </vox-dialog>
 </div>
 
-```html
-<vox-dialog id="confirm" heading="Delete module?" light-dismiss>
-  <p>This removes puppet-nginx from your namespace.</p>
-  <vox-button slot="footer" variant="alt">Cancel</vox-button>
-  <vox-button slot="footer" variant="danger">Delete</vox-button>
-</vox-dialog>
+<vox-code-block language="html">
+&lt;vox-dialog id="confirm" heading="Delete module?" light-dismiss&gt;
+  &lt;p&gt;This removes puppet-nginx from your namespace.&lt;/p&gt;
+  &lt;vox-button slot="footer" variant="alt"&gt;Cancel&lt;/vox-button&gt;
+  &lt;vox-button slot="footer" variant="danger"&gt;Delete&lt;/vox-button&gt;
+&lt;/vox-dialog&gt;
 
-<script>
+&lt;script&gt;
   document.getElementById('confirm').show();
-</script>
-```
+&lt;/script&gt;
+</vox-code-block>
 
 ## API
 

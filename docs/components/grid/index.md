@@ -14,14 +14,14 @@ title: "Grid"
   </vox-grid>
 </div>
 
-```html
-<vox-grid min="240px" gap="lg">
-  <vox-card heading="…">…</vox-card>
-  <vox-card heading="…">…</vox-card>
-</vox-grid>
+<vox-code-block language="html">
+&lt;vox-grid min="240px" gap="lg"&gt;
+  &lt;vox-card heading="…"&gt;…&lt;/vox-card&gt;
+  &lt;vox-card heading="…"&gt;…&lt;/vox-card&gt;
+&lt;/vox-grid&gt;
 
-<vox-grid cols="2">…</vox-grid>
-```
+&lt;vox-grid cols="2"&gt;…&lt;/vox-grid&gt;
+</vox-code-block>
 
 ## API
 

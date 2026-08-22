@@ -12,14 +12,14 @@ title: "Text Input"
   <vox-input label="Read only" value="openvox" readonly></vox-input>
 </div>
 
-```html
-<vox-input
+<vox-code-block language="html">
+&lt;vox-input
   label="Module name"
   name="module"
   placeholder="puppet-nginx"
   note="Lowercase, hyphen-separated."
-></vox-input>
-```
+&gt;&lt;/vox-input&gt;
+</vox-code-block>
 
 ## API
 

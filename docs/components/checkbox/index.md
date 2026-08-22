@@ -12,11 +12,11 @@ title: "Checkbox"
   <vox-checkbox disabled>Unavailable option</vox-checkbox>
 </div>
 
-```html
-<vox-checkbox name="subscribe" checked>
+<vox-code-block language="html">
+&lt;vox-checkbox name="subscribe" checked&gt;
   Subscribe to release announcements
-</vox-checkbox>
-```
+&lt;/vox-checkbox&gt;
+</vox-code-block>
 
 ## API
 

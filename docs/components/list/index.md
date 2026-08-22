@@ -17,8 +17,8 @@ Lists are styled with light-DOM utility classes (shadow DOM can't reach into slo
   <li>items</li>
 </ul>
 
-```html
-<ul class="vox-list">…</ul>
-<ul class="vox-list vox-list--plain">…</ul>  <!-- no bullets -->
-<ul class="vox-list vox-list--inline">…</ul> <!-- horizontal -->
-```
+<vox-code-block language="html">
+&lt;ul class="vox-list"&gt;…&lt;/ul&gt;
+&lt;ul class="vox-list vox-list--plain"&gt;…&lt;/ul&gt;  &lt;!-- no bullets --&gt;
+&lt;ul class="vox-list vox-list--inline"&gt;…&lt;/ul&gt; &lt;!-- horizontal --&gt;
+</vox-code-block>

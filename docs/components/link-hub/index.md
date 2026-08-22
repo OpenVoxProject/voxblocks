@@ -23,14 +23,14 @@ title: "Link Hub"
   </vox-link-hub>
 </div>
 
-```html
-<vox-link-hub>
-  <vox-link-hub-item href="/start" heading="Getting started">
-    <vox-icon slot="icon" name="book" size="sm"></vox-icon>
+<vox-code-block language="html">
+&lt;vox-link-hub&gt;
+  &lt;vox-link-hub-item href="/start" heading="Getting started"&gt;
+    &lt;vox-icon slot="icon" name="book" size="sm"&gt;&lt;/vox-icon&gt;
     Install OpenVox and apply your first manifest.
-  </vox-link-hub-item>
-</vox-link-hub>
-```
+  &lt;/vox-link-hub-item&gt;
+&lt;/vox-link-hub&gt;
+</vox-code-block>
 
 ## API
 

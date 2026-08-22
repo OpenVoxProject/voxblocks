@@ -20,13 +20,13 @@ title: "Accordion"
   </vox-accordion>
 </div>
 
-```html
-<vox-accordion single>
-  <vox-accordion-item heading="Is OpenVox compatible with Puppet?" open>
-    <p>Yes — it's a drop-in replacement.</p>
-  </vox-accordion-item>
-</vox-accordion>
-```
+<vox-code-block language="html">
+&lt;vox-accordion single&gt;
+  &lt;vox-accordion-item heading="Is OpenVox compatible with Puppet?" open&gt;
+    &lt;p&gt;Yes — it's a drop-in replacement.&lt;/p&gt;
+  &lt;/vox-accordion-item&gt;
+&lt;/vox-accordion&gt;
+</vox-code-block>
 
 ## API
 

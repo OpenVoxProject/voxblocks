@@ -17,10 +17,10 @@ title: "Pagination"
   </vox-pagination>
 </div>
 
-```html
-<vox-pagination>
-  <a href="?page=1">1</a>
-  <a href="?page=2" aria-current="page">2</a>
-  <a href="?page=3">3</a>
-</vox-pagination>
-```
+<vox-code-block language="html">
+&lt;vox-pagination&gt;
+  &lt;a href="?page=1"&gt;1&lt;/a&gt;
+  &lt;a href="?page=2" aria-current="page"&gt;2&lt;/a&gt;
+  &lt;a href="?page=3"&gt;3&lt;/a&gt;
+&lt;/vox-pagination&gt;
+</vox-code-block>

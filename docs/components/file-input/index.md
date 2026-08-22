@@ -10,14 +10,14 @@ title: "File Input"
   <vox-file-input label="Module tarball" accept=".tar.gz" button-label="Choose a file"></vox-file-input>
 </div>
 
-```html
-<vox-file-input
+<vox-code-block language="html">
+&lt;vox-file-input
   label="Module tarball"
   name="tarball"
   accept=".tar.gz"
   button-label="Choose a file"
-></vox-file-input>
-```
+&gt;&lt;/vox-file-input&gt;
+</vox-code-block>
 
 ## API
 

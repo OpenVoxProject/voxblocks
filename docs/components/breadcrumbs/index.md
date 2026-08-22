@@ -14,10 +14,10 @@ title: "Breadcrumbs"
   </vox-breadcrumbs>
 </div>
 
-```html
-<vox-breadcrumbs>
-  <a href="/">Home</a>
-  <a href="/modules">Modules</a>
-  <span aria-current="page">puppet-nginx</span>
-</vox-breadcrumbs>
-```
+<vox-code-block language="html">
+&lt;vox-breadcrumbs&gt;
+  &lt;a href="/"&gt;Home&lt;/a&gt;
+  &lt;a href="/modules"&gt;Modules&lt;/a&gt;
+  &lt;span aria-current="page"&gt;puppet-nginx&lt;/span&gt;
+&lt;/vox-breadcrumbs&gt;
+</vox-code-block>
