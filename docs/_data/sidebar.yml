@@ -59,6 +59,7 @@ components:
       - { text: Dialog, link: /components/dialog/ }
       - { text: Disclosure, link: /components/disclosure/ }
       - { text: Dropdown, link: /components/dropdown/ }
+      - { text: Menu, link: /components/menu/ }
   - text: Page Content
     items:
       - { text: Accordion, link: /components/accordion/ }
@@ -68,6 +69,7 @@ components:
       - { text: Callout, link: /components/callout/ }
       - { text: Card, link: /components/card/ }
       - { text: CTA Band, link: /components/cta-band/ }
+      - { text: Datum, link: /components/datum/ }
       - { text: Empty State, link: /components/empty-state/ }
       - { text: Footer, link: /components/footer/ }
       - { text: Grid, link: /components/grid/ }
@@ -77,6 +79,7 @@ components:
       - { text: Loading Indicator, link: /components/loader/ }
       - { text: Prose, link: /components/prose/ }
       - { text: Quote, link: /components/quote/ }
+      - { text: Record List, link: /components/record-list/ }
       - { text: Sponsor, link: /components/sponsor/ }
       - { text: Stat, link: /components/stat/ }
       - { text: Step Indicator, link: /components/step-indicator/ }

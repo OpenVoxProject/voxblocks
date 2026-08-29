@@ -1,21 +1,36 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+export type MenuPlacement = 'bottom-start' | 'bottom-end';
+
 /**
- * A menu button. Menu entries are light-DOM `<a>` or `<button>` children:
+ * An overlay menu anchored to an arbitrary trigger — an avatar, an icon
+ * button, anything — unlike `<vox-dropdown>`, which owns a fixed
+ * label+chevron trigger of its own.
  *
  * ```html
- * <vox-dropdown label="Resources">
- *   <a href="/docs">Documentation</a>
- *   <button type="button">Copy install command</button>
- * </vox-dropdown>
+ * <vox-menu label="Account menu">
+ *   <vox-avatar slot="trigger" initials="UN"></vox-avatar>
+ *   <a href="/profile">Profile</a>
+ *   <a href="/settings">Settings</a>
+ *   <hr />
+ *   <button type="button">Log out</button>
+ * </vox-menu>
  * ```
  *
+ * @slot trigger - Content shown inside the trigger button, e.g. a `<vox-avatar>`.
  * @slot - Menu entries (`<a>`, `<button>`, `<hr>` for separators).
+ * @fires vox-close - When the menu closes (Escape, outside click, or an entry click).
  */
-@customElement('vox-dropdown')
-export class VoxDropdown extends LitElement {
-  @property() label = 'Menu';
+@customElement('vox-menu')
+export class VoxMenu extends LitElement {
+  /**
+   * Accessible name for the trigger button. Set this when the `trigger`
+   * slot has no visible text of its own (e.g. an avatar-only trigger);
+   * leave unset when it does, so that text stays the accessible name.
+   */
+  @property() label?: string;
+  @property({ reflect: true }) placement: MenuPlacement = 'bottom-end';
   @property({ type: Boolean, reflect: true }) open = false;
 
   static styles = css`
@@ -23,10 +38,11 @@ export class VoxDropdown extends LitElement {
       position: relative;
       display: inline-block;
       /* Without this, a flex/grid container's default stretch alignment
-         grows the host to fill the cross axis while the trigger button
-         inside stays content-sized — and since the menu's "top: 100%" is
-         measured against the host's own box, it then opens far below the
-         trigger instead of right under it. */
+         grows the host to fill the cross axis (e.g. a tall sibling, or a
+         container given a min-height for layout purposes) while the
+         trigger button inside stays content-sized — and since the menu's
+         "top: 100%" is measured against the host's own box, it then opens
+         far below the trigger instead of right under it. */
       align-self: flex-start;
       font-family: var(--vox-font-family-base);
     }
@@ -34,25 +50,13 @@ export class VoxDropdown extends LitElement {
     .trigger {
       display: inline-flex;
       align-items: center;
-      gap: var(--vox-space-2);
-      padding: 0 var(--vox-space-4);
-      height: 38px;
-      background-color: var(--vox-color-bg-soft);
-      border: 1px solid var(--vox-color-divider);
+      background: none;
+      border: none;
+      padding: 0;
       border-radius: var(--vox-radius-md);
-      color: var(--vox-color-text-1);
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 600;
+      color: inherit;
+      font: inherit;
       cursor: pointer;
-      transition:
-        border-color var(--vox-transition-fast),
-        color var(--vox-transition-fast);
-    }
-
-    .trigger:hover {
-      border-color: var(--vox-color-brand-1);
-      color: var(--vox-color-brand-1);
     }
 
     .trigger:focus-visible {
@@ -60,22 +64,11 @@ export class VoxDropdown extends LitElement {
       outline-offset: 2px;
     }
 
-    .chevron {
-      width: 14px;
-      height: 14px;
-      transition: transform var(--vox-transition-fast);
-    }
-
-    :host([open]) .chevron {
-      transform: rotate(180deg);
-    }
-
     .menu {
       position: absolute;
       top: calc(100% + 4px);
-      left: 0;
       z-index: 10;
-      min-width: max(100%, 180px);
+      min-width: 180px;
       display: none;
       flex-direction: column;
       padding: var(--vox-space-2);
@@ -83,6 +76,14 @@ export class VoxDropdown extends LitElement {
       border: 1px solid var(--vox-color-divider);
       border-radius: var(--vox-radius-md);
       box-shadow: var(--vox-shadow-2);
+    }
+
+    :host([placement='bottom-start']) .menu {
+      left: 0;
+    }
+
+    :host([placement='bottom-end']) .menu {
+      right: 0;
     }
 
     :host([open]) .menu {
@@ -138,20 +139,22 @@ export class VoxDropdown extends LitElement {
 
   private handleOutsideClick = (event: MouseEvent) => {
     if (this.open && !event.composedPath().includes(this)) {
-      this.open = false;
+      this.close();
     }
   };
 
   private handleKeydown = (event: KeyboardEvent) => {
     if (event.key === 'Escape' && this.open) {
-      this.open = false;
+      this.close();
       this.renderRoot.querySelector<HTMLElement>('.trigger')?.focus();
       return;
     }
 
     if ((event.key === 'ArrowDown' || event.key === 'ArrowUp') && this.open) {
       event.preventDefault();
-      const items = [...this.querySelectorAll<HTMLElement>('a, button')];
+      const items = [...this.querySelectorAll<HTMLElement>('a, button')].filter(
+        (el) => el.slot !== 'trigger',
+      );
       if (items.length === 0) return;
       const active = document.activeElement as HTMLElement;
       const index = items.indexOf(active);
@@ -162,7 +165,17 @@ export class VoxDropdown extends LitElement {
   };
 
   private toggle() {
-    this.open = !this.open;
+    if (this.open) {
+      this.close();
+    } else {
+      this.open = true;
+    }
+  }
+
+  private close() {
+    if (!this.open) return;
+    this.open = false;
+    this.dispatchEvent(new CustomEvent('vox-close', { bubbles: true, composed: true }));
   }
 
   render() {
@@ -171,15 +184,13 @@ export class VoxDropdown extends LitElement {
         class="trigger"
         aria-expanded=${this.open ? 'true' : 'false'}
         aria-haspopup="true"
+        aria-label=${this.label ?? nothing}
         @click=${this.toggle}
       >
-        ${this.label}
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="m6 9 6 6 6-6" />
-        </svg>
+        <slot name="trigger"></slot>
       </button>
-      <div class="menu">
-        <slot @click=${() => (this.open = false)}></slot>
+      <div class="menu" role="menu">
+        <slot @click=${() => this.close()}></slot>
       </div>
     `;
   }
@@ -187,6 +198,6 @@ export class VoxDropdown extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'vox-dropdown': VoxDropdown;
+    'vox-menu': VoxMenu;
   }
 }

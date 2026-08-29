@@ -38,6 +38,7 @@ export { VoxToc, VoxTocItem } from './components/toc/vox-toc.js';
 export { VoxDialog } from './components/dialog/vox-dialog.js';
 export { VoxDisclosure } from './components/disclosure/vox-disclosure.js';
 export { VoxDropdown } from './components/dropdown/vox-dropdown.js';
+export { VoxMenu } from './components/menu/vox-menu.js';
 
 // Page content
 export { VoxAccordion, VoxAccordionItem } from './components/accordion/vox-accordion.js';
@@ -47,6 +48,7 @@ export { VoxCalendarTile } from './components/calendar-tile/vox-calendar-tile.js
 export { VoxCallout } from './components/callout/vox-callout.js';
 export { VoxCard } from './components/card/vox-card.js';
 export { VoxCtaBand } from './components/cta-band/vox-cta-band.js';
+export { VoxDatum } from './components/datum/vox-datum.js';
 export { VoxEmptyState } from './components/empty-state/vox-empty-state.js';
 export { VoxFooter, VoxFooterColumn } from './components/footer/vox-footer.js';
 export { VoxGrid } from './components/grid/vox-grid.js';
@@ -55,6 +57,7 @@ export { VoxLinkHub, VoxLinkHubItem } from './components/link-hub/vox-link-hub.j
 export { VoxLoader } from './components/loader/vox-loader.js';
 export { VoxPagination } from './components/pagination/vox-pagination.js';
 export { VoxQuote } from './components/quote/vox-quote.js';
+export { VoxRecordList, VoxRecordListItem } from './components/record-list/vox-record-list.js';
 export { VoxSponsor, VoxSponsorTier } from './components/sponsor/vox-sponsor.js';
 export { VoxStat } from './components/stat/vox-stat.js';
 export { VoxStepIndicator, VoxStep } from './components/step-indicator/vox-step-indicator.js';
@@ -69,3 +72,5 @@ export type { AlertVariant } from './components/alert/vox-alert.js';
 export type { AvatarSize } from './components/avatar/vox-avatar.js';
 export type { LoaderSize } from './components/loader/vox-loader.js';
 export type { StepState } from './components/step-indicator/vox-step-indicator.js';
+export type { MenuPlacement } from './components/menu/vox-menu.js';
+export type { RecordListItemSize } from './components/record-list/vox-record-list.js';
