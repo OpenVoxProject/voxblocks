@@ -67,6 +67,7 @@ components:
       - { text: Calendar Tile, link: /components/calendar-tile/ }
       - { text: Callout, link: /components/callout/ }
       - { text: Card, link: /components/card/ }
+      - { text: Code Block, link: /components/code-block/ }
       - { text: CTA Band, link: /components/cta-band/ }
       - { text: Empty State, link: /components/empty-state/ }
       - { text: Footer, link: /components/footer/ }

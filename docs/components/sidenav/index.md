@@ -23,17 +23,17 @@ title: "Sidenav"
   </vox-sidenav>
 </div>
 
-```html
-<vox-sidenav label="Server docs">
-  <vox-sidenav-item href="/server" current>
-    <vox-icon slot="icon" name="dashboard" size="sm"></vox-icon>
+<vox-code-block language="html">
+&lt;vox-sidenav label="Server docs"&gt;
+  &lt;vox-sidenav-item href="/server" current&gt;
+    &lt;vox-icon slot="icon" name="dashboard" size="sm"&gt;&lt;/vox-icon&gt;
     Overview
-  </vox-sidenav-item>
-  <vox-sidenav-group heading="Installation" open>
-    <vox-sidenav-item href="/server/deb">Debian / Ubuntu</vox-sidenav-item>
-  </vox-sidenav-group>
-</vox-sidenav>
-```
+  &lt;/vox-sidenav-item&gt;
+  &lt;vox-sidenav-group heading="Installation" open&gt;
+    &lt;vox-sidenav-item href="/server/deb"&gt;Debian / Ubuntu&lt;/vox-sidenav-item&gt;
+  &lt;/vox-sidenav-group&gt;
+&lt;/vox-sidenav&gt;
+</vox-code-block>
 
 Icons are optional and per-item — use them for top-level entries, skip them inside groups, whatever the nav actually needs.
 

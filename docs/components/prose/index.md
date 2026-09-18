@@ -22,11 +22,11 @@ Stack multiple blocks and they space themselves apart automatically:
   <p>Second block, spaced apart from the first.</p>
 </div>
 
-```html
-<div class="vox-prose">
-  <p>OpenVox began as a soft fork…</p>
-</div>
-<div class="vox-prose">
-  <p>The real difference is who steers it.</p>
-</div>
-```
+<vox-code-block language="html">
+&lt;div class="vox-prose"&gt;
+  &lt;p&gt;OpenVox began as a soft fork…&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="vox-prose"&gt;
+  &lt;p&gt;The real difference is who steers it.&lt;/p&gt;
+&lt;/div&gt;
+</vox-code-block>

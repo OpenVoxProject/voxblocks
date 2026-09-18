@@ -12,9 +12,9 @@ title: "Stat"
   <vox-stat value="2" label="Years">Since the OpenVox fork</vox-stat>
 </vox-grid>
 
-```html
-<vox-stat value="450+" label="Modules">Community-maintained</vox-stat>
-```
+<vox-code-block language="html">
+&lt;vox-stat value="450+" label="Modules"&gt;Community-maintained&lt;/vox-stat&gt;
+</vox-code-block>
 
 ## API
 
