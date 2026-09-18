@@ -16,6 +16,7 @@ guide:
     items:
       - { text: Getting Started, link: /guide/getting-started/ }
       - { text: Design Tokens, link: /guide/design-tokens/ }
+      - { text: Internationalization, link: /guide/internationalization/ }
 
 utilities:
   - text: Utilities

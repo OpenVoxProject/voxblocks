@@ -20,6 +20,15 @@ export class VoxHeader extends LitElement {
   /** Where the brand links to. */
   @property() href = '/';
 
+  /** Accessible name for the primary navigation landmark. */
+  @property({ attribute: 'nav-label' }) navLabel = 'Main';
+
+  /** Accessible name for the mobile menu button while the menu is closed. */
+  @property({ attribute: 'menu-label' }) menuLabel = 'Open menu';
+
+  /** Accessible name for the mobile menu button while the menu is open. */
+  @property({ attribute: 'close-menu-label' }) closeMenuLabel = 'Close menu';
+
   @state() private mobileOpen = false;
 
   static styles = css`
@@ -62,7 +71,7 @@ export class VoxHeader extends LitElement {
       justify-content: center;
       width: 36px;
       height: 36px;
-      margin-left: auto;
+      margin-inline-start: auto;
       padding: 0;
       background: none;
       border: none;
@@ -208,7 +217,7 @@ export class VoxHeader extends LitElement {
           class="menu-toggle"
           aria-expanded=${this.mobileOpen ? 'true' : 'false'}
           aria-controls="nav-wrap"
-          aria-label=${this.mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-label=${this.mobileOpen ? this.closeMenuLabel : this.menuLabel}
           @click=${this.toggleMobileMenu}
         >
           <svg
@@ -225,7 +234,7 @@ export class VoxHeader extends LitElement {
           </svg>
         </button>
         <div id="nav-wrap" class="nav-wrap${this.mobileOpen ? ' open' : ''}">
-          <nav aria-label="Main">
+          <nav aria-label=${this.navLabel}>
             <slot @click=${this.closeMobileMenu}></slot>
           </nav>
           <div class="actions">

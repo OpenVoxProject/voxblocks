@@ -14,6 +14,10 @@ import type { VoxRadio } from './vox-radio.js';
 export class VoxRadioGroup extends VoxFieldElement {
   @property() value = '';
 
+  /** Validation message shown when `required` and nothing is selected. */
+  @property({ attribute: 'required-message' }) requiredMessage =
+    'Please select an option.';
+
   static styles = [
     fieldStyles,
     css`
@@ -39,7 +43,7 @@ export class VoxRadioGroup extends VoxFieldElement {
     this.invalid = this.required && !this.value;
     this.internals.setValidity(
       this.invalid ? { valueMissing: true } : {},
-      'Please select an option.',
+      this.requiredMessage,
       this,
     );
     this.syncRadios();

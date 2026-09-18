@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 
 /**
  * A breadcrumb trail. Children are plain links, with the current page
@@ -17,6 +17,9 @@ import { customElement } from 'lit/decorators.js';
  */
 @customElement('vox-breadcrumbs')
 export class VoxBreadcrumbs extends LitElement {
+  /** Accessible name for the navigation landmark. */
+  @property() label = 'Breadcrumbs';
+
   static styles = css`
     :host {
       display: block;
@@ -54,7 +57,7 @@ export class VoxBreadcrumbs extends LitElement {
 
   render() {
     return html`
-      <nav aria-label="Breadcrumbs">
+      <nav aria-label=${this.label}>
         <slot></slot>
       </nav>
     `;

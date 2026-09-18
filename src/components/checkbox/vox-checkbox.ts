@@ -12,6 +12,10 @@ export class VoxCheckbox extends VoxFieldElement {
   @property({ type: Boolean, reflect: true }) checked = false;
   @property() value = 'on';
 
+  /** Validation message shown when `required` and the box is unchecked. */
+  @property({ attribute: 'required-message' }) requiredMessage =
+    'Please check this box.';
+
   static styles = [
     checkableStyles,
     css`
@@ -63,7 +67,7 @@ export class VoxCheckbox extends VoxFieldElement {
     this.invalid = this.required && !this.checked;
     this.internals.setValidity(
       this.invalid ? { valueMissing: true } : {},
-      'Please check this box.',
+      this.requiredMessage,
       this.renderRoot.querySelector('input') ?? undefined,
     );
   }

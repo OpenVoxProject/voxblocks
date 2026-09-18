@@ -54,6 +54,12 @@ export class VoxRecordListItem extends LitElement {
   @property() href?: string;
   @property({ reflect: true }) size: RecordListItemSize = 'md';
 
+  /**
+   * Accessible name for the trailing arrow link. `{heading}` is replaced
+   * with `heading`.
+   */
+  @property({ attribute: 'link-label' }) linkLabel = 'View {heading}';
+
   static styles = css`
     :host {
       display: block;
@@ -242,7 +248,11 @@ export class VoxRecordListItem extends LitElement {
         </span>
         ${this.href
           ? html`
-              <a class="arrow" href=${this.href} aria-label="View ${this.heading}">
+              <a
+                class="arrow"
+                href=${this.href}
+                aria-label=${this.linkLabel.replace('{heading}', this.heading)}
+              >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14" />
                   <path d="m13 6 6 6-6 6" />

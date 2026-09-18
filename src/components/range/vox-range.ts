@@ -26,6 +26,9 @@ export class VoxRange extends VoxFieldElement {
    */
   @property() unit = '';
 
+  /** Accessible name for the slider when no `label` is set. */
+  @property({ attribute: 'fallback-label' }) fallbackLabel = 'slider';
+
   @query('input') private inputEl!: HTMLInputElement;
 
   /** Value to restore on form reset, per the native reset behaviour. */
@@ -172,7 +175,9 @@ export class VoxRange extends VoxFieldElement {
             step=${this.step}
             .value=${live(this.value)}
             ?disabled=${this.disabled}
-            aria-label=${this.label ? nothing : 'slider'}
+            aria-label=${this.label
+              ? nothing
+              : this.fallbackName(this.fallbackLabel)}
             aria-valuetext=${ifDefined(this.unit ? display : undefined)}
             aria-describedby=${ifDefined(this.noteId)}
             aria-invalid=${this.invalid ? 'true' : 'false'}

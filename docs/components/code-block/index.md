@@ -127,5 +127,8 @@ Add `no-header` to drop the whole header bar — filename, language label, and c
 | `no-copy` | `boolean` | `false` | Hides the copy-to-clipboard button |
 | `no-header` | `boolean` | `false` | Hides the whole header bar, including the copy button |
 | `no-border` | `boolean` | `false` | Drops the outer border (the background surface stays) |
+| `copy-label` | `string` | `Copy code` | Accessible name for the copy button |
+| `copied-label` | `string` | `Copied` | Accessible name for the copy button after copying |
+| `copied-message` | `string` | `Copied to clipboard` | Announced in the live region after copying |
 
 The copy button copies the raw, un-highlighted code via the Clipboard API (falling back to `execCommand` where unavailable) and announces success to screen readers through a live region. The block itself is keyboard-scrollable (`tabindex="0"`) when its content overflows horizontally.

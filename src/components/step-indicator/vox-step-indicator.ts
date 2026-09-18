@@ -10,6 +10,9 @@ export type StepState = 'complete' | 'current' | 'upcoming';
  */
 @customElement('vox-step-indicator')
 export class VoxStepIndicator extends LitElement {
+  /** Accessible name for the step list. */
+  @property() label = 'Progress';
+
   static styles = css`
     :host {
       display: block;
@@ -33,7 +36,7 @@ export class VoxStepIndicator extends LitElement {
 
   render() {
     return html`
-      <div class="steps" role="list" aria-label="Progress">
+      <div class="steps" role="list" aria-label=${this.label}>
         <slot @slotchange=${this.numberSteps}></slot>
       </div>
     `;
@@ -48,6 +51,13 @@ export class VoxStep extends LitElement {
   @property() label = '';
   @property({ reflect: true }) state: StepState = 'upcoming';
   @property({ type: Number }) number = 1;
+
+  /**
+   * Screen-reader-only state words appended to the label. The `current`
+   * step is already marked with `aria-current`, so it adds nothing.
+   */
+  @property({ attribute: 'complete-text' }) completeText = 'complete';
+  @property({ attribute: 'upcoming-text' }) upcomingText = 'upcoming';
 
   static styles = css`
     :host {
@@ -150,7 +160,9 @@ export class VoxStep extends LitElement {
         <span class="label">
           ${this.label}
           ${this.state !== 'current'
-            ? html`<span class="visually-hidden"> (${this.state})</span>`
+            ? html`<span class="visually-hidden">
+                (${this.state === 'complete' ? this.completeText : this.upcomingText})
+              </span>`
             : nothing}
         </span>
       </div>

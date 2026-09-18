@@ -52,6 +52,15 @@ export class VoxCodeBlock extends LitElement {
   /** Drops the outer border — for dropping into a surface (e.g. a table cell) that already has its own edge. */
   @property({ type: Boolean, attribute: 'no-border', reflect: true }) noBorder = false;
 
+  /** Accessible name for the copy button. */
+  @property({ attribute: 'copy-label' }) copyLabel = 'Copy code';
+
+  /** Accessible name for the copy button once the code has been copied. */
+  @property({ attribute: 'copied-label' }) copiedLabel = 'Copied';
+
+  /** Announced in a live region once the code has been copied. */
+  @property({ attribute: 'copied-message' }) copiedMessage = 'Copied to clipboard';
+
   @state() private _code = '';
   @state() private _copied = false;
 
@@ -274,7 +283,7 @@ export class VoxCodeBlock extends LitElement {
                         class="copy"
                         type="button"
                         @click=${this._copy}
-                        aria-label=${this._copied ? 'Copied' : 'Copy code'}
+                        aria-label=${this._copied ? this.copiedLabel : this.copyLabel}
                       >
                         <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                           ${ICON_PATHS[this._copied ? 'check' : 'copy']}
@@ -288,7 +297,7 @@ export class VoxCodeBlock extends LitElement {
             token.type === 'plain' ? token.text : html`<span class="tok-${token.type}">${token.text}</span>`,
           )}</span>`,
         )}</code></pre>
-        <span class="visually-hidden" aria-live="polite">${this._copied ? 'Copied to clipboard' : ''}</span>
+        <span class="visually-hidden" aria-live="polite">${this._copied ? this.copiedMessage : ''}</span>
       </div>
       <slot @slotchange=${this._handleSlotChange}></slot>
     `;

@@ -25,6 +25,7 @@ title: "Checkbox"
 | `checked` | `boolean` | `false` | Checked state |
 | `name` | `string` | — | Form field name |
 | `value` | `string` | `on` | Submitted value when checked |
+| `required-message` | `string` | `Please check this box.` | Validation message when `required` |
 | `required` / `disabled` | `boolean` | `false` | Native states |
 
 | Slot | Description |

@@ -12,6 +12,15 @@ export class VoxSeriesNav extends LitElement {
   @property({ attribute: 'next-href' }) nextHref?: string;
   @property({ attribute: 'next-label' }) nextLabel = '';
 
+  /** Accessible name for the navigation landmark. */
+  @property() label = 'Series';
+
+  /** Direction word above the previous link. */
+  @property({ attribute: 'previous-text' }) previousText = 'Previous';
+
+  /** Direction word above the next link. */
+  @property({ attribute: 'next-text' }) nextText = 'Next';
+
   static styles = css`
     :host {
       display: block;
@@ -47,8 +56,8 @@ export class VoxSeriesNav extends LitElement {
     }
 
     .next {
-      margin-left: auto;
-      text-align: right;
+      margin-inline-start: auto;
+      text-align: end;
     }
 
     .direction {
@@ -65,11 +74,13 @@ export class VoxSeriesNav extends LitElement {
 
   render() {
     return html`
-      <nav aria-label="Series">
+      <nav aria-label=${this.label}>
         ${this.previousHref
           ? html`
               <a href=${this.previousHref} rel="prev">
-                <span class="direction">← Previous</span>
+                <span class="direction"
+                  ><span aria-hidden="true">←</span> ${this.previousText}</span
+                >
                 <span class="title">${this.previousLabel}</span>
               </a>
             `
@@ -77,7 +88,9 @@ export class VoxSeriesNav extends LitElement {
         ${this.nextHref
           ? html`
               <a class="next" href=${this.nextHref} rel="next">
-                <span class="direction">Next →</span>
+                <span class="direction"
+                  >${this.nextText} <span aria-hidden="true">→</span></span
+                >
                 <span class="title">${this.nextLabel}</span>
               </a>
             `

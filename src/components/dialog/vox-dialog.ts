@@ -14,6 +14,9 @@ export class VoxDialog extends LitElement {
   @property() heading = '';
   @property({ type: Boolean }) open = false;
 
+  /** Accessible name for the close button. */
+  @property({ attribute: 'close-label' }) closeLabel = 'Close dialog';
+
   /** Close when the backdrop is clicked. */
   @property({ type: Boolean, attribute: 'light-dismiss' }) lightDismiss = false;
 
@@ -154,7 +157,7 @@ export class VoxDialog extends LitElement {
       >
         <div class="header">
           <h2 class="heading" id="heading">${this.heading}</h2>
-          <button class="close" aria-label="Close dialog" @click=${this.close}>
+          <button class="close" aria-label=${this.closeLabel} @click=${this.close}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
               <path d="M18 6 6 18M6 6l12 12" />
             </svg>
