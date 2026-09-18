@@ -157,16 +157,26 @@ export class VoxHeader extends LitElement {
     super.connectedCallback();
     document.addEventListener('click', this.handleOutsideClick);
     this.addEventListener('keydown', this.handleKeydown);
+    this.addEventListener('focusout', this.handleFocusOut);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     document.removeEventListener('click', this.handleOutsideClick);
     this.removeEventListener('keydown', this.handleKeydown);
+    this.removeEventListener('focusout', this.handleFocusOut);
   }
 
   private handleOutsideClick = (event: MouseEvent) => {
     if (this.mobileOpen && !event.composedPath().includes(this)) {
+      this.mobileOpen = false;
+    }
+  };
+
+  /** Close the mobile menu once focus tabs past its last item. */
+  private handleFocusOut = (event: FocusEvent) => {
+    const next = event.relatedTarget as Node | null;
+    if (this.mobileOpen && !(next && this.contains(next))) {
       this.mobileOpen = false;
     }
   };

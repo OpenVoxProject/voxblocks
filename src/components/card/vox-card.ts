@@ -129,7 +129,7 @@ export class VoxCard extends LitElement {
       <div class="badge ${this.hasBadge ? 'has-badge' : ''}">
         <slot name="badge" @slotchange=${this.handleBadgeSlotChange}></slot>
       </div>
-      <div class="icon ${this.hasIcon ? 'has-icon' : ''}">
+      <div class="icon ${this.hasIcon ? 'has-icon' : ''}" aria-hidden="true">
         <slot name="icon" @slotchange=${this.handleIconSlotChange}></slot>
       </div>
       <h3 class="heading">${this.heading}</h3>

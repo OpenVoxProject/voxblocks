@@ -3,6 +3,8 @@ title: VoxBlocks — Web components for the OpenVox community
 layout: home
 ---
 
+<main id="main-content" tabindex="-1">
+
 <div class="vox-container">
   <vox-hero eyebrow="Open source, community-run" heading="Web components for the OpenVox community">
     Framework-agnostic building blocks in the style of the OpenVox docs — drop them into any site, from plain HTML to Vue.
@@ -27,6 +29,8 @@ layout: home
     </vox-card>
   </vox-grid>
 </div>
+
+</main>
 
 <vox-footer>
   <vox-footer-column heading="Docs">

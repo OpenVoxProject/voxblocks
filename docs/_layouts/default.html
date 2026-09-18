@@ -2,6 +2,7 @@
 <html lang="en">
   {% include head.html %}
   <body>
+    <a class="vox-skip-link" href="#main-content">Skip to main content</a>
     {% include nav.html %}
     {% assign sidebar_groups = site.data.sidebar[page.section] %}
     <div class="vox-doc-shell{% unless sidebar_groups %} no-sidebar{% endunless %} vox-container">
@@ -10,7 +11,7 @@
         {% include sidebar.html groups=sidebar_groups %}
       </div>
       {% endif %}
-      <main class="vox-doc-content">
+      <main class="vox-doc-content" id="main-content" tabindex="-1">
         <div class="vox-prose">
           {{ content }}
         </div>

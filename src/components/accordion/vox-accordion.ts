@@ -48,8 +48,12 @@ export class VoxAccordion extends LitElement {
  */
 @customElement('vox-accordion-item')
 export class VoxAccordionItem extends LitElement {
+  private static nextId = 0;
+
   @property() heading = '';
   @property({ type: Boolean, reflect: true }) open = false;
+
+  private readonly panelId = `vox-accordion-panel-${VoxAccordionItem.nextId++}`;
 
   static styles = css`
     :host {
@@ -127,6 +131,7 @@ export class VoxAccordionItem extends LitElement {
         <button
           class="trigger"
           aria-expanded=${this.open ? 'true' : 'false'}
+          aria-controls=${this.panelId}
           @click=${this.toggle}
         >
           ${this.heading}
@@ -135,7 +140,7 @@ export class VoxAccordionItem extends LitElement {
           </svg>
         </button>
       </h3>
-      <div class="panel" ?hidden=${!this.open}>
+      <div id=${this.panelId} class="panel" ?hidden=${!this.open}>
         <slot></slot>
       </div>
     `;
