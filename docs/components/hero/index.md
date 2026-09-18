@@ -14,12 +14,12 @@ title: "Hero"
   </vox-hero>
 </div>
 
-```html
-<vox-hero eyebrow="Documentation" heading="OpenVox Server">
+<vox-code-block language="html">
+&lt;vox-hero eyebrow="Documentation" heading="OpenVox Server"&gt;
   Everything you need to install, configure, and operate…
-  <vox-button slot="actions">Get started</vox-button>
-</vox-hero>
-```
+  &lt;vox-button slot="actions"&gt;Get started&lt;/vox-button&gt;
+&lt;/vox-hero&gt;
+</vox-code-block>
 
 ## API
 

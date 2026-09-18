@@ -14,13 +14,13 @@ title: "Empty State"
   </vox-empty-state>
 </div>
 
-```html
-<vox-empty-state heading="No modules yet">
-  <span slot="icon"><vox-icon name="module" size="xl"></vox-icon></span>
+<vox-code-block language="html">
+&lt;vox-empty-state heading="No modules yet"&gt;
+  &lt;span slot="icon"&gt;&lt;vox-icon name="module" size="xl"&gt;&lt;/vox-icon&gt;&lt;/span&gt;
   You haven't published any modules yet.
-  <vox-button slot="actions" size="sm">Publish a module</vox-button>
-</vox-empty-state>
-```
+  &lt;vox-button slot="actions" size="sm"&gt;Publish a module&lt;/vox-button&gt;
+&lt;/vox-empty-state&gt;
+</vox-code-block>
 
 ## API
 

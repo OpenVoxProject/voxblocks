@@ -10,9 +10,9 @@ title: "Call to Action"
   <vox-cta href="https://voxpupuli.org/openvox/">Explore the module catalog</vox-cta>
 </div>
 
-```html
-<vox-cta href="/modules">Explore the module catalog</vox-cta>
-```
+<vox-code-block language="html">
+&lt;vox-cta href="/modules"&gt;Explore the module catalog&lt;/vox-cta&gt;
+</vox-code-block>
 
 ## API
 

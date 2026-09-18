@@ -12,10 +12,10 @@ A handful of components use this set internally too — `<vox-alert>` and `<vox-
 
 Browse the [full icon set](../../icons/) to see every available name.
 
-```html
-<vox-icon name="search"></vox-icon>
-<vox-icon name="chevron-down"></vox-icon>
-```
+<vox-code-block language="html">
+&lt;vox-icon name="search"&gt;&lt;/vox-icon&gt;
+&lt;vox-icon name="chevron-down"&gt;&lt;/vox-icon&gt;
+</vox-code-block>
 
 ## Sizes
 
@@ -28,10 +28,10 @@ Browse the [full icon set](../../icons/) to see every available name.
   <vox-icon name="search" size="xl"></vox-icon>
 </div>
 
-```html
-<vox-icon name="search" size="sm"></vox-icon>
-<vox-icon name="search" size="xl"></vox-icon>
-```
+<vox-code-block language="html">
+&lt;vox-icon name="search" size="sm"&gt;&lt;/vox-icon&gt;
+&lt;vox-icon name="search" size="xl"&gt;&lt;/vox-icon&gt;
+</vox-code-block>
 
 ## Color
 
@@ -43,11 +43,11 @@ Icons inherit `color` from their context — no separate color prop. Pair with t
   <span class="vox-color-danger"><vox-icon name="delete" size="lg"></vox-icon></span>
 </div>
 
-```html
-<span class="vox-color-warning">
-  <vox-icon name="warning"></vox-icon>
-</span>
-```
+<vox-code-block language="html">
+&lt;span class="vox-color-warning"&gt;
+  &lt;vox-icon name="warning"&gt;&lt;/vox-icon&gt;
+&lt;/span&gt;
+</vox-code-block>
 
 ## Accessible icon-only controls
 
@@ -59,11 +59,11 @@ Icons render `aria-hidden="true"` by default, since they're normally paired with
   </vox-button>
 </div>
 
-```html
-<vox-button size="sm">
-  <vox-icon name="delete" label="Delete"></vox-icon>
-</vox-button>
-```
+<vox-code-block language="html">
+&lt;vox-button size="sm"&gt;
+  &lt;vox-icon name="delete" label="Delete"&gt;&lt;/vox-icon&gt;
+&lt;/vox-button&gt;
+</vox-code-block>
 
 ## API
 

@@ -16,15 +16,15 @@ title: "CTA Band"
   </vox-cta-band>
 </div>
 
-```html
-<vox-cta-band heading="Your infrastructure. Your community. Your platform.">
-  <p>Install OpenVox in minutes and bring your existing Puppet code with you.</p>
-  <div slot="actions">
-    <vox-button href="#" variant="brand">Installation Guide</vox-button>
-    <vox-button href="#" variant="alt">Join the Community</vox-button>
-  </div>
-</vox-cta-band>
-```
+<vox-code-block language="html">
+&lt;vox-cta-band heading="Your infrastructure. Your community. Your platform."&gt;
+  &lt;p&gt;Install OpenVox in minutes and bring your existing Puppet code with you.&lt;/p&gt;
+  &lt;div slot="actions"&gt;
+    &lt;vox-button href="#" variant="brand"&gt;Installation Guide&lt;/vox-button&gt;
+    &lt;vox-button href="#" variant="alt"&gt;Join the Community&lt;/vox-button&gt;
+  &lt;/div&gt;
+&lt;/vox-cta-band&gt;
+</vox-code-block>
 
 ## API
 

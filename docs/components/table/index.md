@@ -17,11 +17,11 @@ Tables are styled with light-DOM utility classes on native `<table>` elements (s
   </tbody>
 </table>
 
-```html
-<table class="vox-table">…</table>
-<table class="vox-table vox-table--striped">…</table>
-<table class="vox-table vox-table--compact">…</table>
-```
+<vox-code-block language="html">
+&lt;table class="vox-table"&gt;…&lt;/table&gt;
+&lt;table class="vox-table vox-table--striped"&gt;…&lt;/table&gt;
+&lt;table class="vox-table vox-table--compact"&gt;…&lt;/table&gt;
+</vox-code-block>
 
 ## Comparison tables
 
@@ -41,15 +41,15 @@ background as column headers automatically.
   </table>
 </div>
 
-```html
-<div class="vox-table-wrap">
-  <table class="vox-table">
-    <thead>
-      <tr><th scope="col">Dimension</th><th scope="col">OpenVox</th><th scope="col">Ansible</th></tr>
-    </thead>
-    <tbody>
-      <tr><th scope="row">Model</th><td>Declarative</td><td>Procedural</td></tr>
-    </tbody>
-  </table>
-</div>
-```
+<vox-code-block language="html">
+&lt;div class="vox-table-wrap"&gt;
+  &lt;table class="vox-table"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th scope="col"&gt;Dimension&lt;/th&gt;&lt;th scope="col"&gt;OpenVox&lt;/th&gt;&lt;th scope="col"&gt;Ansible&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Model&lt;/th&gt;&lt;td&gt;Declarative&lt;/td&gt;&lt;td&gt;Procedural&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</vox-code-block>

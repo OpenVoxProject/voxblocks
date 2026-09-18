@@ -20,13 +20,13 @@ title: "Timeline"
   </vox-timeline>
 </div>
 
-```html
-<vox-timeline>
-  <vox-timeline-item date="Jan 2025" heading="First release">
+<vox-code-block language="html">
+&lt;vox-timeline&gt;
+  &lt;vox-timeline-item date="Jan 2025" heading="First release"&gt;
     OpenVox 8.x packages published.
-  </vox-timeline-item>
-</vox-timeline>
-```
+  &lt;/vox-timeline-item&gt;
+&lt;/vox-timeline&gt;
+</vox-code-block>
 
 ## API
 

@@ -19,15 +19,15 @@ the sponsor's site.
   </vox-sponsor-tier>
 </div>
 
-```html
-<vox-sponsor-tier heading="Current Sponsors">
-  <span slot="description">Ongoing monthly or annual support.</span>
-  <vox-sponsor name="Example Cloud" href="https://example.com">
+<vox-code-block language="html">
+&lt;vox-sponsor-tier heading="Current Sponsors"&gt;
+  &lt;span slot="description"&gt;Ongoing monthly or annual support.&lt;/span&gt;
+  &lt;vox-sponsor name="Example Cloud" href="https://example.com"&gt;
     $500/month · CI infrastructure
-  </vox-sponsor>
-  <vox-sponsor name="Anonymous">$50/month</vox-sponsor>
-</vox-sponsor-tier>
-```
+  &lt;/vox-sponsor&gt;
+  &lt;vox-sponsor name="Anonymous"&gt;$50/month&lt;/vox-sponsor&gt;
+&lt;/vox-sponsor-tier&gt;
+</vox-code-block>
 
 ## Logo
 
@@ -44,11 +44,11 @@ Set `logo` to show an image instead of just the sponsor name.
   </vox-sponsor-tier>
 </div>
 
-```html
-<vox-sponsor name="OpenVox" href="https://example.com" logo="/logos/openvox.svg">
+<vox-code-block language="html">
+&lt;vox-sponsor name="OpenVox" href="https://example.com" logo="/logos/openvox.svg"&gt;
   $1000/month · Dedicated servers
-</vox-sponsor>
-```
+&lt;/vox-sponsor&gt;
+</vox-code-block>
 
 ## Multiple tiers
 

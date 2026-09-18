@@ -16,13 +16,13 @@ title: "Badge"
   <vox-badge variant="neutral">Draft</vox-badge>
 </div>
 
-```html
-<vox-badge variant="brand">v8.1.0</vox-badge>
-<vox-badge variant="tip">Stable</vox-badge>
-<vox-badge variant="warning">Deprecated</vox-badge>
-<vox-badge variant="danger">Breaking</vox-badge>
-<vox-badge variant="neutral">Draft</vox-badge>
-```
+<vox-code-block language="html">
+&lt;vox-badge variant="brand"&gt;v8.1.0&lt;/vox-badge&gt;
+&lt;vox-badge variant="tip"&gt;Stable&lt;/vox-badge&gt;
+&lt;vox-badge variant="warning"&gt;Deprecated&lt;/vox-badge&gt;
+&lt;vox-badge variant="danger"&gt;Breaking&lt;/vox-badge&gt;
+&lt;vox-badge variant="neutral"&gt;Draft&lt;/vox-badge&gt;
+</vox-code-block>
 
 ## API
 

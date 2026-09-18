@@ -8,9 +8,9 @@ title: "Icons"
 
 Use any icon by name via [`<vox-icon>`](../components/icon/):
 
-```html
-<vox-icon name="search"></vox-icon>
-```
+<vox-code-block language="html">
+&lt;vox-icon name="search"&gt;&lt;/vox-icon&gt;
+</vox-code-block>
 
 ## Navigation & search
 

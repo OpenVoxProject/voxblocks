@@ -18,17 +18,17 @@ title: "Table of Contents"
   </vox-toc>
 </div>
 
-```html
-<vox-toc heading="On this page">
-  <vox-toc-item href="#overview">Overview</vox-toc-item>
-  <vox-toc-item href="#palette" current>
+<vox-code-block language="html">
+&lt;vox-toc heading="On this page"&gt;
+  &lt;vox-toc-item href="#overview"&gt;Overview&lt;/vox-toc-item&gt;
+  &lt;vox-toc-item href="#palette" current&gt;
     Palette
-    <vox-toc-item slot="children" href="#soft-badge">Soft badge</vox-toc-item>
-    <vox-toc-item slot="children" href="#solid-fill">Solid fill</vox-toc-item>
-  </vox-toc-item>
-  <vox-toc-item href="#usage">Usage</vox-toc-item>
-</vox-toc>
-```
+    &lt;vox-toc-item slot="children" href="#soft-badge"&gt;Soft badge&lt;/vox-toc-item&gt;
+    &lt;vox-toc-item slot="children" href="#solid-fill"&gt;Solid fill&lt;/vox-toc-item&gt;
+  &lt;/vox-toc-item&gt;
+  &lt;vox-toc-item href="#usage"&gt;Usage&lt;/vox-toc-item&gt;
+&lt;/vox-toc&gt;
+</vox-code-block>
 
 `vox-toc` doesn't read the page's headings for you — build `items` from whatever heading data your framework already tracks (e.g. VitePress's `useSidebar()`/route data) and re-render on scroll to keep `current` in sync.
 
