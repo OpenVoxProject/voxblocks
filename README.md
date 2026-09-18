@@ -11,7 +11,7 @@ The component catalog, by category:
 | Category | Components |
 | --- | --- |
 | Actions | `vox-button`, `vox-cta`, `vox-theme-toggle` |
-| Forms | `vox-checkbox`, `vox-file-input`, `vox-input`, `vox-input-group`, `vox-radio-group`/`vox-radio`, `vox-select`, `vox-switch`, `vox-textarea` |
+| Forms | `vox-checkbox`, `vox-combobox` (filtering listbox, ARIA 1.2 combobox pattern), `vox-file-input`, `vox-input`, `vox-input-group`, `vox-radio-group`/`vox-radio`, `vox-range`, `vox-select` (add `multiple` for a list box), `vox-switch`, `vox-textarea` |
 | Images | `vox-avatar`, `vox-billboard`, `vox-icon` — 79 icons ([full set](https://openvoxproject.github.io/voxblocks/icons/)): shared UI baseline, OpenVox marketing, module registry (Forge replacement), fleet console (Puppet Enterprise replacement). `<vox-alert>`/`<vox-callout>` show one automatically; `<vox-sidenav-item>`/`<vox-card>`/`<vox-empty-state>`/`<vox-link-hub-item>` accept one via an `icon` slot |
 | Navigation | `vox-breadcrumbs`, `vox-header` (collapses to a menu button below 768px), `vox-pagination`, `vox-series-nav`, `vox-sidenav` (collapses to a menu button below 768px, same as `vox-header`), `vox-subnav`, `vox-tabs`, `vox-toc` |
 | Overlays | `vox-dialog`, `vox-disclosure`, `vox-dropdown`, `vox-menu` |

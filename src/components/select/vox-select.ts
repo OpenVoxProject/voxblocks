@@ -1,4 +1,4 @@
-import { html, css } from 'lit';
+import { html, css, nothing } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { VoxFieldElement, fieldStyles } from '../../internal/field.js';
@@ -13,10 +13,22 @@ import { VoxFieldElement, fieldStyles } from '../../internal/field.js';
  *   <option value="rpm">RHEL</option>
  * </vox-select>
  * ```
+ *
+ * Add `multiple` for a list that accepts more than one selection; read the
+ * result from `values` rather than `value`.
  */
 @customElement('vox-select')
 export class VoxSelect extends VoxFieldElement {
   @property() value = '';
+
+  /** Accept more than one selection, rendering as a scrolling list box. */
+  @property({ type: Boolean, reflect: true }) multiple = false;
+
+  /** Rows shown when `multiple` is set. */
+  @property({ type: Number }) size?: number;
+
+  /** Selected values. Only meaningful when `multiple` is set. */
+  @property({ type: Array }) values: string[] = [];
 
   @query('select') private selectEl!: HTMLSelectElement;
 
@@ -31,17 +43,46 @@ export class VoxSelect extends VoxFieldElement {
         background-position: right var(--vox-space-3) center;
         cursor: pointer;
       }
+
+      /* A list box has no collapsed affordance, so drop the chevron. */
+      :host([multiple]) select.control {
+        appearance: none;
+        padding-right: var(--vox-space-3);
+        background-image: none;
+        cursor: default;
+      }
+
+      :host([multiple]) select.control option {
+        padding: var(--vox-space-1) var(--vox-space-2);
+      }
     `,
   ];
 
   formResetCallback() {
     this.value = '';
+    this.values = [];
     this.syncOptions();
   }
 
   updated() {
-    this.internals.setFormValue(this.value);
+    this.internals.setFormValue(this.multiple ? this.formData() : this.value);
     if (this.selectEl) this.syncValidity(this.selectEl);
+  }
+
+  focus(options?: FocusOptions) {
+    this.selectEl?.focus(options);
+  }
+
+  /**
+   * A multi-select submits one entry per selection, which only FormData can
+   * express. Without a `name` there is nothing to key them on, so submit
+   * nothing — matching a native select with no name.
+   */
+  private formData(): FormData | null {
+    if (!this.name) return null;
+    const data = new FormData();
+    for (const value of this.values) data.append(this.name, value);
+    return data;
   }
 
   private syncOptions() {
@@ -54,14 +95,34 @@ export class VoxSelect extends VoxFieldElement {
         .filter((el) => el instanceof HTMLOptionElement || el instanceof HTMLOptGroupElement)
         .map((el) => el.cloneNode(true)),
     );
+
+    if (this.multiple) {
+      const wanted = new Set(this.values);
+      for (const option of this.selectEl.options) {
+        option.selected = wanted.has(option.value);
+      }
+      this.values = this.selected();
+      return;
+    }
+
     if (this.value) {
       this.selectEl.value = this.value;
     }
     this.value = this.selectEl.value;
   }
 
+  private selected(): string[] {
+    return [...this.selectEl.selectedOptions].map((option) => option.value);
+  }
+
   private handleChange() {
-    this.value = this.selectEl.value;
+    if (this.multiple) {
+      this.values = this.selected();
+      // Keep `value` meaningful as the first selection, as the native API does.
+      this.value = this.values[0] ?? '';
+    } else {
+      this.value = this.selectEl.value;
+    }
     this.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
@@ -72,8 +133,11 @@ export class VoxSelect extends VoxFieldElement {
         <select
           id="select"
           class="control"
+          ?multiple=${this.multiple}
+          size=${ifDefined(this.multiple ? (this.size ?? 4) : undefined)}
           ?required=${this.required}
           ?disabled=${this.disabled}
+          aria-label=${this.label ? nothing : 'options'}
           aria-describedby=${ifDefined(this.noteId)}
           aria-invalid=${this.invalid ? 'true' : 'false'}
           @change=${this.handleChange}

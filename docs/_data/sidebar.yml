@@ -32,9 +32,11 @@ components:
   - text: Forms
     items:
       - { text: Checkbox, link: /components/checkbox/ }
+      - { text: Combobox, link: /components/combobox/ }
       - { text: File Input, link: /components/file-input/ }
       - { text: Input Group, link: /components/input-group/ }
       - { text: Radio Input, link: /components/radio/ }
+      - { text: Range, link: /components/range/ }
       - { text: Select Input, link: /components/select/ }
       - { text: Switch, link: /components/switch/ }
       - { text: Text Input, link: /components/text-input/ }
