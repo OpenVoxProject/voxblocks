@@ -12,11 +12,13 @@ export { VoxIcon } from './components/icon/vox-icon.js';
 
 // Forms
 export { VoxCheckbox } from './components/checkbox/vox-checkbox.js';
+export { VoxCombobox } from './components/combobox/vox-combobox.js';
 export { VoxFileInput } from './components/file-input/vox-file-input.js';
 export { VoxInput } from './components/input/vox-input.js';
 export { VoxInputGroup } from './components/input-group/vox-input-group.js';
 export { VoxRadio } from './components/radio/vox-radio.js';
 export { VoxRadioGroup } from './components/radio/vox-radio-group.js';
+export { VoxRange } from './components/range/vox-range.js';
 export { VoxSelect } from './components/select/vox-select.js';
 export { VoxSwitch } from './components/switch/vox-switch.js';
 export { VoxTextarea } from './components/textarea/vox-textarea.js';
