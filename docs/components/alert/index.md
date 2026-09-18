@@ -27,5 +27,6 @@ title: "Alert"
 | `heading` | `string` | — | Bold first line |
 | `dismissible` | `boolean` | `false` | Show a close button |
 | `open` | `boolean` | `true` | Visibility; cleared on dismiss |
+| `dismiss-label` | `string` | `Dismiss` | Accessible name for the close button |
 
 Fires `vox-dismiss` when closed.

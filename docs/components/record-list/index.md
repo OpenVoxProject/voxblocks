@@ -94,6 +94,7 @@ Multiple `<vox-datum>` elements in one `sm` row share a single meta column
 | `heading` | `string` | `''` | Row title (`md`), or the first column (`sm`). |
 | `href` | `string` | — | Link target. At `md`, the heading and the trailing arrow both link here. At `sm`, `heading` and a populated meta column each link here individually. Unset renders a static row with no link. |
 | `size` | `'md' \| 'sm'` | `md` | Row density. `sm` is a table-aligned line for logs/activity; `md` is the icon+arrow layout for an indexed record. |
+| `link-label` | `string` | `View {heading}` | Accessible name for the trailing arrow link at `md`. `{heading}` is replaced with `heading`. |
 
 | Slot | Description |
 | --- | --- |

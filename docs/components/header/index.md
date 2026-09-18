@@ -30,6 +30,9 @@ title: "Header"
 | --- | --- | --- | --- |
 | `site-title` | `string` | `''` | Brand text |
 | `href` | `string` | `/` | Brand link destination |
+| `nav-label` | `string` | `Main` | Accessible name for the nav landmark |
+| `menu-label` | `string` | `Open menu` | Accessible name for the mobile menu button |
+| `close-menu-label` | `string` | `Close menu` | Same, while the menu is open |
 
 | Slot | Description |
 | --- | --- |

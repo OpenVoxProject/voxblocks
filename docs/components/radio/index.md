@@ -31,6 +31,7 @@ title: "Radio Input"
 | `name` | `string` | — | Form field name |
 | `value` | `string` | `''` | Selected radio's value |
 | `note` | `string` | — | Help text |
+| `required-message` | `string` | `Please select an option.` | Validation message when `required` |
 | `required` / `disabled` | `boolean` | `false` | States |
 
 `<vox-radio>`:

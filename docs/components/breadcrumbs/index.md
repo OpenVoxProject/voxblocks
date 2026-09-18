@@ -21,3 +21,9 @@ title: "Breadcrumbs"
   &lt;span aria-current="page"&gt;puppet-nginx&lt;/span&gt;
 &lt;/vox-breadcrumbs&gt;
 </vox-code-block>
+
+## API
+
+| Attribute | Type | Default | Description |
+| --- | --- | --- | --- |
+| `label` | `string` | `Breadcrumbs` | Accessible name for the nav landmark |

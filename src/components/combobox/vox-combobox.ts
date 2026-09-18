@@ -39,6 +39,25 @@ export class VoxCombobox extends VoxFieldElement {
   /** Message shown when the filter matches nothing. */
   @property({ attribute: 'empty-text' }) emptyText = 'No matches';
 
+  /** Accessible name for the input when no `label` is set. */
+  @property({ attribute: 'fallback-label' }) fallbackLabel = 'combobox';
+
+  /** Accessible name for the option list when no `label` is set. */
+  @property({ attribute: 'options-label' }) optionsLabel = 'options';
+
+  /** Validation message shown when `required` and nothing is selected. */
+  @property({ attribute: 'required-message' }) requiredMessage =
+    'Please select an option.';
+
+  /**
+   * Live-region announcement for the match count. `{n}` is replaced with the
+   * number of matches; the singular form is used when exactly one matches.
+   */
+  @property({ attribute: 'count-text' }) countText = '{n} options available';
+
+  /** Singular form of `count-text`. */
+  @property({ attribute: 'count-text-one' }) countTextOne = '{n} option available';
+
   /** Text currently in the input. Drives filtering. */
   @state() private query = '';
   @state() private open = false;
@@ -168,7 +187,7 @@ export class VoxCombobox extends VoxFieldElement {
     this.invalid = this.required && !this.value;
     this.internals.setValidity(
       this.invalid ? { valueMissing: true } : {},
-      'Please select an option.',
+      this.requiredMessage,
       this.inputEl,
     );
   }
@@ -313,6 +332,11 @@ export class VoxCombobox extends VoxFieldElement {
     this.query = this.selectedLabel;
   }
 
+  private formatCount(count: number) {
+    const template = count === 1 ? this.countTextOne : this.countText;
+    return template.replace('{n}', String(count));
+  }
+
   private optionId(index: number) {
     return `option-${index}`;
   }
@@ -338,7 +362,9 @@ export class VoxCombobox extends VoxFieldElement {
             aria-controls="listbox"
             aria-autocomplete="list"
             aria-activedescendant=${ifDefined(activeId)}
-            aria-label=${this.label ? nothing : 'combobox'}
+            aria-label=${this.label
+              ? nothing
+              : this.fallbackName(this.fallbackLabel)}
             aria-describedby=${ifDefined(this.noteId)}
             aria-invalid=${this.invalid ? 'true' : 'false'}
             ?required=${this.required}
@@ -352,7 +378,7 @@ export class VoxCombobox extends VoxFieldElement {
             class="listbox"
             id="listbox"
             role="listbox"
-            aria-label=${this.label || 'options'}
+            aria-label=${this.label || this.hostLabel || this.optionsLabel}
             ?hidden=${!this.open}
           >
             ${matches.length === 0
@@ -380,9 +406,7 @@ export class VoxCombobox extends VoxFieldElement {
         </div>
         ${this.renderNote()}
         <span class="sr-only" role="status" aria-live="polite">
-          ${this.open
-            ? `${matches.length} ${matches.length === 1 ? 'option' : 'options'} available`
-            : ''}
+          ${this.open ? this.formatCount(matches.length) : ''}
         </span>
       </div>
       <div hidden><slot @slotchange=${this.readOptions}></slot></div>

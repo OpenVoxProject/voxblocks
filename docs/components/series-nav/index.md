@@ -30,3 +30,5 @@ title: "Series Nav"
 | --- | --- | --- |
 | `previous-href` / `previous-label` | `string` | Previous page (omit href to hide) |
 | `next-href` / `next-label` | `string` | Next page (omit href to hide) |
+| `label` | `string` | Accessible name for the nav landmark (default `Series`) |
+| `previous-text` / `next-text` | `string` | Direction words above each link (default `Previous` / `Next`) |

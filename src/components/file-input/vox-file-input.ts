@@ -15,6 +15,13 @@ export class VoxFileInput extends VoxFieldElement {
   /** Label on the picker button. */
   @property({ attribute: 'button-label' }) buttonLabel = 'Choose a file';
 
+  /** Shown beside the button before anything is picked. */
+  @property({ attribute: 'empty-text' }) emptyText = 'No file selected';
+
+  /** Validation message shown when `required` and no file is picked. */
+  @property({ attribute: 'required-message' }) requiredMessage =
+    'Please select a file.';
+
   @state() private fileNames: string[] = [];
 
   @query('input') private inputEl!: HTMLInputElement;
@@ -76,6 +83,25 @@ export class VoxFileInput extends VoxFieldElement {
     this.internals.setFormValue(null);
   }
 
+  /*
+   * A required field is invalid from first render, not only once the user
+   * has been through the picker — otherwise an untouched form submits.
+   * Also called straight from handleChange so a `change` listener reading
+   * checkValidity() sees the new state rather than the previous render's.
+   */
+  updated() {
+    this.syncRequired();
+  }
+
+  private syncRequired() {
+    this.invalid = this.required && this.fileNames.length === 0;
+    this.internals.setValidity(
+      this.invalid ? { valueMissing: true } : {},
+      this.requiredMessage,
+      this.inputEl,
+    );
+  }
+
   private handleChange() {
     const files = [...(this.inputEl.files ?? [])];
     this.fileNames = files.map((f) => f.name);
@@ -84,12 +110,7 @@ export class VoxFileInput extends VoxFieldElement {
     for (const file of files) data.append(this.name, file);
     this.internals.setFormValue(files.length > 0 ? data : null);
 
-    this.invalid = this.required && files.length === 0;
-    this.internals.setValidity(
-      this.invalid ? { valueMissing: true } : {},
-      'Please select a file.',
-      this.inputEl,
-    );
+    this.syncRequired();
     this.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
@@ -113,7 +134,7 @@ export class VoxFileInput extends VoxFieldElement {
             <span class="names">
               ${this.fileNames.length > 0
                 ? this.fileNames.join(', ')
-                : 'No file selected'}
+                : this.emptyText}
             </span>
           </span>
         </label>

@@ -28,5 +28,6 @@ title: "Textarea"
 | `value` | `string` | `''` | Current value |
 | `rows` | `number` | `4` | Visible rows |
 | `placeholder` | `string` | — | Placeholder text |
+| `fallback-label` | `string` | `text area` | Accessible name when no `label` is set |
 | `note` | `string` | — | Help text |
 | `required` / `readonly` / `disabled` | `boolean` | `false` | Native states |

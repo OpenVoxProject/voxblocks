@@ -30,6 +30,9 @@ export class VoxSelect extends VoxFieldElement {
   /** Selected values. Only meaningful when `multiple` is set. */
   @property({ type: Array }) values: string[] = [];
 
+  /** Accessible name for the select when no `label` is set. */
+  @property({ attribute: 'fallback-label' }) fallbackLabel = 'options';
+
   @query('select') private selectEl!: HTMLSelectElement;
 
   static styles = [
@@ -137,7 +140,7 @@ export class VoxSelect extends VoxFieldElement {
           size=${ifDefined(this.multiple ? (this.size ?? 4) : undefined)}
           ?required=${this.required}
           ?disabled=${this.disabled}
-          aria-label=${this.label ? nothing : 'options'}
+          aria-label=${this.label ? nothing : this.fallbackName(this.fallbackLabel)}
           aria-describedby=${ifDefined(this.noteId)}
           aria-invalid=${this.invalid ? 'true' : 'false'}
           @change=${this.handleChange}

@@ -31,5 +31,6 @@ title: "Step Indicator"
 | --- | --- | --- | --- |
 | `label` | `string` | `''` | Step name |
 | `state` | `complete` \| `current` \| `upcoming` | `upcoming` | Progress state |
+| `complete-text` / `upcoming-text` | `string` | `complete` / `upcoming` | Screen-reader-only state word after the label |
 
 Step numbers are assigned automatically.

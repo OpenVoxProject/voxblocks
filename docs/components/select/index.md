@@ -33,6 +33,7 @@ title: "Select Input"
 | `values` | `string[]` | `[]` | Selected values. Only meaningful with `multiple` |
 | `multiple` | `boolean` | `false` | Accept more than one selection |
 | `size` | `number` | `4` | Rows shown when `multiple` is set |
+| `fallback-label` | `string` | `options` | Accessible name when no `label` is set |
 | `note` | `string` | — | Help text |
 | `required` / `disabled` | `boolean` | `false` | Native states |
 

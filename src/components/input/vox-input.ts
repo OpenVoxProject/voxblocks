@@ -55,10 +55,18 @@ export class VoxInput extends VoxFieldElement {
   /** On-screen keyboard hint for touch devices. */
   @property() inputmode?: string;
 
+  /**
+   * Accessible name for the input when no `label` is set. Overrides the
+   * per-type default in `TYPE_LABELS`.
+   */
+  @property({ attribute: 'fallback-label' }) fallbackLabel = '';
+
   static styles = fieldStyles;
 
   private get accessibleName() {
-    return TYPE_LABELS[this.type] ?? `${this.type} input`;
+    return this.fallbackName(
+      this.fallbackLabel || TYPE_LABELS[this.type] || `${this.type} input`,
+    );
   }
 
   formResetCallback() {

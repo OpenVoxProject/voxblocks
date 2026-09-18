@@ -1,4 +1,4 @@
-import { html, css } from 'lit';
+import { html, css, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { live } from 'lit/directives/live.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -13,6 +13,9 @@ export class VoxTextarea extends VoxFieldElement {
   @property() placeholder?: string;
   @property({ type: Number }) rows = 4;
   @property({ type: Boolean, reflect: true }) readonly = false;
+
+  /** Accessible name for the textarea when no `label` is set. */
+  @property({ attribute: 'fallback-label' }) fallbackLabel = 'text area';
 
   static styles = [
     fieldStyles,
@@ -59,6 +62,7 @@ export class VoxTextarea extends VoxFieldElement {
           ?required=${this.required}
           ?readonly=${this.readonly}
           ?disabled=${this.disabled}
+          aria-label=${this.label ? nothing : this.fallbackName(this.fallbackLabel)}
           aria-describedby=${ifDefined(this.noteId)}
           aria-invalid=${this.invalid ? 'true' : 'false'}
           @input=${this.handleInput}

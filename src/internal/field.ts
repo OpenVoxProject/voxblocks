@@ -19,6 +19,13 @@ export class VoxFieldElement extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled = false;
   @property({ type: Boolean, reflect: true }) required = false;
 
+  /**
+   * An `aria-label` put on the host. The host carries no role of its own, so
+   * the attribute is never exposed there — controls mirror it onto their
+   * inner element as the accessible name when there's no visible `label`.
+   */
+  @property({ attribute: 'aria-label' }) hostLabel = '';
+
   constructor() {
     super();
     this.internals = this.attachInternals();
@@ -61,6 +68,15 @@ export class VoxFieldElement extends LitElement {
           : nothing}
       </label>
     `;
+  }
+
+  /**
+   * Accessible name for the inner control when no visible `label` is set:
+   * a host `aria-label` if there is one, else the component's own
+   * translatable default.
+   */
+  protected fallbackName(fallback: string): string {
+    return this.hostLabel || fallback;
   }
 
   /** `note`'s id when present, for `aria-describedby` on the native control. */

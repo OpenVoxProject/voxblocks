@@ -39,6 +39,11 @@ title: "Combobox"
 | `placeholder` | `string` | — | Placeholder text |
 | `allow-custom` | `boolean` | `false` | Accept text that matches no option |
 | `empty-text` | `string` | `No matches` | Shown when the filter matches nothing |
+| `fallback-label` | `string` | `combobox` | Accessible name for the input when no `label` is set |
+| `options-label` | `string` | `options` | Accessible name for the option list when no `label` is set |
+| `required-message` | `string` | `Please select an option.` | Validation message when `required` |
+| `count-text` | `string` | `{n} options available` | Live-region match count; `{n}` is the number of matches |
+| `count-text-one` | `string` | `{n} option available` | Singular form of `count-text` |
 | `note` | `string` | — | Help text below the input |
 | `required` / `disabled` | `boolean` | `false` | Native states |
 

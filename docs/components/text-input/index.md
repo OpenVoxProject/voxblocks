@@ -36,6 +36,7 @@ title: "Text Input"
 | `pattern` | `string` | — | Regular expression the value must match |
 | `minlength` / `maxlength` | `string` | — | Length constraints |
 | `inputmode` | `string` | — | On-screen keyboard hint for touch devices |
+| `fallback-label` | `string` | per type | Accessible name when no `label` is set |
 | `required` / `readonly` / `disabled` | `boolean` | `false` | Native states |
 
 Fires `input` and `change` events. Exposes `form`, `validity`, `checkValidity()`, `reportValidity()`.

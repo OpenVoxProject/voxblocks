@@ -26,6 +26,9 @@ export class VoxAlert extends LitElement {
   @property({ type: Boolean }) dismissible = false;
   @property({ type: Boolean, reflect: true }) open = true;
 
+  /** Accessible name for the dismiss button. */
+  @property({ attribute: 'dismiss-label' }) dismissLabel = 'Dismiss';
+
   static styles = css`
     :host {
       display: block;
@@ -180,7 +183,7 @@ export class VoxAlert extends LitElement {
         </div>
         ${this.dismissible
           ? html`
-              <button class="close" aria-label="Dismiss" @click=${this.dismiss}>
+              <button class="close" aria-label=${this.dismissLabel} @click=${this.dismiss}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
                   <path d="M18 6 6 18M6 6l12 12" />
                 </svg>

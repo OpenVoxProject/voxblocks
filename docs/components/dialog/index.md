@@ -34,6 +34,7 @@ title: "Dialog"
 | `heading` | `string` | `''` | Dialog title |
 | `open` | `boolean` | `false` | Visibility (or call `show()` / `close()`) |
 | `light-dismiss` | `boolean` | `false` | Close on backdrop click |
+| `close-label` | `string` | `Close dialog` | Accessible name for the close button |
 
 | Slot | Description |
 | --- | --- |

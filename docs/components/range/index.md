@@ -36,6 +36,7 @@ title: "Range"
 | `step` | `string` | `1` | Granularity |
 | `show-value` | `boolean` | `false` | Show the current value beside the slider |
 | `unit` | `string` | — | Unit appended to the shown and spoken value |
+| `fallback-label` | `string` | `slider` | Accessible name when no `label` is set |
 | `note` | `string` | — | Help text below the slider |
 | `disabled` | `boolean` | `false` | Native state |
 
