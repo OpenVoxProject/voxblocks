@@ -59,3 +59,5 @@ By default the value must be one of the options. A half-typed query is not a val
 ## Accessibility
 
 Implements the ARIA 1.2 combobox pattern. Focus stays on the input throughout and the active option is tracked with `aria-activedescendant`, so screen readers announce options without the focus ring leaving the field. The match count is announced through a polite live region, and the active option carries a 2px outline rather than relying on background colour alone.
+
+A `note` is linked to the input with `aria-describedby`. With `required` set, the input reports `aria-invalid="true"` until an option is chosen, matching every other field in the library.

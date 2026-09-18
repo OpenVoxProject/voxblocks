@@ -174,6 +174,8 @@ export class VoxRange extends VoxFieldElement {
             ?disabled=${this.disabled}
             aria-label=${this.label ? nothing : 'slider'}
             aria-valuetext=${ifDefined(this.unit ? display : undefined)}
+            aria-describedby=${ifDefined(this.noteId)}
+            aria-invalid=${this.invalid ? 'true' : 'false'}
             @input=${this.handleInput}
             @change=${this.handleChange}
           />

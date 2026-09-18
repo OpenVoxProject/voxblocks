@@ -165,8 +165,9 @@ export class VoxCombobox extends VoxFieldElement {
 
   updated() {
     this.internals.setFormValue(this.value || null);
+    this.invalid = this.required && !this.value;
     this.internals.setValidity(
-      this.required && !this.value ? { valueMissing: true } : {},
+      this.invalid ? { valueMissing: true } : {},
       'Please select an option.',
       this.inputEl,
     );
@@ -338,6 +339,8 @@ export class VoxCombobox extends VoxFieldElement {
             aria-autocomplete="list"
             aria-activedescendant=${ifDefined(activeId)}
             aria-label=${this.label ? nothing : 'combobox'}
+            aria-describedby=${ifDefined(this.noteId)}
+            aria-invalid=${this.invalid ? 'true' : 'false'}
             ?required=${this.required}
             ?disabled=${this.disabled}
             @input=${this.handleInput}

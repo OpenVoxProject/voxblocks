@@ -44,3 +44,5 @@ Fires `input` and `change` events. Exposes `form`, `validity`, `checkValidity()`
 ## Accessibility
 
 Set `unit` whenever the number alone doesn't convey the quantity — it becomes `aria-valuetext`, so the value is announced as "1024MB" rather than "1024". The readout beside the slider is `aria-hidden`, since the native input already reports its value.
+
+A `note` is linked to the slider with `aria-describedby`, so screen readers read it as part of the field rather than as stray text after it.

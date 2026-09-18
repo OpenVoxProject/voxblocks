@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 export type StepState = 'complete' | 'current' | 'upcoming';
@@ -122,6 +122,15 @@ export class VoxStep extends LitElement {
       font-weight: 600;
       color: var(--vox-color-text-1);
     }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
   `;
 
   render() {
@@ -138,7 +147,12 @@ export class VoxStep extends LitElement {
               </svg>`
             : this.number}
         </span>
-        <span class="label">${this.label}</span>
+        <span class="label">
+          ${this.label}
+          ${this.state !== 'current'
+            ? html`<span class="visually-hidden"> (${this.state})</span>`
+            : nothing}
+        </span>
       </div>
     `;
   }

@@ -138,6 +138,8 @@ export class VoxSelect extends VoxFieldElement {
           ?required=${this.required}
           ?disabled=${this.disabled}
           aria-label=${this.label ? nothing : 'options'}
+          aria-describedby=${ifDefined(this.noteId)}
+          aria-invalid=${this.invalid ? 'true' : 'false'}
           @change=${this.handleChange}
         ></select>
         ${this.renderNote()}

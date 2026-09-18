@@ -17,6 +17,34 @@ body {
   font-family: var(--vox-font-family-base);
 }
 
+/* Bypass block (WCAG 2.4.1): every page tabs through the full header nav,
+   and doc pages through the full sidebar nav too, before reaching content —
+   this jumps a keyboard/screen-reader user straight past both. Off-screen
+   positioning (not display/visibility) keeps it in the accessibility tree
+   and focusable; it only becomes visible once it receives focus. */
+.vox-skip-link {
+  position: absolute;
+  top: -3rem;
+  left: var(--vox-space-3);
+  z-index: 100;
+  padding: var(--vox-space-2) var(--vox-space-4);
+  background-color: var(--vox-color-bg-elv);
+  color: var(--vox-color-brand-1);
+  border-radius: var(--vox-radius-md);
+  box-shadow: var(--vox-shadow-2);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top var(--vox-transition-fast);
+}
+
+.vox-skip-link:focus {
+  top: var(--vox-space-3);
+}
+
+main:focus-visible {
+  outline: none;
+}
+
 /* Pages that render a real <vox-footer> (currently just the home page) get
    it pinned to the viewport bottom instead of trailing short content. */
 vox-footer {

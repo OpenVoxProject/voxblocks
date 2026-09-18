@@ -7,7 +7,7 @@ const meta: Meta = {
   parameters: {
     docs: {
       description: {
-        component: '`<vox-pagination>` navigates numbered pages. Children are plain links; mark the current one with `aria-current="page"`.',
+        component: '`<vox-pagination>` navigates numbered pages. Children are plain links, with the current page as a non-interactive `<span aria-current="page">`.',
       },
     },
   },
@@ -19,12 +19,12 @@ type Story = StoryObj;
 export const Default: Story = {
   render: () => html`<div style="margin: 1rem 0;">
   <vox-pagination>
-    <a href="#">←</a>
+    <a href="#" aria-label="Previous page">←</a>
     <a href="#">1</a>
-    <a href="#" aria-current="page">2</a>
+    <span aria-current="page">2</span>
     <a href="#">3</a>
     <a href="#">4</a>
-    <a href="#">→</a>
+    <a href="#" aria-label="Next page">→</a>
   </vox-pagination>
 </div>`,
 };

@@ -60,7 +60,7 @@ export class VoxEmptyState extends LitElement {
   render() {
     return html`
       <div class="empty">
-        <div class="icon"><slot name="icon"></slot></div>
+        <div class="icon" aria-hidden="true"><slot name="icon"></slot></div>
         <h3 class="heading">${this.heading}</h3>
         <div class="body"><slot></slot></div>
         <div class="actions"><slot name="actions"></slot></div>
