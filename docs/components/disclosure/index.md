@@ -12,11 +12,11 @@ title: "Disclosure"
   </vox-disclosure>
 </div>
 
-```html
-<vox-disclosure summary="Show advanced options">
-  <p>Environment caching, code manager settings…</p>
-</vox-disclosure>
-```
+<vox-code-block language="html">
+&lt;vox-disclosure summary="Show advanced options"&gt;
+  &lt;p&gt;Environment caching, code manager settings…&lt;/p&gt;
+&lt;/vox-disclosure&gt;
+</vox-code-block>
 
 ## API
 

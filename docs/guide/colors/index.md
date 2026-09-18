@@ -306,18 +306,18 @@ Lower numbers are lighter tints, higher numbers are darker shades. `500` is each
 
 Every swatch is a `--vox-palette-{hue}-{step}` custom property, defined once in `src/tokens/palette.css` (`:root` only — no dark-mode override):
 
-```css
+<vox-code-block language="css">
 --vox-palette-teal-500: #41d2c9;
-```
+</vox-code-block>
 
 ## Utility classes
 
 `vox-color-{hue}-{step}` sets text color, `vox-bg-{hue}-{step}` sets background:
 
-```html
-<span class="vox-bg-teal-100 vox-color-teal-900">New</span>
-<span class="vox-bg-purple-600" style="color: white;">Beta</span>
-```
+<vox-code-block language="html">
+&lt;span class="vox-bg-teal-100 vox-color-teal-900"&gt;New&lt;/span&gt;
+&lt;span class="vox-bg-purple-600" style="color: white;"&gt;Beta&lt;/span&gt;
+</vox-code-block>
 
 ## Pairing for contrast
 

@@ -15,13 +15,13 @@ title: "Billboard"
   </vox-billboard>
 </div>
 
-```html
-<vox-billboard heading="Community-maintained modules" reverse>
-  <img slot="media" src="/img/community.png" alt="" />
-  <p>Hundreds of modules, tools, and gems…</p>
-  <vox-button slot="actions">Browse modules</vox-button>
-</vox-billboard>
-```
+<vox-code-block language="html">
+&lt;vox-billboard heading="Community-maintained modules" reverse&gt;
+  &lt;img slot="media" src="/img/community.png" alt="" /&gt;
+  &lt;p&gt;Hundreds of modules, tools, and gems…&lt;/p&gt;
+  &lt;vox-button slot="actions"&gt;Browse modules&lt;/vox-button&gt;
+&lt;/vox-billboard&gt;
+</vox-code-block>
 
 ## API
 

@@ -33,6 +33,15 @@
   --vox-color-danger-3: #e0575b;
   --vox-color-danger-soft: rgba(244, 63, 94, 0.14);
 
+  /* Code syntax highlighting — one palette hue per token role */
+  --vox-code-comment: var(--vox-palette-gray-700);
+  --vox-code-keyword: var(--vox-palette-purple-700);
+  --vox-code-string: var(--vox-palette-green-800);
+  --vox-code-number: var(--vox-palette-gold-800);
+  --vox-code-function: var(--vox-palette-blue-700);
+  --vox-code-property: var(--vox-palette-teal-800);
+  --vox-code-tag: var(--vox-palette-red-700);
+
   /* Surfaces */
   --vox-color-bg: #f5faf9;
   --vox-color-bg-alt: #e8f1ef;
@@ -95,6 +104,14 @@
   --vox-color-danger-2: #f14158;
   --vox-color-danger-3: #b62a3c;
   --vox-color-danger-soft: rgba(244, 63, 94, 0.16);
+
+  --vox-code-comment: var(--vox-palette-gray-400);
+  --vox-code-keyword: var(--vox-palette-purple-300);
+  --vox-code-string: var(--vox-palette-green-400);
+  --vox-code-number: var(--vox-palette-gold-400);
+  --vox-code-function: var(--vox-palette-blue-300);
+  --vox-code-property: var(--vox-palette-teal-400);
+  --vox-code-tag: var(--vox-palette-red-300);
 
   --vox-color-bg: #0d1417;
   --vox-color-bg-alt: #131b1f;

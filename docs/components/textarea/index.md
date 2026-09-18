@@ -10,14 +10,14 @@ title: "Textarea"
   <vox-textarea label="Description" rows="4" placeholder="What does this module do?" note="Markdown is supported."></vox-textarea>
 </div>
 
-```html
-<vox-textarea
+<vox-code-block language="html">
+&lt;vox-textarea
   label="Description"
   name="description"
   rows="4"
   note="Markdown is supported."
-></vox-textarea>
-```
+&gt;&lt;/vox-textarea&gt;
+</vox-code-block>
 
 ## API
 

@@ -13,10 +13,10 @@ title: "Avatar"
   <vox-avatar size="xl" src="https://avatars.githubusercontent.com/u/188505547?s=160" alt="OpenVox logo"></vox-avatar>
 </div>
 
-```html
-<vox-avatar src="/img/user.png" alt="K. Mensah" size="lg"></vox-avatar>
-<vox-avatar initials="KM" alt="K. Mensah"></vox-avatar>
-```
+<vox-code-block language="html">
+&lt;vox-avatar src="/img/user.png" alt="K. Mensah" size="lg"&gt;&lt;/vox-avatar&gt;
+&lt;vox-avatar initials="KM" alt="K. Mensah"&gt;&lt;/vox-avatar&gt;
+</vox-code-block>
 
 ## API
 

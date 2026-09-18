@@ -13,11 +13,11 @@ title: "Alert"
   <vox-alert variant="danger" heading="Build failed" dismissible><p>Check the CI logs for details. This one is dismissible.</p></vox-alert>
 </div>
 
-```html
-<vox-alert variant="warning" heading="Maintenance window" dismissible>
-  <p>The Forge API will be read-only on Saturday.</p>
-</vox-alert>
-```
+<vox-code-block language="html">
+&lt;vox-alert variant="warning" heading="Maintenance window" dismissible&gt;
+  &lt;p&gt;The Forge API will be read-only on Saturday.&lt;/p&gt;
+&lt;/vox-alert&gt;
+</vox-code-block>
 
 ## API
 
