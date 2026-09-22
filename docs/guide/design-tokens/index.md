@@ -34,6 +34,7 @@ The default palette, "Deep Teal," is an OpenVox-specific identity rather than a 
 | `--vox-radius-sm/md/lg/full` | 4px / 8px / 12px / pill |
 | `--vox-space-1…8` | 0.25rem – 2rem |
 | `--vox-shadow-1/2` | Elevation |
+| `--vox-flip` | `1` in LTR, `-1` under `dir="rtl"` — multiply a horizontal `translateX` by it so the motion follows the text ([Internationalization](/guide/internationalization/)) |
 
 ## Overriding
 

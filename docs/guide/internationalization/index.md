@@ -110,6 +110,43 @@ new MutationObserver(() => {
 
 ## Text direction
 
-VoxBlocks components inherit direction from the page, so `dir="rtl"` on `<html>` flows through to text and to layout that uses logical properties. One thing that does not flow through: [Series Nav](/components/series-nav/) draws literal `←` / `→` arrows beside the direction words. They are `aria-hidden` and never announced, but they do not flip — replace them by folding your own glyph into `previous-text` / `next-text`.
+Set `dir` once on `<html>` and every component follows it. There is no per-component attribute to thread through, and nothing to import.
 
-A full RTL pass over every component has not been done yet, so treat RTL as unverified rather than supported.
+<vox-code-block language="html">
+&lt;html lang="ar" dir="rtl"&gt;
+</vox-code-block>
+
+It works on a subtree too, for a page that mixes directions — a quoted Arabic passage inside an English article, say:
+
+<vox-code-block language="html">
+&lt;div dir="rtl" lang="ar"&gt;
+  &lt;vox-alert variant="warning"&gt;لم يتم حفظ التغييرات.&lt;/vox-alert&gt;
+&lt;/div&gt;
+</vox-code-block>
+
+Setting `dir` changes four things:
+
+- **Layout mirrors.** Spacing, borders, rounded corners, absolute positioning and text alignment are written as CSS logical properties throughout, so they follow the text rather than the screen.
+- **Arrow keys follow what the user sees.** In [Tabs](/components/tabs/) and [Radio Input](/components/radio/), <kbd>←</kbd> moves to the *next* item under `dir="rtl"`, because that is where the next item now is. <kbd>↑</kbd> and <kbd>↓</kbd> run down the block axis and are unaffected.
+- **Directional glyphs mirror with the text.** The [CTA](/components/cta/) arrow, [Series Nav](/components/series-nav/)'s `←`/`→`, the collapsed [Disclosure](/components/disclosure/) and [Sidenav](/components/sidenav/) chevrons, and the [Select](/components/select/) and [Combobox](/components/combobox/) chevrons all flip.
+- **[Code Block](/components/code-block/) stays left-to-right.** Source code reads left-to-right whatever the surrounding page does; letting the bidi algorithm reorder indentation, operators and bracket pairs would make the listing unreadable. Only the code is exempt — its filename, language label and surrounding prose still mirror.
+
+### Icons
+
+[Icons](/components/icon/) do *not* mirror by default, because `chevron-right` frequently means the right-hand side of the screen and should stay put. Add `flip-rtl` when the icon points along the reading direction instead — "next", "back", "onward":
+
+<vox-code-block language="html">
+&lt;vox-icon name="arrow-right" flip-rtl&gt;&lt;/vox-icon&gt;
+</vox-code-block>
+
+### Your own CSS
+
+Logical properties (`margin-inline-start`, `inset-inline-end`, `text-align: start`) cover nearly everything, and the [utility classes](/guide/utilities/) have `-start`/`-end` variants that use them. Horizontal transforms are the one thing logical properties cannot express, so VoxBlocks publishes `--vox-flip` — `1` in LTR, `-1` in RTL:
+
+<vox-code-block language="css">
+.drawer { transform: translateX(calc(240px * var(--vox-flip))); }
+</vox-code-block>
+
+### Scope
+
+Layout, keyboard navigation and directional glyphs have been checked in both directions across the component set. Two things are still on you: the English string defaults in the table above are not translated for you, and the `:dir()` selector this relies on needs Safari 16.4 or newer.

@@ -117,6 +117,12 @@ Add `no-header` to drop the whole header bar — filename, language label, and c
   </table>
 </div>
 
+## Right-to-left pages
+
+The listing always renders left-to-right, even under `dir="rtl"`, because source code reads left-to-right regardless of the surrounding language. Letting the bidi algorithm reorder leading indentation, operators and bracket pairs would make the code unreadable and, worse, misleading.
+
+That exemption covers the code and its line-number gutter, which stays on the left with the code it numbers. The header around it — filename, language label and copy button — mirrors with the page as normal. Nothing to configure; see [Internationalization](/guide/internationalization/).
+
 ## API
 
 | Attribute | Type | Default | Description |

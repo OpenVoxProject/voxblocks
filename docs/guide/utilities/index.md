@@ -22,7 +22,7 @@ Included in `voxblocks.css`; nothing extra to load.
 
 ## Spacing
 
-Margin and padding: `vox-{m|p}-{side}-{size}` where side is `top`, `right`, `bottom`, `left`, `x`, `y`, or `all`.
+Margin and padding: `vox-{m|p}-{side}-{size}` where side is `top`, `bottom`, `start`, `end`, `left`, `right`, `x`, `y`, or `all`.
 
 <vox-code-block language="html">
 &lt;div class="vox-m-top-lg vox-p-all-md"&gt;…&lt;/div&gt;
@@ -31,9 +31,16 @@ Margin and padding: `vox-{m|p}-{side}-{size}` where side is `top`, `right`, `bot
 
 `vox-m-x-auto` centers block elements horizontally.
 
+`start` and `end` follow the writing direction — `start` is the left in LTR and the right under `dir="rtl"`. `left` and `right` always mean that side of the screen. **Prefer `start`/`end`**, and reach for `left`/`right` only when you genuinely mean a fixed screen edge regardless of language. See [Internationalization](/guide/internationalization/) for the full picture.
+
+<vox-code-block language="html">
+&lt;!-- indents from the text's leading edge, in any language --&gt;
+&lt;div class="vox-m-start-lg"&gt;…&lt;/div&gt;
+</vox-code-block>
+
 ## Typography
 
-Type scale `vox-ts-{xs|sm|md|lg|xl|xxl|3xl}` (12–36px), weight `vox-text-{regular|medium|semibold|bold}`, alignment `vox-text-{left|center|right}`, plus `vox-text-uppercase`, `vox-text-mono`, and line height `vox-lh-{tight|base|loose}`.
+Type scale `vox-ts-{xs|sm|md|lg|xl|xxl|3xl}` (12–36px), weight `vox-text-{regular|medium|semibold|bold}`, alignment `vox-text-{start|center|end}` (direction-aware) or `vox-text-{left|right}` (fixed), plus `vox-text-uppercase`, `vox-text-mono`, and line height `vox-lh-{tight|base|loose}`.
 
 <p class="vox-ts-xl vox-text-bold vox-m-y-none">Extra-large bold text</p>
 <p class="vox-ts-sm vox-text-uppercase vox-color-text-3 vox-m-y-none">Small uppercase label</p>
@@ -65,7 +72,7 @@ An extended, non-themed palette is also available — `vox-color-{hue}-{100-900}
 
 ## Border
 
-`vox-border-{all|top|right|bottom|left|none}` (1px, divider color) and radius `vox-radius-{sm|md|lg|full}`.
+`vox-border-{all|top|bottom|start|end|left|right|none}` (1px, divider color) and radius `vox-radius-{sm|md|lg|full}`. As with spacing, `start`/`end` follow the writing direction while `left`/`right` stay pinned to a screen edge.
 
 <div class="vox-border-all vox-radius-lg vox-p-all-md vox-m-y-md">Bordered, rounded box</div>
 

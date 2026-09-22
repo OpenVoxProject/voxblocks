@@ -49,6 +49,21 @@ Icons inherit `color` from their context — no separate color prop. Pair with t
 &lt;/span&gt;
 </vox-code-block>
 
+## Right-to-left pages
+
+Icons are **not** mirrored under `dir="rtl"` by default: a `chevron-right` often means the right-hand side of the screen — a panel edge, a scroll affordance — and should stay where it is. Add `flip-rtl` when the icon points along the reading direction instead, meaning "next", "back" or "onward", and it mirrors wherever the text runs right-to-left.
+
+<div dir="rtl" style="margin: 1rem 0; display: flex; gap: 1.5rem; align-items: center;">
+  <span><vox-icon name="chevron-right"></vox-icon> default — still points right</span>
+  <span><vox-icon name="chevron-right" flip-rtl></vox-icon> <code>flip-rtl</code> — follows the text</span>
+</div>
+
+<vox-code-block language="html">
+&lt;vox-icon name="arrow-right" flip-rtl&gt;&lt;/vox-icon&gt;
+</vox-code-block>
+
+Arrows and chevrons that a component draws itself — the [CTA](../cta/) arrow, [Series Nav](../series-nav/)'s prev/next, the [Disclosure](../disclosure/) chevron — already mirror on their own; `flip-rtl` is only for icons you place yourself. See [Internationalization](/guide/internationalization/).
+
 ## Accessible icon-only controls
 
 Icons render `aria-hidden="true"` by default, since they're normally paired with visible text. Set `label` when an icon is the *only* content — most often an icon-only button.
@@ -72,3 +87,4 @@ Icons render `aria-hidden="true"` by default, since they're normally paired with
 | `name` | `IconName` | — | Which icon to draw |
 | `size` | `sm` \| `md` \| `lg` \| `xl` | `md` | 16 / 20 / 24 / 48px |
 | `label` | `string` | — | Accessible name; omit for decorative icons |
+| `flip-rtl` | `boolean` | `false` | Mirror the icon under `dir="rtl"`; for icons that point along the text |
