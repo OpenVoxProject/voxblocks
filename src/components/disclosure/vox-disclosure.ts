@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { rtlStyles } from '../../internal/direction.js';
 
 /**
  * A single show/hide toggle for supplementary content.
@@ -16,58 +17,67 @@ export class VoxDisclosure extends LitElement {
 
   private readonly panelId = `vox-disclosure-panel-${VoxDisclosure.nextId++}`;
 
-  static styles = css`
-    :host {
-      display: block;
-      font-family: var(--vox-font-family-base);
-    }
+  static styles = [
+    rtlStyles,
+    css`
+      :host {
+        display: block;
+        font-family: var(--vox-font-family-base);
+      }
 
-    .trigger {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--vox-space-2);
-      padding: 0;
-      background: none;
-      border: none;
-      color: var(--vox-color-brand-1);
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-    }
+      .trigger {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--vox-space-2);
+        padding: 0;
+        background: none;
+        border: none;
+        color: var(--vox-color-brand-1);
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
 
-    .trigger:hover {
-      color: var(--vox-color-brand-2);
-      text-decoration: underline;
-    }
+      .trigger:hover {
+        color: var(--vox-color-brand-2);
+        text-decoration: underline;
+      }
 
-    .trigger:focus-visible {
-      outline: 2px solid var(--vox-color-brand-1);
-      outline-offset: 2px;
-      border-radius: var(--vox-radius-sm);
-    }
+      .trigger:focus-visible {
+        outline: 2px solid var(--vox-color-brand-1);
+        outline-offset: 2px;
+        border-radius: var(--vox-radius-sm);
+      }
 
-    .chevron {
-      width: 14px;
-      height: 14px;
-      transition: transform var(--vox-transition-fast);
-    }
+      .chevron {
+        width: 14px;
+        height: 14px;
+        transition: transform var(--vox-transition-fast);
+      }
 
-    :host([open]) .chevron {
-      transform: rotate(90deg);
-    }
+      /* Closed, the chevron points the way the text runs; open, it points
+         down in both directions, so only the closed state mirrors. */
+      :host(:not([open]):dir(rtl)) .chevron {
+        transform: scaleX(-1);
+      }
 
-    .panel {
-      margin-top: var(--vox-space-3);
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--vox-color-text-2);
-    }
+      :host([open]) .chevron {
+        transform: rotate(90deg);
+      }
 
-    .panel[hidden] {
-      display: none;
-    }
-  `;
+      .panel {
+        margin-top: var(--vox-space-3);
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--vox-color-text-2);
+      }
+
+      .panel[hidden] {
+        display: none;
+      }
+    `,
+  ];
 
   toggle() {
     this.open = !this.open;

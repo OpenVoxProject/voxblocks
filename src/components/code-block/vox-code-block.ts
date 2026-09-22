@@ -88,7 +88,8 @@ export class VoxCodeBlock extends LitElement {
       align-items: center;
       justify-content: space-between;
       gap: var(--vox-space-3);
-      padding: var(--vox-space-2) var(--vox-space-2) var(--vox-space-2) var(--vox-space-4);
+      padding-block: var(--vox-space-2);
+      padding-inline: var(--vox-space-4) var(--vox-space-2);
       border-bottom: 1px solid var(--vox-color-divider);
       font-size: 12px;
     }
@@ -153,6 +154,14 @@ export class VoxCodeBlock extends LitElement {
       overflow-x: auto;
       white-space: pre;
       tab-size: 2;
+      /* Source code reads left-to-right whatever the surrounding page
+         does, so the listing keeps its own direction on an RTL page.
+         Without this, leading indentation, operators and bracket pairs
+         are reordered by the bidi algorithm and the code becomes
+         unreadable. The gutter below is written in logical properties,
+         which resolve against this LTR context. */
+      direction: ltr;
+      text-align: start;
     }
 
     pre:focus-visible {
@@ -176,7 +185,7 @@ export class VoxCodeBlock extends LitElement {
     }
 
     :host([line-numbers]) .line {
-      padding-left: 3.5ch;
+      padding-inline-start: 3.5ch;
       position: relative;
     }
 
@@ -184,9 +193,9 @@ export class VoxCodeBlock extends LitElement {
       counter-increment: line;
       content: counter(line);
       position: absolute;
-      left: 0;
+      inset-inline-start: 0;
       width: 2.5ch;
-      text-align: right;
+      text-align: end;
       color: var(--vox-color-text-3);
       user-select: none;
     }

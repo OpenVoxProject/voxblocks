@@ -80,18 +80,23 @@ export class VoxCombobox extends VoxFieldElement {
       }
 
       .control {
-        padding-right: var(--vox-space-8);
+        padding-inline-end: var(--vox-space-8);
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23808080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
+        /* background-position has no logical keywords, so the chevron is
+           placed physically and flipped to the other edge in RTL. */
         background-position: right var(--vox-space-3) center;
+      }
+
+      :host(:dir(rtl)) .control {
+        background-position: left var(--vox-space-3) center;
       }
 
       .listbox {
         position: absolute;
         z-index: 20;
         top: calc(100% + var(--vox-space-1));
-        left: 0;
-        right: 0;
+        inset-inline: 0;
         margin: 0;
         padding: var(--vox-space-1);
         max-height: 15rem;

@@ -10,12 +10,28 @@ export type IconSize = 'sm' | 'md' | 'lg' | 'xl';
  * it inherits `color` from its context like text does. Decorative by
  * default (`aria-hidden`); set `label` when the icon is the only
  * content conveying meaning (e.g. an icon-only button).
+ *
+ * Icons are not mirrored on RTL pages by default, because a
+ * `chevron-right` often does mean the right-hand side of the screen and
+ * should stay put. Add `flip-rtl` when the icon instead points along the
+ * text — "next", "back", "onward" — and it mirrors wherever the text
+ * runs right-to-left:
+ *
+ * ```html
+ * <vox-icon name="arrow-right" flip-rtl></vox-icon>
+ * ```
  */
 @customElement('vox-icon')
 export class VoxIcon extends LitElement {
   @property() name: IconName = 'info';
   @property({ reflect: true }) size: IconSize = 'md';
   @property() label?: string;
+
+  /**
+   * Mirrors the icon horizontally on RTL pages. Use for icons that point
+   * along the reading direction rather than at a fixed screen edge.
+   */
+  @property({ type: Boolean, attribute: 'flip-rtl', reflect: true }) flipRtl = false;
 
   static styles = css`
     :host {
@@ -46,6 +62,10 @@ export class VoxIcon extends LitElement {
     :host([size='xl']) svg {
       width: 48px;
       height: 48px;
+    }
+
+    :host([flip-rtl]:dir(rtl)) svg {
+      transform: scaleX(-1);
     }
   `;
 

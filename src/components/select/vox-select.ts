@@ -40,17 +40,23 @@ export class VoxSelect extends VoxFieldElement {
     css`
       select.control {
         appearance: none;
-        padding-right: var(--vox-space-8);
+        padding-inline-end: var(--vox-space-8);
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23808080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
+        /* background-position has no logical keywords, so the chevron is
+           placed physically and flipped to the other edge in RTL. */
         background-position: right var(--vox-space-3) center;
         cursor: pointer;
+      }
+
+      :host(:dir(rtl)) select.control {
+        background-position: left var(--vox-space-3) center;
       }
 
       /* A list box has no collapsed affordance, so drop the chevron. */
       :host([multiple]) select.control {
         appearance: none;
-        padding-right: var(--vox-space-3);
+        padding-inline-end: var(--vox-space-3);
         background-image: none;
         cursor: default;
       }

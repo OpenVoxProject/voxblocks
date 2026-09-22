@@ -65,6 +65,16 @@ export class VoxSeriesNav extends LitElement {
       color: var(--vox-color-text-3);
     }
 
+    /* The arrows mean "back"/"onward" along the text, and U+2190/U+2192
+       are not mirrored by the bidi algorithm, so flip them ourselves. */
+    .arrow {
+      display: inline-block;
+    }
+
+    :host(:dir(rtl)) .arrow {
+      transform: scaleX(-1);
+    }
+
     .title {
       font-size: 14px;
       font-weight: 600;
@@ -79,7 +89,8 @@ export class VoxSeriesNav extends LitElement {
           ? html`
               <a href=${this.previousHref} rel="prev">
                 <span class="direction"
-                  ><span aria-hidden="true">←</span> ${this.previousText}</span
+                  ><span class="arrow" aria-hidden="true">←</span>
+                  ${this.previousText}</span
                 >
                 <span class="title">${this.previousLabel}</span>
               </a>
@@ -89,7 +100,8 @@ export class VoxSeriesNav extends LitElement {
           ? html`
               <a class="next" href=${this.nextHref} rel="next">
                 <span class="direction"
-                  >${this.nextText} <span aria-hidden="true">→</span></span
+                  >${this.nextText}
+                  <span class="arrow" aria-hidden="true">→</span></span
                 >
                 <span class="title">${this.nextLabel}</span>
               </a>

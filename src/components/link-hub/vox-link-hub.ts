@@ -86,6 +86,19 @@ export class VoxLinkHubItem extends LitElement {
       transform: translateX(3px);
     }
 
+    /* The arrow means "onward", not "rightward", so it mirrors with the
+       text. Once mirrored, a positive translateX nudges it leftward on
+       screen — still "onward" — so the hover offset stays positive. The
+       hover rule has to be repeated because the mirroring rule above
+       outranks the unprefixed one on specificity. */
+    :host(:dir(rtl)) .heading svg {
+      transform: scaleX(-1);
+    }
+
+    :host(:dir(rtl)) a:hover .heading svg {
+      transform: scaleX(-1) translateX(3px);
+    }
+
     .body {
       margin-top: var(--vox-space-1);
       font-size: 14px;

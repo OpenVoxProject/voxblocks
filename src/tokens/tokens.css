@@ -14,6 +14,12 @@
  *
  * Dark mode activates on `.dark` (VitePress convention) or
  * `[data-vox-theme="dark"]` on any ancestor (usually <html>).
+ *
+ * Right-to-left needs no token: set `dir="rtl"` on <html> (or on any
+ * subtree) and components follow it, because their layout is written in
+ * CSS logical properties. The one thing logical properties cannot
+ * express is a horizontal transform, so `--vox-flip` is published below
+ * for page CSS that needs to move something along the inline axis.
  */
 
 :root {
@@ -87,6 +93,20 @@
   /* Motion */
   --vox-transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --vox-transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Direction: 1 in LTR, -1 in RTL. Multiply a horizontal translation by
+     it — translateX(calc(8px * var(--vox-flip))) — and the motion runs
+     with the text instead of always rightward. */
+  --vox-flip: 1;
+}
+
+:root:dir(rtl),
+[dir='rtl'] {
+  --vox-flip: -1;
+}
+
+[dir='ltr'] {
+  --vox-flip: 1;
 }
 
 .dark,

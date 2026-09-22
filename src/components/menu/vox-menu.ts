@@ -79,11 +79,11 @@ export class VoxMenu extends LitElement {
     }
 
     :host([placement='bottom-start']) .menu {
-      left: 0;
+      inset-inline-start: 0;
     }
 
     :host([placement='bottom-end']) .menu {
-      right: 0;
+      inset-inline-end: 0;
     }
 
     :host([open]) .menu {
@@ -102,7 +102,7 @@ export class VoxMenu extends LitElement {
       color: var(--vox-color-text-1);
       font-family: inherit;
       font-size: 14px;
-      text-align: left;
+      text-align: start;
       text-decoration: none;
       cursor: pointer;
       white-space: nowrap;

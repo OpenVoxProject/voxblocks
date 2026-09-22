@@ -49,14 +49,23 @@ export class VoxInputGroup extends LitElement {
       white-space: nowrap;
     }
 
+    /* "start"/"end" are inline-relative, so the rounded corners and the
+       seam that is dropped where the addon meets the field both follow
+       the writing direction rather than the screen. */
     ::slotted(span[data-vox-group='start']) {
-      border-radius: var(--vox-radius-md) 0 0 var(--vox-radius-md);
-      border-right: none;
+      border-start-start-radius: var(--vox-radius-md);
+      border-end-start-radius: var(--vox-radius-md);
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+      border-inline-end: none;
     }
 
     ::slotted(span[data-vox-group='end']) {
-      border-radius: 0 var(--vox-radius-md) var(--vox-radius-md) 0;
-      border-left: none;
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+      border-start-end-radius: var(--vox-radius-md);
+      border-end-end-radius: var(--vox-radius-md);
+      border-inline-start: none;
     }
   `;
 

@@ -80,7 +80,7 @@ export class VoxStep extends LitElement {
       content: '';
       position: absolute;
       top: 14px;
-      right: 50%;
+      inset-inline-end: 50%;
       width: 100%;
       height: 2px;
       background-color: var(--vox-color-divider);

@@ -6,7 +6,8 @@ import { customElement, property } from 'lit/decorators.js';
  * Becomes a single large link when `href` is set.
  *
  * @slot icon - Optional icon or emoji shown above the heading.
- * @slot badge - Optional badge or label shown in the top-right corner.
+ * @slot badge - Optional badge or label shown in the top trailing corner
+ * (top-right in LTR, top-left in RTL).
  * @slot - Card body text.
  * @slot footer - Optional content pinned to the bottom of the card, e.g. stats.
  */
@@ -44,7 +45,7 @@ export class VoxCard extends LitElement {
     .badge {
       position: absolute;
       top: var(--vox-space-6);
-      right: var(--vox-space-6);
+      inset-inline-end: var(--vox-space-6);
     }
 
     .badge:not(.has-badge) {

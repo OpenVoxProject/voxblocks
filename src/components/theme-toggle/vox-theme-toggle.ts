@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { rtlStyles } from '../../internal/direction.js';
 
 const STORAGE_KEY = 'vox-theme';
 const THEME_ATTR = 'data-vox-theme';
@@ -30,65 +31,68 @@ export class VoxThemeToggle extends LitElement {
   private media = window.matchMedia('(prefers-color-scheme: dark)');
   private observer?: MutationObserver;
 
-  static styles = css`
-    :host {
-      display: inline-flex;
-    }
+  static styles = [
+    rtlStyles,
+    css`
+      :host {
+        display: inline-flex;
+      }
 
-    button {
-      display: inline-flex;
-      align-items: center;
-      border: none;
-      background: none;
-      padding: 0;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
+      button {
+        display: inline-flex;
+        align-items: center;
+        border: none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
 
-    button:focus-visible {
-      outline: 2px solid var(--vox-color-brand-1);
-      outline-offset: 2px;
-      border-radius: var(--vox-radius-full);
-    }
+      button:focus-visible {
+        outline: 2px solid var(--vox-color-brand-1);
+        outline-offset: 2px;
+        border-radius: var(--vox-radius-full);
+      }
 
-    .track {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      box-sizing: border-box;
-      width: 44px;
-      height: 24px;
-      padding: 0 5px;
-      border-radius: var(--vox-radius-full);
-      background-color: var(--vox-color-bg-soft);
-      border: 1px solid var(--vox-color-divider);
-    }
+      .track {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        width: 44px;
+        height: 24px;
+        padding: 0 5px;
+        border-radius: var(--vox-radius-full);
+        background-color: var(--vox-color-bg-soft);
+        border: 1px solid var(--vox-color-divider);
+      }
 
-    .track svg {
-      position: relative;
-      width: 13px;
-      height: 13px;
-      flex: none;
-      color: var(--vox-color-text-3);
-    }
+      .track svg {
+        position: relative;
+        width: 13px;
+        height: 13px;
+        flex: none;
+        color: var(--vox-color-text-3);
+      }
 
-    .thumb {
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: var(--vox-color-bg-elv);
-      box-shadow: var(--vox-shadow-1);
-      transition: transform var(--vox-transition-base);
-    }
+      .thumb {
+        position: absolute;
+        top: 1px;
+        inset-inline-start: 1px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--vox-color-bg-elv);
+        box-shadow: var(--vox-shadow-1);
+        transition: transform var(--vox-transition-base);
+      }
 
-    :host([dark]) .thumb {
-      transform: translateX(20px);
-    }
-  `;
+      :host([dark]) .thumb {
+        transform: translateX(calc(20px * var(--vox-flip)));
+      }
+    `,
+  ];
 
   connectedCallback() {
     super.connectedCallback();

@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { isRtl } from '../../internal/direction.js';
 
 /**
  * Tabbed content:
@@ -73,7 +74,13 @@ export class VoxTabs extends LitElement {
       target.focusTab();
       return;
     }
-    const deltas: Record<string, number> = { ArrowRight: 1, ArrowLeft: -1 };
+    // Arrow keys move by what the user sees, not by source order: in RTL
+    // the next tab sits to the left, so the two keys trade meanings.
+    const forward = isRtl(this) ? -1 : 1;
+    const deltas: Record<string, number> = {
+      ArrowRight: forward,
+      ArrowLeft: -forward,
+    };
     const delta = deltas[event.key];
     if (!delta) return;
     event.preventDefault();

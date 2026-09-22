@@ -1,6 +1,7 @@
 import { html, css, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { isRtl } from '../../internal/direction.js';
 import { VoxFieldElement, fieldStyles } from '../../internal/field.js';
 import type { VoxRadio } from './vox-radio.js';
 
@@ -75,11 +76,14 @@ export class VoxRadioGroup extends VoxFieldElement {
   }
 
   private handleKeydown(event: KeyboardEvent) {
+    // Up/Down run down the block axis and are unaffected by direction;
+    // Left/Right follow the visual order, which RTL reverses.
+    const forward = isRtl(this) ? -1 : 1;
     const keys: Record<string, number> = {
       ArrowDown: 1,
-      ArrowRight: 1,
       ArrowUp: -1,
-      ArrowLeft: -1,
+      ArrowRight: forward,
+      ArrowLeft: -forward,
     };
     const delta = keys[event.key];
     if (!delta) return;
