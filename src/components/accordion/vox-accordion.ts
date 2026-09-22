@@ -74,7 +74,7 @@ export class VoxAccordionItem extends LitElement {
       font-family: inherit;
       font-size: 15px;
       font-weight: 600;
-      text-align: left;
+      text-align: start;
       cursor: pointer;
     }
 

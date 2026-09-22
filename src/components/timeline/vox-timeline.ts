@@ -37,19 +37,20 @@ export class VoxTimelineItem extends LitElement {
 
     .item {
       position: relative;
-      padding: 0 0 var(--vox-space-6) var(--vox-space-6);
-      border-left: 2px solid var(--vox-color-divider);
+      padding-block: 0 var(--vox-space-6);
+      padding-inline: var(--vox-space-6) 0;
+      border-inline-start: 2px solid var(--vox-color-divider);
     }
 
     :host(:last-child) .item {
-      border-left-color: transparent;
+      border-inline-start-color: transparent;
       padding-bottom: 0;
     }
 
     .dot {
       position: absolute;
       top: 4px;
-      left: -7px;
+      inset-inline-start: -7px;
       width: 12px;
       height: 12px;
       border-radius: 50%;

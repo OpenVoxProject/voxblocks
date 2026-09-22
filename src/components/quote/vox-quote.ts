@@ -21,8 +21,8 @@ export class VoxQuote extends LitElement {
 
     blockquote {
       margin: 0;
-      padding-left: var(--vox-space-6);
-      border-left: 4px solid var(--vox-color-brand-3);
+      padding-inline-start: var(--vox-space-6);
+      border-inline-start: 4px solid var(--vox-color-brand-3);
     }
 
     .text {

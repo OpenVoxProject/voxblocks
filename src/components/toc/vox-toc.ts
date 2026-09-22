@@ -30,7 +30,7 @@ export class VoxToc extends LitElement {
 
     .heading {
       margin: 0 0 var(--vox-space-2);
-      padding-left: var(--vox-space-3);
+      padding-inline-start: var(--vox-space-3);
       font-size: 13px;
       font-weight: 600;
       color: var(--vox-color-text-1);
@@ -40,7 +40,7 @@ export class VoxToc extends LitElement {
       display: flex;
       flex-direction: column;
       gap: 1px;
-      border-left: 1px solid var(--vox-color-divider);
+      border-inline-start: 1px solid var(--vox-color-divider);
     }
   `;
 
@@ -73,9 +73,9 @@ export class VoxTocItem extends LitElement {
 
     a {
       display: block;
-      margin-left: -1px;
+      margin-inline-start: -1px;
       padding: var(--vox-space-1) var(--vox-space-3);
-      border-left: 2px solid transparent;
+      border-inline-start: 2px solid transparent;
       color: var(--vox-color-text-2);
       font-size: 13px;
       line-height: 1.5;
@@ -95,7 +95,7 @@ export class VoxTocItem extends LitElement {
     }
 
     :host([current]) a {
-      border-left-color: var(--vox-color-brand-1);
+      border-inline-start-color: var(--vox-color-brand-1);
       color: var(--vox-color-brand-1);
       font-weight: 600;
     }
@@ -104,7 +104,7 @@ export class VoxTocItem extends LitElement {
       display: flex;
       flex-direction: column;
       gap: 1px;
-      padding-left: var(--vox-space-3);
+      padding-inline-start: var(--vox-space-3);
     }
 
     .children:not(.has-children) {

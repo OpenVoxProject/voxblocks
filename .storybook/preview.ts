@@ -22,15 +22,36 @@ const preview: Preview = {
         dynamicTitle: true,
       },
     },
+    direction: {
+      description: 'Writing direction',
+      toolbar: {
+        title: 'Direction',
+        icon: 'transfer',
+        items: [
+          { value: 'ltr', title: 'LTR' },
+          { value: 'rtl', title: 'RTL (العربية)' },
+        ],
+        dynamicTitle: true,
+      },
+    },
   },
   initialGlobals: {
     theme: 'light',
+    direction: 'ltr',
   },
   decorators: [
     (story, context) => {
       document.documentElement.setAttribute(
         'data-vox-theme',
         context.globals.theme ?? 'light',
+      );
+      // Set on <html>, the way a real RTL page does it: components read
+      // the inherited direction rather than taking a prop of their own.
+      const direction = context.globals.direction ?? 'ltr';
+      document.documentElement.setAttribute('dir', direction);
+      document.documentElement.setAttribute(
+        'lang',
+        direction === 'rtl' ? 'ar' : 'en',
       );
       document.body.style.background = 'var(--vox-color-bg)';
       document.body.style.color = 'var(--vox-color-text-1)';

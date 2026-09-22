@@ -73,7 +73,7 @@ export class VoxDropdown extends LitElement {
     .menu {
       position: absolute;
       top: calc(100% + 4px);
-      left: 0;
+      inset-inline-start: 0;
       z-index: 10;
       min-width: max(100%, 180px);
       display: none;
@@ -101,7 +101,7 @@ export class VoxDropdown extends LitElement {
       color: var(--vox-color-text-1);
       font-family: inherit;
       font-size: 14px;
-      text-align: left;
+      text-align: start;
       text-decoration: none;
       cursor: pointer;
       white-space: nowrap;

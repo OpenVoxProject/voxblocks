@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { rtlStyles } from '../../internal/direction.js';
 import { ICON_PATHS } from '../icon/icon-paths.js';
 
 /**
@@ -187,63 +188,72 @@ export class VoxSidenavGroup extends LitElement {
 
   private readonly itemsId = `vox-sidenav-group-items-${VoxSidenavGroup.nextId++}`;
 
-  static styles = css`
-    :host {
-      display: block;
-      font-family: var(--vox-font-family-base);
-    }
+  static styles = [
+    rtlStyles,
+    css`
+      :host {
+        display: block;
+        font-family: var(--vox-font-family-base);
+      }
 
-    .trigger {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--vox-space-2);
-      width: 100%;
-      padding: var(--vox-space-2) var(--vox-space-3);
-      background: none;
-      border: none;
-      border-radius: var(--vox-radius-sm);
-      color: var(--vox-color-text-1);
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 600;
-      text-align: left;
-      cursor: pointer;
-    }
+      .trigger {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--vox-space-2);
+        width: 100%;
+        padding: var(--vox-space-2) var(--vox-space-3);
+        background: none;
+        border: none;
+        border-radius: var(--vox-radius-sm);
+        color: var(--vox-color-text-1);
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: start;
+        cursor: pointer;
+      }
 
-    .trigger:hover {
-      color: var(--vox-color-brand-1);
-    }
+      .trigger:hover {
+        color: var(--vox-color-brand-1);
+      }
 
-    .trigger:focus-visible {
-      outline: 2px solid var(--vox-color-brand-1);
-      outline-offset: -2px;
-    }
+      .trigger:focus-visible {
+        outline: 2px solid var(--vox-color-brand-1);
+        outline-offset: -2px;
+      }
 
-    .chevron {
-      flex: none;
-      width: 14px;
-      height: 14px;
-      transition: transform var(--vox-transition-fast);
-    }
+      .chevron {
+        flex: none;
+        width: 14px;
+        height: 14px;
+        transition: transform var(--vox-transition-fast);
+      }
 
-    :host([open]) .chevron {
-      transform: rotate(90deg);
-    }
+      /* Closed, the chevron points the way the text runs; open, it points
+         down in both directions, so only the closed state mirrors. */
+      :host(:not([open]):dir(rtl)) .chevron {
+        transform: scaleX(-1);
+      }
 
-    .items {
-      display: none;
-      flex-direction: column;
-      gap: 2px;
-      padding-left: var(--vox-space-3);
-      border-left: 1px solid var(--vox-color-divider);
-      margin-left: var(--vox-space-3);
-    }
+      :host([open]) .chevron {
+        transform: rotate(90deg);
+      }
 
-    :host([open]) .items {
-      display: flex;
-    }
-  `;
+      .items {
+        display: none;
+        flex-direction: column;
+        gap: 2px;
+        padding-inline-start: var(--vox-space-3);
+        border-inline-start: 1px solid var(--vox-color-divider);
+        margin-inline-start: var(--vox-space-3);
+      }
+
+      :host([open]) .items {
+        display: flex;
+      }
+    `,
+  ];
 
   private toggle() {
     this.open = !this.open;

@@ -47,6 +47,19 @@ export class VoxCta extends LitElement {
     a:hover svg {
       transform: translateX(3px);
     }
+
+    /* The arrow means "onward", not "rightward", so it mirrors with the
+       text. Once mirrored, a positive translateX nudges it leftward on
+       screen — still "onward" — so the hover offset stays positive. The
+       hover rule has to be repeated because the mirroring rule above
+       outranks the unprefixed one on specificity. */
+    :host(:dir(rtl)) svg {
+      transform: scaleX(-1);
+    }
+
+    :host(:dir(rtl)) a:hover svg {
+      transform: scaleX(-1) translateX(3px);
+    }
   `;
 
   render() {

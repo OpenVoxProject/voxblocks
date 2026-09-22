@@ -1,5 +1,6 @@
 import { html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { rtlStyles } from '../../internal/direction.js';
 import { VoxFieldElement, checkableStyles } from '../../internal/field.js';
 
 /**
@@ -13,6 +14,7 @@ export class VoxSwitch extends VoxFieldElement {
   @property() value = 'on';
 
   static styles = [
+    rtlStyles,
     checkableStyles,
     css`
       .track {
@@ -30,7 +32,7 @@ export class VoxSwitch extends VoxFieldElement {
         content: '';
         position: absolute;
         top: 2px;
-        left: 2px;
+        inset-inline-start: 2px;
         width: 16px;
         height: 16px;
         border-radius: 50%;
@@ -43,7 +45,7 @@ export class VoxSwitch extends VoxFieldElement {
       }
 
       input:checked + .track::after {
-        transform: translateX(16px);
+        transform: translateX(calc(16px * var(--vox-flip)));
       }
 
       input:focus-visible + .track {

@@ -23,7 +23,7 @@
 .vox-table caption {
   margin-bottom: 0.5rem;
   font-weight: 600;
-  text-align: left;
+  text-align: start;
   color: var(--vox-color-text-1);
 }
 
@@ -31,7 +31,7 @@
   padding: 0.6rem 0.9rem;
   border-bottom: 2px solid var(--vox-color-divider);
   font-weight: 600;
-  text-align: left;
+  text-align: start;
   white-space: nowrap;
   color: var(--vox-color-text-1);
   background-color: var(--vox-color-bg-soft);
@@ -74,7 +74,7 @@
   font-size: 14px;
   line-height: 1.7;
   color: var(--vox-color-text-2);
-  padding-left: 1.25rem;
+  padding-inline-start: 1.25rem;
 }
 
 .vox-list li + li {
@@ -83,12 +83,12 @@
 
 .vox-list--plain {
   list-style: none;
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .vox-list--inline {
   list-style: none;
-  padding-left: 0;
+  padding-inline-start: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem 1.25rem;
@@ -133,8 +133,7 @@
 .vox-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding-left: var(--vox-space-6);
-  padding-right: var(--vox-space-6);
+  padding-inline: var(--vox-space-6);
 }
 
 /* Spacing: margin ---------------------------------------------------- */
@@ -179,14 +178,33 @@
 .vox-m-left-xl { margin-left: 2rem !important; }
 .vox-m-left-xxl { margin-left: 3rem !important; }
 
-.vox-m-x-none { margin-left: 0 !important; margin-right: 0 !important; }
-.vox-m-x-xs { margin-left: 0.25rem !important; margin-right: 0.25rem !important; }
-.vox-m-x-sm { margin-left: 0.5rem !important; margin-right: 0.5rem !important; }
-.vox-m-x-md { margin-left: 1rem !important; margin-right: 1rem !important; }
-.vox-m-x-lg { margin-left: 1.5rem !important; margin-right: 1.5rem !important; }
-.vox-m-x-xl { margin-left: 2rem !important; margin-right: 2rem !important; }
-.vox-m-x-xxl { margin-left: 3rem !important; margin-right: 3rem !important; }
-.vox-m-x-auto { margin-left: auto !important; margin-right: auto !important; }
+/* Inline-axis margins that follow the writing direction: "start" is the
+   left in LTR and the right in RTL. Prefer these over the -left/-right
+   classes above, which stay pinned to the screen. */
+.vox-m-start-none { margin-inline-start: 0 !important; }
+.vox-m-start-xs { margin-inline-start: 0.25rem !important; }
+.vox-m-start-sm { margin-inline-start: 0.5rem !important; }
+.vox-m-start-md { margin-inline-start: 1rem !important; }
+.vox-m-start-lg { margin-inline-start: 1.5rem !important; }
+.vox-m-start-xl { margin-inline-start: 2rem !important; }
+.vox-m-start-xxl { margin-inline-start: 3rem !important; }
+
+.vox-m-end-none { margin-inline-end: 0 !important; }
+.vox-m-end-xs { margin-inline-end: 0.25rem !important; }
+.vox-m-end-sm { margin-inline-end: 0.5rem !important; }
+.vox-m-end-md { margin-inline-end: 1rem !important; }
+.vox-m-end-lg { margin-inline-end: 1.5rem !important; }
+.vox-m-end-xl { margin-inline-end: 2rem !important; }
+.vox-m-end-xxl { margin-inline-end: 3rem !important; }
+
+.vox-m-x-none { margin-inline: 0 !important; }
+.vox-m-x-xs { margin-inline: 0.25rem !important; }
+.vox-m-x-sm { margin-inline: 0.5rem !important; }
+.vox-m-x-md { margin-inline: 1rem !important; }
+.vox-m-x-lg { margin-inline: 1.5rem !important; }
+.vox-m-x-xl { margin-inline: 2rem !important; }
+.vox-m-x-xxl { margin-inline: 3rem !important; }
+.vox-m-x-auto { margin-inline: auto !important; }
 
 .vox-m-y-none { margin-top: 0 !important; margin-bottom: 0 !important; }
 .vox-m-y-xs { margin-top: 0.25rem !important; margin-bottom: 0.25rem !important; }
@@ -238,13 +256,30 @@
 .vox-p-left-xl { padding-left: 2rem !important; }
 .vox-p-left-xxl { padding-left: 3rem !important; }
 
-.vox-p-x-none { padding-left: 0 !important; padding-right: 0 !important; }
-.vox-p-x-xs { padding-left: 0.25rem !important; padding-right: 0.25rem !important; }
-.vox-p-x-sm { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
-.vox-p-x-md { padding-left: 1rem !important; padding-right: 1rem !important; }
-.vox-p-x-lg { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
-.vox-p-x-xl { padding-left: 2rem !important; padding-right: 2rem !important; }
-.vox-p-x-xxl { padding-left: 3rem !important; padding-right: 3rem !important; }
+/* Inline-axis padding that follows the writing direction. */
+.vox-p-start-none { padding-inline-start: 0 !important; }
+.vox-p-start-xs { padding-inline-start: 0.25rem !important; }
+.vox-p-start-sm { padding-inline-start: 0.5rem !important; }
+.vox-p-start-md { padding-inline-start: 1rem !important; }
+.vox-p-start-lg { padding-inline-start: 1.5rem !important; }
+.vox-p-start-xl { padding-inline-start: 2rem !important; }
+.vox-p-start-xxl { padding-inline-start: 3rem !important; }
+
+.vox-p-end-none { padding-inline-end: 0 !important; }
+.vox-p-end-xs { padding-inline-end: 0.25rem !important; }
+.vox-p-end-sm { padding-inline-end: 0.5rem !important; }
+.vox-p-end-md { padding-inline-end: 1rem !important; }
+.vox-p-end-lg { padding-inline-end: 1.5rem !important; }
+.vox-p-end-xl { padding-inline-end: 2rem !important; }
+.vox-p-end-xxl { padding-inline-end: 3rem !important; }
+
+.vox-p-x-none { padding-inline: 0 !important; }
+.vox-p-x-xs { padding-inline: 0.25rem !important; }
+.vox-p-x-sm { padding-inline: 0.5rem !important; }
+.vox-p-x-md { padding-inline: 1rem !important; }
+.vox-p-x-lg { padding-inline: 1.5rem !important; }
+.vox-p-x-xl { padding-inline: 2rem !important; }
+.vox-p-x-xxl { padding-inline: 3rem !important; }
 
 .vox-p-y-none { padding-top: 0 !important; padding-bottom: 0 !important; }
 .vox-p-y-xs { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
@@ -269,6 +304,11 @@
 .vox-text-semibold { font-weight: 600 !important; }
 .vox-text-bold { font-weight: 700 !important; }
 
+/* Logical alignment — flips with the writing direction. */
+.vox-text-start { text-align: start !important; }
+.vox-text-end { text-align: end !important; }
+
+/* Physical alignment — always that side of the screen. */
 .vox-text-left { text-align: left !important; }
 .vox-text-center { text-align: center !important; }
 .vox-text-right { text-align: right !important; }
@@ -452,6 +492,8 @@
 .vox-border-all { border: 1px solid var(--vox-color-divider) !important; }
 .vox-border-top { border-top: 1px solid var(--vox-color-divider) !important; }
 .vox-border-right { border-right: 1px solid var(--vox-color-divider) !important; }
+.vox-border-start { border-inline-start: 1px solid var(--vox-color-divider) !important; }
+.vox-border-end { border-inline-end: 1px solid var(--vox-color-divider) !important; }
 .vox-border-bottom { border-bottom: 1px solid var(--vox-color-divider) !important; }
 .vox-border-left { border-left: 1px solid var(--vox-color-divider) !important; }
 .vox-border-none { border: none !important; }

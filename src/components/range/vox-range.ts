@@ -49,7 +49,7 @@ export class VoxRange extends VoxFieldElement {
         font-size: 14px;
         font-variant-numeric: tabular-nums;
         color: var(--vox-color-text-2);
-        text-align: right;
+        text-align: end;
       }
 
       input.control {

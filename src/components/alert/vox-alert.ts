@@ -45,7 +45,7 @@ export class VoxAlert extends LitElement {
       align-items: flex-start;
       padding: var(--vox-space-4);
       border-radius: var(--vox-radius-md);
-      border-left: 4px solid;
+      border-inline-start: 4px solid;
       font-size: 14px;
       line-height: 1.6;
       color: var(--vox-color-text-1);

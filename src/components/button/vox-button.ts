@@ -122,11 +122,13 @@ export class VoxButton extends LitElement {
     }
 
     :host([data-vox-group='start']) .button {
-      border-radius: var(--vox-radius-md) 0 0 var(--vox-radius-md);
+      border-start-start-radius: var(--vox-radius-md);
+      border-end-start-radius: var(--vox-radius-md);
     }
 
     :host([data-vox-group='end']) .button {
-      border-radius: 0 var(--vox-radius-md) var(--vox-radius-md) 0;
+      border-start-end-radius: var(--vox-radius-md);
+      border-end-end-radius: var(--vox-radius-md);
     }
   `;
 
